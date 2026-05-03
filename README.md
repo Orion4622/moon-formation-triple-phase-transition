@@ -1,22 +1,21 @@
 # Moon Formation by Triple Phase Transition in the Differentiating Proto-Earth
 
-A theoretical framework proposing that the formation of the Moon may have emerged from a triple phase transition within the fully molten proto-Earth during early planetary differentiation.
+A theoretical framework proposing that the Moon may have emerged from a triple phase transition within the fully molten proto-Earth during early planetary differentiation.
 
 ## Author
 
 **Michel Debailleul**  
 Geophysicist — Université libre de Bruxelles (ULB)  
-Researcher  
+Independent Researcher  
 ORCID: 0009-0003-1222-1433
-debailleul.michel@gmx.com
 
 ## Abstract
 
-The origin of the Moon remains one of the major questions in planetary science.
+The origin of the Moon remains one of the major unresolved questions in planetary science.
 
 This work proposes an alternative framework to classical giant-impact models. It suggests that lunar formation may have resulted from a triple phase transition occurring within the differentiating proto-Earth.
 
-The proposed mechanism couples:
+The proposed mechanism couples three physical transitions:
 
 - **Rheological transition** — formation of a coherent magmatic torus governed by Bingham–Herschel rheology.
 - **Mechanical transition** — episodic coherent ejections once critical instability thresholds are crossed.
@@ -35,9 +34,8 @@ The validation program is explicit:
 
 ## Repository contents
 
-- `paper/` — manuscript PDF
-- `figures/` — figures and diagrams
-- `notes/` — supplementary notes and technical comments
+- `Moon Formation by Triple Phase Transition.pdf` — full manuscript
+- `La formation de la Lune.mp4` — presentation video
 
 ## Citation
 
@@ -49,10 +47,6 @@ Debailleul, Michel (2026).
 CC BY-NC 4.0  
 © 2026 Michel Debailleul
 
-## Contact
-
-Email: michel.debailleul@yahoo.fr
-
 ## Repository status
 
-The present repository contains the theoretical formulation of the model. Numerical validation and observational testing remain ongoing research directions.
+This repository contains the theoretical formulation of the model. Numerical validation and observational testing remain ongoing research directions.
