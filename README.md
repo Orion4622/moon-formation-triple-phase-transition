@@ -6,8 +6,10 @@ A theoretical framework proposing that the Moon may have emerged from a triple p
 
 **Michel Debailleul**  
 Geophysicist — Université libre de Bruxelles (ULB)  
-Independent Researcher  
+  
 ORCID: 0009-0003-1222-1433
+
+Preprint: https://doi.org/10.6084/m9.figshare.32149192
 
 ## Abstract
 
