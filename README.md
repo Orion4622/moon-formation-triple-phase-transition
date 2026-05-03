@@ -9,6 +9,7 @@
 **Michel Debailleul**  
 Geophysicist — Université libre de Bruxelles (ULB)  
 ORCID: [0009-0003-1222-1433](https://orcid.org/0009-0003-1222-1433)  
+Email: [michel.debailleul@yahoo.fr](mailto:michel.debailleul@yahoo.fr)
 
 Preprint: [https://doi.org/10.6084/m9.figshare.32149192](https://doi.org/10.6084/m9.figshare.32149192)
 
@@ -58,7 +59,8 @@ If you use this work, please cite as:
 > Debailleul, M. (2026). *Moon Formation by Triple Phase Transition in the Differentiating Proto-Earth* [Preprint]. Figshare.  
 > [https://doi.org/10.6084/m9.figshare.32149192](https://doi.org/10.6084/m9.figshare.32149192)
 
----
+| `Moon Formation by Triple Phase Transition.pdf` | [Full manuscript](./Moon%20Formation%20by%20Triple%20Phase%20Transition.pdf) |
+| `Double_Puits_Debailleul.pdf` | [Key figure](./Double_Puits_Debailleul.pdf) -
 
 ## License
 
