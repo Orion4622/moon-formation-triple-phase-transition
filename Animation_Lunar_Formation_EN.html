@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Lunar Formation — TPT (N=3 | ε=50° | rapid migration)</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #000;
+    color: #f5f0e0;
+    font-family: 'Inter', 'Segoe UI', monospace;
+    overflow: hidden;
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    font-size: 14px;
+  }
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1280px;
+    height: 720px;
+    display: block;
+  }
+  #ui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    text-shadow: 0 0 8px rgba(0,0,0,0.8);
+  }
+  #titlebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 32px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.92), transparent);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    pointer-events: none;
+  }
+  #title-main {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #ffdd99;
+  }
+  #title-sub {
+    font-size: 11px;
+    color: #aa99cc;
+    margin-top: 4px;
+  }
+  #author {
+    text-align: right;
+    font-size: 11px;
+    color: #a0a0c0;
+  }
+  #phase-box {
+    position: absolute;
+    top: 100px;
+    left: 32px;
+    background: rgba(0,0,0,0.88);
+    backdrop-filter: blur(4px);
+    border-left: 3px solid #ffaa44;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 20px;
+    min-width: 280px;
+    pointer-events: auto;
+  }
+  #phase-label { font-size: 10px; letter-spacing: 2px; color: #aa99cc; text-transform: uppercase; }
+  #phase-name { font-size: 16px; font-weight: bold; color: #ffaa44; margin-top: 4px; }
+  #phase-bar-wrap { margin-top: 12px; height: 4px; background: #2a2a3a; border-radius: 2px; }
+  #phase-bar { height: 100%; background: linear-gradient(90deg, #ff8844, #ffcc66); width: 0%; border-radius: 2px; }
+  #metrics {
+    position: absolute;
+    top: 100px;
+    right: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    pointer-events: auto;
+  }
+  .metric {
+    background: rgba(0,0,0,0.88);
+    backdrop-filter: blur(4px);
+    border-radius: 8px;
+    padding: 8px 14px;
+    text-align: right;
+    min-width: 150px;
+    border: 1px solid rgba(255,200,100,0.2);
+  }
+  .metric-val { font-size: 24px; font-weight: 800; font-family: monospace; color: #ffe0aa; line-height: 1; }
+  .metric-val.highlight { color: #ffcc66; }
+  .metric-val.danger { color: #ff6644; }
+  .metric-val.info { color: #66ccff; }
+  .metric-lbl { font-size: 10px; letter-spacing: 1px; color: #aaaacc; text-transform: uppercase; margin-top: 6px; }
+  #log-panel {
+    position: absolute;
+    bottom: 100px;
+    left: 32px;
+    width: 460px;
+    background: rgba(0,0,0,0.88);
+    backdrop-filter: blur(4px);
+    border-radius: 8px;
+    padding: 12px 18px;
+    border: 1px solid #334;
+    pointer-events: none;
+  }
+  #log-title { font-size: 10px; letter-spacing: 1px; color: #8888bb; margin-bottom: 8px; text-transform: uppercase; }
+  .log-line { font-size: 12px; font-family: monospace; color: #ccddee; line-height: 1.6; }
+  .log-line.eject { color: #ffaa66; }
+  .log-line.dynamo { color: #66ccff; }
+  .log-line.system { color: #aa99cc; }
+  #controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 24px;
+    background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    pointer-events: auto;
+    font-size: 11px;
+  }
+  .ctrl-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0,0,0,0.5);
+    padding: 5px 12px;
+    border-radius: 30px;
+  }
+  .ctrl-lbl { font-weight: 600; color: #ddd; text-transform: uppercase; }
+  input[type=range] { width: 120px; height: 2px; background: #555; cursor: pointer; }
+  .ctrl-val { min-width: 45px; text-align: right; font-family: monospace; font-weight: bold; color: #ffcc99; }
+  .btn {
+    background: #222;
+    border: 1px solid #668;
+    border-radius: 30px;
+    color: #eee;
+    padding: 6px 18px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 11px;
+    text-transform: uppercase;
+    transition: 0.1s;
+  }
+  .btn:hover { background: #336; border-color: #aaf; }
+  .sep { width: 1px; height: 24px; background: #446; }
+  #moon-arc {
+    position: absolute;
+    bottom: 100px;
+    right: 32px;
+    width: 100px;
+    height: 100px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 18px;
+  }
+  .dicho-badge {
+    background: rgba(180,80,0,0.8);
+    border-radius: 20px;
+    padding: 4px 8px;
+    font-size: 9px;
+    color: #ffcc88;
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+
+<canvas id="stars" width="1280" height="720" style="position:absolute; top:0; left:0; z-index:0;"></canvas>
+<canvas id="c" width="1280" height="720" style="position:absolute; top:0; left:0; z-index:1;"></canvas>
+<div id="flash"></div>
+
+<div id="ui">
+  <div id="titlebar">
+    <div>
+      <div id="title-main">LUNAR FORMATION — TRIPLE PHASE TRANSITION (N=3)</div>
+      <div id="title-sub">Silicate atmosphere | ε=50° | Ω₀=3.49×10⁻⁴ rad/s | T_rot=5h | Mach ~8.8–9.8</div>
+    </div>
+    <div id="author">Michel Debailleul — ULB • 2026</div>
+  </div>
+
+  <div id="phase-box">
+    <div id="phase-label">Active phase</div>
+    <div id="phase-name">Fe-Ni differentiation</div>
+    <div id="phase-bar-wrap"><div id="phase-bar"></div></div>
+  </div>
+
+  <div id="metrics">
+    <div class="metric"><div class="metric-val" id="m-mach">0.0</div><div class="metric-lbl">External Mach</div></div>
+    <div class="metric"><div class="metric-val info" id="m-lambda">0.00</div><div class="metric-lbl">λ (instability)</div></div>
+    <div class="metric"><div class="metric-val info" id="m-els">0.00</div><div class="metric-lbl">Elsasser Λ</div></div>
+    <div class="metric"><div class="metric-val highlight" id="m-fe">0%</div><div class="metric-lbl">Fe-Ni core</div></div>
+    <div class="metric"><div class="metric-val danger" id="m-ej">0</div><div class="metric-lbl">Episodes</div></div>
+    <div class="metric"><div class="metric-val" id="m-moon">0%</div><div class="metric-lbl">Lunar mass</div></div>
+    <div class="metric"><div class="metric-val info" id="m-alpha">1.15</div><div class="metric-lbl">α</div></div>
+    <!-- Double row: 2 indicators side by side -->
+    <div style="display:flex; gap:8px;">
+      <div class="metric" style="flex:1; border-color:rgba(100,220,180,0.3); min-width:0;">
+        <div class="metric-val" id="m-ucrit" style="color:#88ffcc; font-size:20px;">—</div>
+        <div class="metric-lbl">U<sub>crit</sub> km/s</div>
+      </div>
+      <div class="metric" style="flex:1; border-color:rgba(100,220,180,0.3); min-width:0;">
+        <div class="metric-val" id="m-trot" style="color:#88ffcc; font-size:20px;">5.0 h</div>
+        <div class="metric-lbl">T<sub>rot</sub></div>
+      </div>
+    </div>
+    <div style="display:flex; gap:8px;">
+      <div class="metric" style="flex:1; border-color:rgba(200,160,255,0.3); min-width:0;">
+        <div class="metric-val" id="m-sineps" style="color:#cc99ff; font-size:20px;">—</div>
+        <div class="metric-lbl">sin ε</div>
+      </div>
+      <div class="metric" style="flex:1; border-color:rgba(255,120,80,0.3); min-width:0;">
+        <div class="metric-val" id="m-epsseuil" style="color:#ff9966; font-size:20px;">—°</div>
+        <div class="metric-lbl">ε threshold</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="log-panel">
+    <div id="log-title">Event log</div>
+    <div id="log-inner"></div>
+  </div>
+
+  <div id="moon-arc">
+    <div style="font-size:10px; color:#aaa;">MOON</div>
+    <div id="arc-pct" style="font-size:24px; font-weight:bold; color:#ffcc99;">0%</div>
+    <div style="font-size:9px; color:#668;">accreted mass</div>
+    <div id="dicho-indic" class="dicho-badge" style="display:none;">⚖️ Crustal dichotomy</div>
+  </div>
+
+  <div id="controls">
+    <button class="btn" id="btnPlay">⏸ Pause</button>
+    <button class="btn" id="btnReset">↺ Reset</button>
+    <button class="btn" id="btnEject">⚡ Forced CME</button>
+    <div class="sep"></div>
+    <div class="ctrl-group"><span class="ctrl-lbl">α</span><input type="range" min="0.7" max="1.5" value="1.15" step="0.01" id="alphaVal"><span class="ctrl-val" id="alphaDisplay">1.15</span></div>
+    <div class="ctrl-group"><span class="ctrl-lbl">ε (°)</span><input type="range" min="30" max="70" value="50" step="1" id="obliq"><span class="ctrl-val" id="obliqVal">50°</span></div>
+    <div class="ctrl-group"><span class="ctrl-lbl">Ω</span><input type="range" min="0.5" max="2.0" value="1.0" step="0.1" id="omega"><span class="ctrl-val" id="omegaVal">1.0×</span></div>
+    <div class="ctrl-group"><span class="ctrl-lbl">T‑Tauri</span><input type="range" min="0" max="1" value="0.7" step="0.05" id="ttauri"><span class="ctrl-val" id="ttauriVal">0.70</span></div>
+    <div class="ctrl-group"><span class="ctrl-lbl">τ_y (Pa)</span><input type="range" min="100" max="10000" value="1000" step="100" id="tau"><span class="ctrl-val" id="tauVal">1000</span></div>
+    <div class="ctrl-group"><span class="ctrl-lbl">Chaos</span><input type="range" min="0" max="1" value="0.5" step="0.05" id="chaos"><span class="ctrl-val" id="chaosVal">0.5</span></div>
+  </div>
+</div>
+
+<script>
+// ========== STARFIELD ==========
+(function() {
+  const c = document.getElementById('stars');
+  const ctx = c.getContext('2d');
+  ctx.fillStyle = '#000000';
+  ctx.fillRect(0,0,1280,720);
+  const rng = (s) => { let x=Math.sin(s*92.3)*43758.5; return x - Math.floor(x); };
+  for(let i=0;i<300;i++) {
+    let x = rng(i)*1280, y = rng(i+1000)*720;
+    let r = rng(i+2000)*1.5 + 0.3;
+    let a = rng(i+3000)*0.5 + 0.2;
+    ctx.beginPath();
+    ctx.arc(x,y,r,0,Math.PI*2);
+    ctx.fillStyle = `rgba(255,255,200,${a})`;
+    ctx.fill();
+  }
+})();
+
+// ========== WEBGL SETUP ==========
+const canvas = document.getElementById('c');
+const gl = canvas.getContext('webgl');
+const W=1280, H=720;
+canvas.width = W; canvas.height = H;
+gl.viewport(0,0,W,H);
+
+const vsSource = `
+  attribute vec3 aPos;
+  attribute vec3 aNorm;
+  attribute float aType;
+  uniform mat4 uMVP;
+  uniform mat4 uNorm;
+  uniform float uTime;
+  uniform float uOmega;
+  varying vec3 vNorm;
+  varying vec3 vPos;
+  varying float vType;
+  varying float vGlow;
+  void main() {
+    vec3 p = aPos;
+    float glow = 0.0;
+    if(aType > 1.5 && aType < 2.5) {
+      float th = uTime * uOmega * 2.2 + aPos.x * 4.0 + aPos.z * 3.0;
+      p.x += sin(th) * 0.03;
+      p.z += cos(th) * 0.03;
+      glow = 0.5 + 0.5*sin(uTime*3.5 + aPos.y*5.0);
+    }
+    if(aType > 2.5 && aType < 3.5) {
+      float speed = uTime * uOmega * 8.0;
+      p.y += sin(speed + aPos.x*10.0) * 0.05;
+      p.x += cos(speed*0.8 + aPos.z*8.0) * 0.04;
+      glow = 0.8 + 0.2*sin(uTime*8.0);
+    }
+    gl_Position = uMVP * vec4(p, 1.0);
+    vNorm = normalize((uNorm * vec4(aNorm, 0.0)).xyz);
+    vPos = p;
+    vType = aType;
+    vGlow = glow;
+  }
+`;
+
+const fsSource = `
+  precision highp float;
+  varying vec3 vNorm;
+  varying vec3 vPos;
+  varying float vType;
+  varying float vGlow;
+  uniform vec3 uLight;
+  uniform vec3 uLight2;
+  uniform float uFe;
+  uniform float uTTauri;
+  uniform float uEjecting;
+  uniform float uDynamo;
+  uniform float uTime;
+  void main() {
+    vec3 n = normalize(vNorm);
+    float d1 = max(dot(n, normalize(uLight)), 0.0);
+    float d2 = max(dot(n, normalize(uLight2)), 0.0) * 0.3;
+    float diff = d1 + d2;
+    float amb = 0.15;
+    float lit = amb + (1.0-amb)*diff;
+    float rim = pow(1.0 - max(dot(n, vec3(0.0,0.0,1.0)), 0.0), 2.5) * 0.4;
+    vec3 col;
+    if(vType < 0.5) {
+      vec3 c1 = vec3(0.2, 0.08, 0.02);
+      vec3 c2 = vec3(0.8, 0.6, 0.15);
+      col = mix(c1, c2, uFe) * lit + rim * vec3(0.7,0.5,0.2)*uFe;
+    } else if(vType < 1.5) {
+      float pulse = 0.5 + 0.5*sin(uTime*0.9 + vPos.y*2.0);
+      vec3 cBase = vec3(0.6, 0.25, 0.1);
+      vec3 cHot = vec3(1.0, 0.7, 0.3);
+      col = mix(cBase, cHot, uTTauri*0.8 + pulse*0.2) * lit;
+      col += rim * vec3(0.8,0.4,0.1) * uTTauri;
+    } else if(vType < 2.5) {
+      vec3 cCool = vec3(0.9, 0.5, 0.1);
+      vec3 cHot = vec3(1.0, 0.2, 0.0);
+      col = mix(cCool, cHot, vGlow) * (lit + vGlow*0.8);
+      if(uEjecting > 0.5) col = mix(col, vec3(1.0,0.9,0.4), 0.7);
+      col += rim * vec3(1.0,0.6,0.1);
+    } else if(vType < 3.5) {
+      float fp = 0.6 + 0.4*sin(uTime*12.0 + vPos.x*12.0);
+      col = mix(vec3(1.0, 0.8, 0.2), vec3(1.0, 0.4, 0.05), fp) * lit;
+    } else if(vType == 5.0) {
+      float gray = 0.5 + 0.3*uFe;
+      col = vec3(gray*0.9, gray*0.8, gray*0.7) * lit;
+      col += rim * 0.3;
+    } else if(vType == 6.0) {
+      col = vec3(0.2, 0.5, 1.0) * (0.6 + 0.4*vGlow) * uDynamo;
+    } else {
+      col = vec3(0.1,0.1,0.3);
+    }
+    gl_FragColor = vec4(col, 1.0);
+  }
+`;
+
+function compileShader(gl, type, src) {
+  const s = gl.createShader(type);
+  gl.shaderSource(s, src);
+  gl.compileShader(s);
+  if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) console.error(gl.getShaderInfoLog(s));
+  return s;
+}
+const vs = compileShader(gl, gl.VERTEX_SHADER, vsSource);
+const fs = compileShader(gl, gl.FRAGMENT_SHADER, fsSource);
+const prog = gl.createProgram();
+gl.attachShader(prog, vs); gl.attachShader(prog, fs);
+gl.linkProgram(prog);
+gl.useProgram(prog);
+
+function m4id() { return new Float32Array([1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1]); }
+function m4mul(a,b) { let r=new Float32Array(16); for(let i=0;i<4;i++) for(let j=0;j<4;j++) { let s=0; for(let k=0;k<4;k++) s+=a[k*4+i]*b[j*4+k]; r[j*4+i]=s; } return r; }
+function m4ry(a) { let c=Math.cos(a), s=Math.sin(a), m=m4id(); m[0]=c; m[2]=s; m[8]=-s; m[10]=c; return m; }
+function m4rx(a) { let c=Math.cos(a), s=Math.sin(a), m=m4id(); m[5]=c; m[6]=-s; m[9]=s; m[10]=c; return m; }
+function m4rz(a) { let c=Math.cos(a), s=Math.sin(a), m=m4id(); m[0]=c; m[1]=-s; m[4]=s; m[5]=c; return m; }
+function m4p(fov,asp,n,f) { let t=Math.tan(fov/2), m=new Float32Array(16); m[0]=1/(asp*t); m[5]=1/t; m[10]=-(f+n)/(f-n); m[11]=-1; m[14]=-2*f*n/(f-n); return m; }
+function m4t(x,y,z) { let m=m4id(); m[12]=x; m[13]=y; m[14]=z; return m; }
+
+function buildSphere(radius, latDiv, lonDiv, typeVal, sx=1, sy=1, sz=1) {
+  let pos=[], norm=[], types=[];
+  for(let la=0; la<=latDiv; la++) {
+    let phi = Math.PI*la/latDiv - Math.PI/2;
+    for(let lo=0; lo<=lonDiv; lo++) {
+      let theta = 2*Math.PI*lo/lonDiv;
+      let x = radius*Math.cos(phi)*Math.cos(theta)*sx;
+      let y = radius*Math.cos(phi)*Math.sin(theta)*sy;
+      let z = radius*Math.sin(phi)*sz;
+      pos.push(x,y,z);
+      norm.push(Math.cos(phi)*Math.cos(theta), Math.cos(phi)*Math.sin(theta), Math.sin(phi));
+      types.push(typeVal);
+    }
+  }
+  let idx=[];
+  for(let la=0; la<latDiv; la++) {
+    for(let lo=0; lo<lonDiv; lo++) {
+      let a = la*(lonDiv+1)+lo, b = a+1, c = a+(lonDiv+1), d = c+1;
+      idx.push(a,b,c, b,d,c);
+    }
+  }
+  return { pos: new Float32Array(pos), norm: new Float32Array(norm), types: new Float32Array(types), idx: new Uint16Array(idx) };
+}
+
+function buildTorus(R,r,segs,rings,typeVal,tiltX=0,tiltZ=0) {
+  let pos=[], norm=[], types=[];
+  let cx=Math.cos(tiltX), sx=Math.sin(tiltX);
+  for(let i=0;i<=rings;i++) {
+    let u=2*Math.PI*i/rings, cu=Math.cos(u), su=Math.sin(u);
+    for(let j=0;j<=segs;j++) {
+      let v=2*Math.PI*j/segs, cv=Math.cos(v), sv=Math.sin(v);
+      let x = (R+r*cv)*cu, y = r*sv, z = (R+r*cv)*su;
+      let y2 = y*cx - z*sx, z2 = y*sx + z*cx;
+      pos.push(x,y2,z2);
+      norm.push(cv*cu, sv, cv*su);
+      types.push(typeVal);
+    }
+  }
+  let idx=[];
+  for(let i=0;i<rings;i++) for(let j=0;j<segs;j++) {
+    let a=i*(segs+1)+j, b=a+1, c=(i+1)*(segs+1)+j, d=c+1;
+    idx.push(a,b,c, b,d,c);
+  }
+  return { pos: new Float32Array(pos), norm: new Float32Array(norm), types: new Float32Array(types), idx: new Uint16Array(idx) };
+}
+
+function buildEjectaRing(radius, width, phase) {
+  let pos=[], norm=[], types=[];
+  let segs=24, rings=12;
+  let R=radius, r=width;
+  for(let i=0;i<=rings;i++) {
+    let u=2*Math.PI*i/rings, cu=Math.cos(u), su=Math.sin(u);
+    for(let j=0;j<=segs;j++) {
+      let v=2*Math.PI*j/segs, cv=Math.cos(v), sv=Math.sin(v);
+      let x=(R+r*cv)*cu, y=r*sv*0.3, z=(R+r*cv)*su;
+      x += Math.sin(phase*5 + u*2)*0.02;
+      z += Math.cos(phase*5 + u*2)*0.02;
+      pos.push(x,y,z);
+      norm.push(cv*cu, sv, cv*su);
+      types.push(3.0);
+    }
+  }
+  let idx=[];
+  for(let i=0;i<rings;i++) for(let j=0;j<segs;j++) {
+    let a=i*(segs+1)+j, b=a+1, c=(i+1)*(segs+1)+j, d=c+1;
+    idx.push(a,b,c, b,d,c);
+  }
+  return { pos: new Float32Array(pos), norm: new Float32Array(norm), types: new Float32Array(types), idx: new Uint16Array(idx) };
+}
+
+function buildMoon(radius) {
+  return buildSphere(radius, 18, 24, 5.0);
+}
+
+function buildMagneticField(strength) {
+  let pos=[], norm=[], types=[];
+  let lines = 8;
+  for(let l=0;l<lines;l++) {
+    let phi = 2*Math.PI*l/lines;
+    for(let t=0;t<=30;t++) {
+      let theta = (t/30) * Math.PI*2 - Math.PI;
+      let r = 0.9 + strength*0.3 * Math.cos(theta*1.5);
+      let x = r * Math.cos(theta) * Math.cos(phi);
+      let y = r * Math.sin(theta) * (1 + strength*0.5);
+      let z = r * Math.cos(theta) * Math.sin(phi);
+      pos.push(x,y,z);
+      norm.push(0,1,0);
+      types.push(6.0);
+    }
+  }
+  let idx=[];
+  let base=0;
+  for(let l=0;l<lines;l++) { for(let t=0;t<30;t++) { idx.push(base+t, base+t+1); } base += 31; }
+  return { pos: new Float32Array(pos), norm: new Float32Array(norm), types: new Float32Array(types), idx: new Uint16Array(idx) };
+}
+
+function mkBuf(data) {
+  let pb = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,pb); gl.bufferData(gl.ARRAY_BUFFER,data.pos,gl.DYNAMIC_DRAW);
+  let nb = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,nb); gl.bufferData(gl.ARRAY_BUFFER,data.norm,gl.STATIC_DRAW);
+  let tb = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,tb); gl.bufferData(gl.ARRAY_BUFFER,data.types,gl.STATIC_DRAW);
+  let ib = gl.createBuffer(); gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,ib); gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,data.idx,gl.STATIC_DRAW);
+  return { pos:pb, norm:nb, typ:tb, idx:ib, count:data.idx.length };
+}
+
+let coreBuf = mkBuf(buildSphere(0.28, 20, 28, 0));
+let mantBuf = mkBuf(buildSphere(0.74, 26, 36, 1, 1, 0.94, 1));
+let tmcBuf = mkBuf(buildTorus(0.62, 0.10, 16, 40, 2, 0.2, 0));
+let ejectaBuf = null;
+let moonBuf = null;
+let magBuf = mkBuf({pos:new Float32Array(0), norm:new Float32Array(0), types:new Float32Array(0), idx:new Uint16Array(0)});
+
+const uMVP = gl.getUniformLocation(prog,'uMVP');
+const uNorm = gl.getUniformLocation(prog,'uNorm');
+const uTime = gl.getUniformLocation(prog,'uTime');
+const uOmegaU = gl.getUniformLocation(prog,'uOmega');
+const uLight = gl.getUniformLocation(prog,'uLight');
+const uLight2 = gl.getUniformLocation(prog,'uLight2');
+const uFe = gl.getUniformLocation(prog,'uFe');
+const uTTauri = gl.getUniformLocation(prog,'uTTauri');
+const uEjecting = gl.getUniformLocation(prog,'uEjecting');
+const uDynamo = gl.getUniformLocation(prog,'uDynamo');
+const aPos = gl.getAttribLocation(prog,'aPos');
+const aNorm = gl.getAttribLocation(prog,'aNorm');
+const aType = gl.getAttribLocation(prog,'aType');
+
+gl.enable(gl.DEPTH_TEST);
+gl.enable(gl.CULL_FACE);
+function drawMesh(buf, mode=gl.TRIANGLES) {
+  if(!buf || !buf.count) return;
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf.pos); gl.vertexAttribPointer(aPos,3,gl.FLOAT,false,0,0); gl.enableVertexAttribArray(aPos);
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf.norm); gl.vertexAttribPointer(aNorm,3,gl.FLOAT,false,0,0); gl.enableVertexAttribArray(aNorm);
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf.typ); gl.vertexAttribPointer(aType,1,gl.FLOAT,false,0,0); gl.enableVertexAttribArray(aType);
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, buf.idx);
+  gl.drawElements(mode, buf.count, gl.UNSIGNED_SHORT, 0);
+}
+
+// ========== PHYSIQUE ==========
+const R_eq0 = 6371e3, g0 = 9.81;
+const massFactor = 1.018;
+const R_proto = R_eq0 * Math.pow(massFactor, 1/3);
+const gamma = 1.3, M_molar = 0.04, R_gas = 8.314;
+let Omega0 = 3.49e-4; // T_rot=5h (valeur TPT v4, eq.3)
+
+// T_atm : 3000K (repos) → 4000K (T-Tauri max), §1.2 TPT v4
+// Vitesse effective TMC ≈ 0.82×U_crit (vitesse de flux, pas Ucrit complet)
+// → Ma_ext = 8.5–9.8 depending on T-Tauri (§1.2: Ma≈6–8; upper estimate used here)
+function soundSpeed(ttauri) { let T_atm = 3000 + 1000 * ttauri; return Math.sqrt(gamma * R_gas * T_atm / M_molar); }
+function Ucrit(omega_factor) { let O = Omega0 * omega_factor; let geff = Math.max(0.1, g0 - O*O*R_proto); return Math.sqrt(2 * geff * R_proto); }
+function MachNumber(omega_factor, ttauri) { return 0.82 * Ucrit(omega_factor) / soundSpeed(ttauri); }
+function lambdaInstability(omega_factor, eps_deg, alpha, feCoreFrac, ttauri, tau_y) {
+  let O = Omega0 * omega_factor;
+  let eps = eps_deg * Math.PI/180;
+  let u_est = Ucrit(omega_factor) * (0.7 + 0.6*feCoreFrac) * (0.8 + 0.5*omega_factor);
+  let geff = Math.max(0.1, g0 - O*O*R_proto);
+  let term_grav = -geff / R_proto;
+  let term_cor = 2 * O * Math.sin(eps) * u_est / R_proto;
+  let term_grad = (u_est*u_est / (R_proto*R_proto)) * (1 - alpha);
+  let lambda = term_grav + term_cor + term_grad;
+  let tau_factor = Math.max(0, 1 - tau_y/20000);
+  return lambda * tau_factor;
+}
+
+// ε_thresh: angle where λ=0 for given omega_factor and alpha (bisection)
+function epsSeuilDeg(omega_factor, alpha, feCoreFrac, ttauri, tau_y) {
+  let lo = 30, hi = 80;
+  for(let i=0; i<40; i++) {
+    let mid = (lo+hi)/2;
+    let lam = lambdaInstability(omega_factor, mid, alpha, feCoreFrac, ttauri, tau_y);
+    if(lam > 0) hi = mid; else lo = mid;
+  }
+  return ((lo+hi)/2).toFixed(1);
+}
+
+// State
+let t = 0, running = true;
+let feCore = 0, ejCount = 0, moonMass = 0, ejecting = 0, dynamo = 0;
+let forceEject = false, lastEject = -999;
+let logLines = [];
+let ejMasses = [1/3, 1/3, 1/3];
+let tmcVisible = true;
+let dynamoLogged = false; // guard : log dynamo une seule fois
+
+function addLog(msg, cls) { logLines.push({msg,cls}); if(logLines.length>8) logLines.shift(); document.getElementById('log-inner').innerHTML=logLines.map(l=>`<div class="log-line ${l.cls||''}">${l.msg}</div>`).join(''); }
+addLog('Scenario N=3 | ε=50° | Ω₀=3.49×10⁻⁴ rad/s | T_rot=5h | Mach ~9','system');
+addLog('U_crit≈10.8 km/s | ε_thresh≈58.2° | α=1.15 | τ_seg accelerated','system');
+
+function resetSimulation() {
+  feCore=0; ejCount=0; moonMass=0; ejecting=0; dynamo=0; t=0; lastEject=-999; forceEject=false; tmcVisible=true; dynamoLogged=false;
+  if(ejectaBuf && ejectaBuf.pos) gl.deleteBuffer(ejectaBuf.pos);
+  ejectaBuf = null;
+  if(moonBuf && moonBuf.pos) gl.deleteBuffer(moonBuf.pos);
+  moonBuf = mkBuf(buildMoon(0.0));
+  magBuf = mkBuf({pos:new Float32Array(0), norm:new Float32Array(0), types:new Float32Array(0), idx:new Uint16Array(0)});
+  logLines=[]; addLog('↺ Reset. Proto-Earth t=0, Fe-Ni differentiation starts.','system');
+  addLog('Three spontaneous episodes: ~20s, ~60s, ~120s.','system');
+  document.getElementById('dicho-indic').style.display = 'none';
+  running=true; document.getElementById('btnPlay').textContent='⏸ Pause';
+  document.getElementById('arc-pct').textContent='0%';
+}
+resetSimulation();
+
+function updateMoonMesh() {
+  if(moonBuf && moonBuf.pos) gl.deleteBuffer(moonBuf.pos);
+  let rad = 0.08 + moonMass * 0.18;
+  moonBuf = mkBuf(buildMoon(rad));
+}
+
+let lastRealTime = performance.now() / 1000;
+
+function animate() {
+  requestAnimationFrame(animate);
+  if(!running) return;
+  let now = performance.now() / 1000;
+  let dt = Math.min(0.033, now - lastRealTime);
+  lastRealTime = now;
+  if(dt < 0.001) return;
+  t += dt;
+
+  let alpha = parseFloat(document.getElementById('alphaVal').value);
+  let eps_desired = parseFloat(document.getElementById('obliq').value);
+  let omega_factor_desired = parseFloat(document.getElementById('omega').value);
+  let ttauri = parseFloat(document.getElementById('ttauri').value);
+  let tau_y = parseFloat(document.getElementById('tau').value);
+  let chaos = parseFloat(document.getElementById('chaos').value);
+  
+  // Fluctuations chaotiques
+  let currentEps = eps_desired;
+  let currentOmegaFactor = omega_factor_desired;
+  if (chaos > 0) {
+    if (Math.random() < 0.01 * chaos) {
+      currentEps += (Math.random() - 0.5) * 8 * chaos;
+      currentEps = Math.min(70, Math.max(30, currentEps));
+      currentOmegaFactor += (Math.random() - 0.5) * 0.4 * chaos;
+      currentOmegaFactor = Math.min(2.0, Math.max(0.5, currentOmegaFactor));
+    }
+  }
+  
+  // Fe-Ni migration: coupled to ejections (TPT v4 §5.3)
+  // – During ejections (ejCount<3): CMT mass loss slows segregation
+  //   → progressive cap: 30% after ep.1, 60% after ep.2, released after ep.3
+  // – After 3rd episode: saturation to 100% (motor off → dynamo)
+  let feCap = ejCount === 0 ? 0.28        // before first episode: ~28%
+            : ejCount === 1 ? 0.58        // after ep.1: ~58%
+            : ejCount === 2 ? 0.82        // after ep.2: ~82%
+            : 1.00;                        // after ep.3: free saturation → dynamo
+  // Base rate: slowed during active ejections
+  let segBase = 0.020 * currentOmegaFactor * (0.5 + ttauri*0.5);
+  let segRate = feCore < feCap ? segBase : segBase * 0.08; // quasi-stop au plafond
+  feCore = Math.min(feCap, feCore + dt * segRate);
+  
+  let mach = MachNumber(currentOmegaFactor, ttauri);
+  let lambda = lambdaInstability(currentOmegaFactor, currentEps, alpha, feCore, ttauri, tau_y);
+  let els = feCore * currentOmegaFactor * 2.8;
+  
+  let canEject = (ejCount < 3) && (moonMass < 0.999);
+  // feCore threshold lowered for fast first ejection (~20s)
+  let spontaneous = (lambda > 0.012) && (mach > 8.0) && (feCore > 0.35) && (currentEps >= 45);
+  let randomCME = (chaos > 0.2) && (Math.random() < 0.002 * chaos * ttauri);
+  let forced = forceEject || randomCME;
+  let doEject = canEject && (spontaneous || forced) && ((t - lastEject) > 28.0);
+  
+  if(doEject) {
+    ejecting=1.0; lastEject=t; ejCount++;
+    let added = (ejCount<=3)?ejMasses[ejCount-1]:0.05;
+    moonMass = Math.min(1.0, moonMass+added);
+    forceEject=false;
+    updateMoonMesh();
+    if(ejectaBuf && ejectaBuf.pos) gl.deleteBuffer(ejectaBuf.pos);
+    let ringRad = 0.92 + moonMass*0.6;
+    let ringWid = 0.10 + moonMass*0.08;
+    ejectaBuf = mkBuf(buildEjectaRing(ringRad, ringWid, t));
+    let flashDiv = document.getElementById('flash');
+    flashDiv.style.background = 'rgba(255,200,60,0.25)';
+    setTimeout(()=>flashDiv.style.background='rgba(255,200,60,0)', 150);
+    let cause = spontaneous ? "spontaneous (λ>0)" : (randomCME ? "T-Tauri flare" : "forced CME");
+    addLog(`⚡ Episode ${ejCount} (${cause}) | Mach=${mach.toFixed(1)} | λ=${lambda.toFixed(4)} | Moon: ${(moonMass*100).toFixed(0)}%`,'eject');
+    if(ejCount===3) {
+      addLog('→ Moon formed. Final Fe-Ni segregation → dynamo imminent.','system');
+      tmcVisible = false;
+      document.getElementById('dicho-indic').style.display = 'block';
+    }
+  }
+  ejecting = Math.max(0, ejecting - dt*0.8);
+  if(ejectaBuf && ejecting<=0.01) { gl.deleteBuffer(ejectaBuf.pos); ejectaBuf=null; }
+  
+  // Dynamo: triggers when feCore≥95% AFTER the 3 ejections (TPT v4 §5.3)
+  // The Moon is necessarily complete before the dynamo
+  let dynamoThreshold = (ejCount >= 3 && feCore >= 0.95);
+  if(dynamoThreshold) {
+    if(!dynamoLogged) {
+      addLog('🔵 Hadean dynamo — Fe-Ni core saturated → magnetic field.','dynamo');
+      dynamoLogged = true;
+    }
+    dynamo = Math.min(1.0, dynamo + dt*0.05);
+    if(magBuf.count === 0 && dynamo>0.1) magBuf = mkBuf(buildMagneticField(dynamo));
+  } else {
+    if(dynamo>0) dynamo = Math.max(0, dynamo - dt*0.02);
+  }
+  
+  // Update display
+  document.getElementById('m-mach').textContent = mach.toFixed(1);
+  document.getElementById('m-lambda').textContent = lambda.toFixed(4);
+  document.getElementById('m-els').textContent = els.toFixed(2);
+  document.getElementById('m-fe').textContent = (feCore*100).toFixed(0)+'%';
+  document.getElementById('m-ej').textContent = ejCount;
+  document.getElementById('m-moon').textContent = (moonMass*100).toFixed(0)+'%';
+  document.getElementById('m-alpha').textContent = alpha.toFixed(2);
+  document.getElementById('arc-pct').textContent = (moonMass*100).toFixed(0)+'%';
+  // Nouveaux indicateurs (TPT v4)
+  let uc = Ucrit(currentOmegaFactor);
+  document.getElementById('m-ucrit').textContent = (uc/1000).toFixed(2);
+  let O_cur = Omega0 * currentOmegaFactor;
+  let Trot_h = (2*Math.PI / O_cur / 3600).toFixed(2);
+  document.getElementById('m-trot').textContent = Trot_h + ' h';
+  let sinEps = Math.sin(currentEps * Math.PI/180);
+  document.getElementById('m-sineps').textContent = sinEps.toFixed(3);
+  let epsSeuil = epsSeuilDeg(currentOmegaFactor, alpha, feCore, ttauri, tau_y);
+  let epsEl = document.getElementById('m-epsseuil');
+  epsEl.textContent = epsSeuil + '°';
+  epsEl.style.color = currentEps >= parseFloat(epsSeuil) ? '#ff6644' : '#ff9966';
+  
+  let pn = document.getElementById('phase-name'), pb = document.getElementById('phase-bar');
+  if(dynamo>0.3) { pn.textContent='Hadean dynamo active — Fe-Ni 100%'; pn.style.color='#66ccff'; pb.style.width='100%'; }
+  else if(ejCount>=3 && feCore<0.95) { pn.textContent='Moon formed — Final segregation ('+Math.round(feCore*100)+'%)'; pn.style.color='#88ff88'; pb.style.width=(feCore*100)+'%'; }
+  else if(ejCount>=3) { pn.textContent='Lunar orbit stabilised — Dynamo emerging'; pn.style.color='#88ff88'; pb.style.width='95%'; }
+  else if(mach>8.5) { pn.textContent=`Ejection imminent (Ma=${mach.toFixed(1)})`; pn.style.color='#ff8866'; pb.style.width=(50+ejCount*15)+'%'; }
+  else if(feCore>0.2) { pn.textContent='CMT active — BH threshold crossed (Fe='+Math.round(feCore*100)+'%)'; pn.style.color='#ffbb66'; pb.style.width=(feCore*100).toFixed(0)+'%'; }
+  else { pn.textContent='Fe-Ni differentiation — '+Math.round(feCore*100)+'%'; pn.style.color='#ccaa66'; pb.style.width=(feCore*200).toFixed(0)+'%'; }
+  
+  // Rendu 3D
+  gl.clearColor(0,0,0,1);
+  gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+  let proj = m4p(0.75, W/H, 0.1, 30);
+  let view = m4t(0, 0.3, -6.2);
+  let rotY = m4ry(t*currentOmegaFactor*0.2);
+  let rotX = m4rx((currentEps-55)*Math.PI/180*0.3);
+  let rotZ = m4rz((currentEps-55)*Math.PI/180*0.1);
+  let model = m4mul(m4mul(rotZ, rotX), rotY);
+  let mvp = m4mul(view, model);
+  mvp = m4mul(proj, mvp);
+  gl.uniformMatrix4fv(uMVP, false, mvp);
+  gl.uniformMatrix4fv(uNorm, false, model);
+  gl.uniform1f(uTime, t);
+  gl.uniform1f(uOmegaU, currentOmegaFactor);
+  gl.uniform3f(uLight, 2.0, 3.0, 1.5);
+  gl.uniform3f(uLight2, -1.2, -0.8, 0.6);
+  gl.uniform1f(uFe, feCore);
+  gl.uniform1f(uTTauri, ttauri);
+  gl.uniform1f(uEjecting, ejecting);
+  gl.uniform1f(uDynamo, dynamo);
+  
+  gl.disable(gl.CULL_FACE);
+  drawMesh(coreBuf);
+  drawMesh(mantBuf);
+  gl.enable(gl.CULL_FACE);
+  if(tmcVisible) drawMesh(tmcBuf);
+  if(ejectaBuf && ejectaBuf.count) drawMesh(ejectaBuf);
+  
+  if(moonBuf && moonBuf.count && moonMass>0.01) {
+    let orbitRadius = 1.9;
+    let angle = t * 0.8;
+    let moonX = Math.cos(angle) * orbitRadius;
+    let moonZ = Math.sin(angle) * orbitRadius;
+    let moonY = Math.sin(angle*1.3) * 0.15;
+    let moonModel = m4t(moonX, moonY+0.1, moonZ);
+    let moonMVP = m4mul(proj, m4mul(view, m4mul(model, moonModel)));
+    gl.uniformMatrix4fv(uMVP, false, moonMVP);
+    gl.uniformMatrix4fv(uNorm, false, moonModel);
+    // z-fighting fix: depth offset for the Moon
+    gl.enable(gl.POLYGON_OFFSET_FILL);
+    gl.polygonOffset(1, 1);
+    drawMesh(moonBuf);
+    gl.disable(gl.POLYGON_OFFSET_FILL);
+    gl.uniformMatrix4fv(uMVP, false, mvp);
+    gl.uniformMatrix4fv(uNorm, false, model);
+  }
+  
+  if(dynamo>0.1 && magBuf.count>0) {
+    let magModel = m4rz(t*0.3);
+    let magMVP = m4mul(proj, m4mul(view, m4mul(model, magModel)));
+    gl.uniformMatrix4fv(uMVP, false, magMVP);
+    gl.uniformMatrix4fv(uNorm, false, magModel);
+    drawMesh(magBuf, gl.LINES);
+    gl.uniformMatrix4fv(uMVP, false, mvp);
+    gl.uniformMatrix4fv(uNorm, false, model);
+  }
+}
+
+function updateUI() {
+  document.getElementById('obliqVal').textContent = document.getElementById('obliq').value+'°';
+  document.getElementById('omegaVal').textContent = parseFloat(document.getElementById('omega').value).toFixed(1)+'×';
+  document.getElementById('ttauriVal').textContent = parseFloat(document.getElementById('ttauri').value).toFixed(2);
+  document.getElementById('tauVal').textContent = document.getElementById('tau').value;
+  document.getElementById('alphaDisplay').textContent = parseFloat(document.getElementById('alphaVal').value).toFixed(2);
+  document.getElementById('chaosVal').textContent = parseFloat(document.getElementById('chaos').value).toFixed(2);
+  let eps = parseFloat(document.getElementById('obliq').value);
+  let tilt = (eps-55)*Math.PI/180*0.4;
+  tmcBuf = mkBuf(buildTorus(0.62, 0.10, 16, 40, 2, 0.2+tilt, 0));
+}
+document.getElementById('obliq').addEventListener('input', updateUI);
+document.getElementById('omega').addEventListener('input', updateUI);
+document.getElementById('ttauri').addEventListener('input', updateUI);
+document.getElementById('tau').addEventListener('input', updateUI);
+document.getElementById('alphaVal').addEventListener('input', updateUI);
+document.getElementById('chaos').addEventListener('input', updateUI);
+document.getElementById('btnPlay').addEventListener('click', function() { running=!running; this.textContent=running?'⏸ Pause':'▶ Play'; });
+document.getElementById('btnReset').addEventListener('click', resetSimulation);
+document.getElementById('btnEject').addEventListener('click', function() { if(ejCount<3){ forceEject=true; addLog('⚡ T-Tauri CME — external forcing.','eject'); } });
+updateUI();
+lastRealTime = performance.now() / 1000;
+animate();
+</script>
+</body>
+</html>
