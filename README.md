@@ -56,6 +56,17 @@ Each episode leaves a detectable stratigraphic signature: seismic interface betw
 An **interactive HTML5/WebGL simulation** of the TPT dynamics is included in this repository
 (open in any browser, no installation required).
 
+## 🔴 Live interactive simulation
+
+**English version:**  
+🌐 [Launch simulation (EN)](https://orion4622.github.io/moon-formation-triple-phase-transition/Animation_Lunar_Formation_EN.html)
+
+**Version française :**  
+🌐 [Lancer la simulation (FR)](https://orion4622.github.io/moon-formation-triple-phase-transition/Animation_Formation_de_la_Lune.html)
+
+
+*Open in any browser — no installation required.*
+
 *Epistemic note: this work submits a theory, not certainties. All hypotheses are ranked,
 all limitations are acknowledged, the validation programme is defined and dated.*
 
