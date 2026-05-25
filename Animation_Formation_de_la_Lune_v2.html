@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Formation de la Lune — TTP · Modèle réaliste</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:#000;
+    color:#e8e4d8;
+    font-family:'IBM Plex Sans',sans-serif;
+    overflow:hidden;
+    width:1280px;height:720px;
+    position:relative;
+    font-size:13px;
+  }
+  canvas{position:absolute;top:0;left:0;width:1280px;height:720px;}
+  #c{z-index:1;}
+  #overlay{position:absolute;top:0;left:0;width:100%;height:100%;z-index:10;pointer-events:none;}
+
+  /* TITLE */
+  #titlebar{
+    position:absolute;top:0;left:0;right:0;
+    padding:18px 32px 28px;
+    background:linear-gradient(to bottom,rgba(0,0,0,0.95) 60%,transparent);
+  }
+  #title-main{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:15px;font-weight:600;
+    letter-spacing:3px;text-transform:uppercase;
+    color:#e0d4b8;
+  }
+  #title-sub{
+    font-size:11px;font-weight:300;
+    color:#8a8070;margin-top:5px;letter-spacing:1px;
+  }
+  #author{
+    position:absolute;top:18px;right:32px;
+    text-align:right;font-size:11px;
+    color:#6a6058;font-family:'IBM Plex Mono',monospace;
+    letter-spacing:1px;
+  }
+
+  /* PHASE PANEL */
+  #phase-box{
+    position:absolute;top:90px;left:24px;
+    width:290px;
+    background:rgba(4,4,8,0.85);
+    border:1px solid rgba(180,140,70,0.3);
+    border-left:3px solid #c8902a;
+    padding:14px 18px;
+  }
+  #phase-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:9px;letter-spacing:3px;
+    color:#7a6a50;text-transform:uppercase;
+    margin-bottom:6px;
+  }
+  #phase-name{
+    font-size:14px;font-weight:600;
+    color:#d4a840;line-height:1.3;
+    min-height:38px;
+  }
+  #phase-bar-wrap{
+    margin-top:10px;height:2px;
+    background:rgba(255,255,255,0.08);
+  }
+  #phase-bar{
+    height:100%;
+    background:linear-gradient(90deg,#8a5a18,#d4a840,#f0d080);
+    width:0%;transition:width 0.3s ease;
+  }
+  #phase-desc{
+    margin-top:10px;
+    font-size:10px;font-weight:300;
+    color:#907a5a;line-height:1.6;
+    min-height:32px;
+  }
+
+  /* METRICS */
+  #metrics{
+    position:absolute;top:90px;right:24px;
+    display:flex;flex-direction:column;gap:8px;
+  }
+  .metric{
+    background:rgba(4,4,8,0.85);
+    border:1px solid rgba(255,255,255,0.06);
+    padding:10px 16px 8px;min-width:150px;
+    text-align:right;
+  }
+  .metric-val{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:24px;font-weight:600;
+    color:#d4c090;line-height:1;
+  }
+  .metric-val.orange{color:#d4802a;}
+  .metric-val.blue{color:#5090d4;}
+  .metric-val.red{color:#d45030;}
+  .metric-val.green{color:#50c070;}
+  .metric-lbl{
+    font-size:9px;letter-spacing:2px;
+    color:#5a5040;text-transform:uppercase;
+    margin-top:5px;font-family:'IBM Plex Mono',monospace;
+  }
+
+  /* LOG */
+  #log-panel{
+    position:absolute;bottom:90px;left:24px;
+    width:440px;
+    background:rgba(4,4,8,0.82);
+    border:1px solid rgba(255,255,255,0.06);
+    padding:12px 16px;
+  }
+  #log-title{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:9px;letter-spacing:3px;
+    color:#5a5040;text-transform:uppercase;
+    margin-bottom:8px;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+    padding-bottom:6px;
+  }
+  .log-line{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;color:#8a8070;
+    line-height:1.7;
+  }
+  .log-line.eject{color:#d4902a;}
+  .log-line.dynamo{color:#4080c0;}
+  .log-line.system{color:#6a7090;}
+
+  /* MOON PANEL */
+  #moon-panel{
+    position:absolute;bottom:90px;right:24px;
+    background:rgba(4,4,8,0.82);
+    border:1px solid rgba(255,255,255,0.06);
+    padding:14px 18px;
+    min-width:150px;text-align:center;
+  }
+  #moon-panel .lbl{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:9px;letter-spacing:3px;
+    color:#5a5040;text-transform:uppercase;margin-bottom:8px;
+  }
+  #arc-pct{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:32px;font-weight:600;
+    color:#d4c090;line-height:1;
+  }
+  #arc-sub{
+    font-size:9px;letter-spacing:2px;
+    color:#5a5040;font-family:'IBM Plex Mono',monospace;
+    margin-top:4px;text-transform:uppercase;
+  }
+  #dicho-indic{
+    display:none;margin-top:10px;
+    background:rgba(180,100,20,0.25);
+    border:1px solid rgba(180,100,20,0.4);
+    padding:5px 8px;
+    font-size:9px;letter-spacing:1px;
+    color:#c07030;font-family:'IBM Plex Mono',monospace;
+  }
+
+  /* DEPTH PREDICTION */
+  #depth-panel{
+    position:absolute;top:90px;left:24px;
+    width:290px;display:none;
+    background:rgba(4,4,8,0.85);
+    border:1px solid rgba(80,144,200,0.3);
+    border-left:3px solid #4080c0;
+    padding:14px 18px;
+  }
+  #depth-panel .dp-title{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:9px;letter-spacing:3px;
+    color:#4070a0;text-transform:uppercase;margin-bottom:8px;
+  }
+  #depth-panel .dp-val{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:20px;font-weight:600;
+    color:#6ab0e0;
+  }
+  #depth-panel .dp-desc{
+    font-size:10px;font-weight:300;
+    color:#4a6080;line-height:1.6;margin-top:6px;
+  }
+
+  /* CONTROLS */
+  #controls{
+    position:absolute;bottom:0;left:0;right:0;
+    padding:10px 24px;
+    background:linear-gradient(to top,rgba(0,0,0,0.95) 80%,transparent);
+    display:flex;flex-wrap:wrap;gap:16px;align-items:center;
+    pointer-events:auto;
+  }
+  .ctrl-group{
+    display:flex;align-items:center;gap:10px;
+    background:rgba(10,10,16,0.7);
+    padding:5px 12px;border:1px solid rgba(255,255,255,0.06);
+    font-size:10px;
+  }
+  .ctrl-lbl{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;color:#7a6a50;
+    text-transform:uppercase;letter-spacing:1px;
+    font-size:9px;
+  }
+  input[type=range]{
+    width:100px;height:2px;
+    background:rgba(255,255,255,0.15);
+    cursor:pointer;accent-color:#c8902a;
+  }
+  .ctrl-val{
+    min-width:42px;text-align:right;
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;color:#d4a840;font-size:10px;
+  }
+  .btn{
+    background:rgba(10,10,16,0.9);
+    border:1px solid rgba(180,140,70,0.35);
+    color:#c8a050;
+    padding:6px 16px;cursor:pointer;
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;font-size:10px;
+    letter-spacing:2px;text-transform:uppercase;
+    transition:all 0.15s;
+  }
+  .btn:hover{background:rgba(180,120,30,0.2);border-color:rgba(180,140,70,0.7);}
+  .sep{width:1px;height:20px;background:rgba(255,255,255,0.08);}
+
+  #flash{
+    position:absolute;top:0;left:0;width:100%;height:100%;
+    pointer-events:none;z-index:5;
+    background:transparent;transition:background 0.08s;
+  }
+
+  /* EPISODE COUNTER */
+  #ep-display{
+    position:absolute;top:90px;left:50%;transform:translateX(-50%);
+    text-align:center;pointer-events:none;
+  }
+  #ep-dots{display:flex;gap:12px;justify-content:center;}
+  .ep-dot{
+    width:10px;height:10px;border-radius:50%;
+    border:1px solid rgba(200,144,42,0.4);
+    background:transparent;
+    transition:all 0.5s;
+  }
+  .ep-dot.done{background:#c8902a;border-color:#c8902a;box-shadow:0 0 8px rgba(200,144,42,0.6);}
+  #ep-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:9px;letter-spacing:3px;color:#5a5040;
+    margin-top:6px;text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+
+<canvas id="c" width="1280" height="720"></canvas>
+<div id="flash"></div>
+
+<div id="overlay">
+  <div id="titlebar">
+    <div id="title-main">Formation de la Lune · Triple Transition de Phase (N=3)</div>
+    <div id="title-sub">Proto-Terre entièrement fondue · ε=50° · Ségrégation Fe-Ni progressive · Trot ≈ 5 h</div>
+  </div>
+  <div id="author">M. Debailleul — ULB · 2026</div>
+
+  <div id="phase-box">
+    <div id="phase-label">Phase active</div>
+    <div id="phase-name">Différenciation Fe-Ni</div>
+    <div id="phase-bar-wrap"><div id="phase-bar"></div></div>
+    <div id="phase-desc">Ségrégation progressive du noyau métallique. La contrainte de Bingham-Herschel s'établit dans le manteau silicaté.</div>
+  </div>
+
+  <div id="depth-panel">
+    <div class="dp-title">Prédiction P1 · Chang'e 7</div>
+    <div class="dp-val">d ≈ 267–314 km</div>
+    <div class="dp-desc">Interface stratigraphique entre couches d'accrétion. Contraste d'impédance |R| ∈ [0,01 ; 0,04]. Détectable par sismomètre large bande.</div>
+  </div>
+
+  <div id="ep-display">
+    <div id="ep-dots">
+      <div class="ep-dot" id="dot0"></div>
+      <div class="ep-dot" id="dot1"></div>
+      <div class="ep-dot" id="dot2"></div>
+    </div>
+    <div id="ep-label">Épisodes d'éjection</div>
+  </div>
+
+  <div id="metrics">
+    <div class="metric"><div class="metric-val orange" id="m-fe">0%</div><div class="metric-lbl">Noyau Fe-Ni</div></div>
+    <div class="metric"><div class="metric-val" id="m-lambda">0.000</div><div class="metric-lbl">λ instabilité</div></div>
+    <div class="metric"><div class="metric-val blue" id="m-els">0.00</div><div class="metric-lbl">Elsasser Λ</div></div>
+    <div class="metric"><div class="metric-val" id="m-mach">0.0</div><div class="metric-lbl">Mach externe</div></div>
+    <div class="metric"><div class="metric-val green" id="m-moon">0%</div><div class="metric-lbl">Masse lunaire</div></div>
+  </div>
+
+  <div id="log-panel">
+    <div id="log-title">Journal de simulation</div>
+    <div id="log-inner"></div>
+  </div>
+
+  <div id="moon-panel">
+    <div class="lbl">Lune</div>
+    <div id="arc-pct">0%</div>
+    <div id="arc-sub">Masse accrétée</div>
+    <div id="dicho-indic">⊕ DICHOTOMIE CRUSTALE</div>
+  </div>
+
+  <div id="controls">
+    <button class="btn" id="btnPlay">⏸ Pause</button>
+    <button class="btn" id="btnReset">↺ Reset</button>
+    <button class="btn" id="btnEject">⚡ CME forcée</button>
+    <div class="sep"></div>
+    <div class="ctrl-group"><span class="ctrl-lbl">ε (°)</span><input type="range" min="30" max="70" value="50" step="1" id="obliq"><span class="ctrl-val" id="obliqVal">50°</span></div>
+    <div class="ctrl-group"><span class="ctrl-lbl">Ω ×</span><input type="range" min="0.5" max="2.0" value="1.0" step="0.1" id="omega"><span class="ctrl-val" id="omegaVal">1.0×</span></div>
+    <div class="ctrl-group"><span class="ctrl-lbl">T-Tauri</span><input type="range" min="0" max="1" value="0.7" step="0.05" id="ttauri"><span class="ctrl-val" id="ttauriVal">0.70</span></div>
+    <div class="ctrl-group"><span class="ctrl-lbl">α</span><input type="range" min="0.7" max="1.5" value="1.15" step="0.01" id="alphaVal"><span class="ctrl-val" id="alphaDisplay">1.15</span></div>
+    <div class="ctrl-group"><span class="ctrl-lbl">Chaos</span><input type="range" min="0" max="1" value="0.5" step="0.05" id="chaos"><span class="ctrl-val" id="chaosVal">0.50</span></div>
+  </div>
+</div>
+
+<script>
+// ==================== WEBGL SETUP ====================
+const canvas = document.getElementById('c');
+const gl = canvas.getContext('webgl', {antialias:true, alpha:false});
+const W=1280, H=720;
+gl.viewport(0,0,W,H);
+
+// ==================== SHADERS ====================
+const vsSource = `
+  precision highp float;
+  attribute vec3 aPos;
+  attribute vec3 aNorm;
+  attribute float aType;
+  attribute vec2 aUV;
+  
+  uniform mat4 uMVP;
+  uniform mat4 uModel;
+  uniform mat4 uNormMat;
+  uniform float uTime;
+  uniform float uOmega;
+  uniform float uFe;
+  uniform float uEjecting;
+  uniform float uDynamo;
+  
+  varying vec3 vWorld;
+  varying vec3 vNorm;
+  varying float vType;
+  varying vec2 vUV;
+  varying float vNoise;
+  
+  // Hash functions for procedural noise
+  float hash(vec2 p) {
+    p = fract(p * vec2(127.1, 311.7));
+    p += dot(p, p.yx + 19.19);
+    return fract((p.x + p.y) * p.x);
+  }
+  float noise2(vec2 p) {
+    vec2 i = floor(p); vec2 f = fract(p);
+    f = f*f*(3.0-2.0*f);
+    return mix(mix(hash(i),hash(i+vec2(1,0)),f.x),
+               mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),f.x),f.y);
+  }
+  
+  void main(){
+    vec3 p = aPos;
+    
+    // Mantle surface perturbation (type 1): lava ocean turbulence
+    if(aType > 0.5 && aType < 1.5){
+      float turb = noise2(aPos.xy*4.0 + uTime*0.15) * 0.025
+                 + noise2(aPos.xz*8.0 - uTime*0.22) * 0.012;
+      p += aNorm * turb * (0.5 + uFe*0.5);
+      // Equatorial bulge from rotation
+      float lat = abs(aPos.z / 0.74);
+      p.x *= 1.0 + 0.04*(1.0-lat*lat)*uOmega;
+      p.y *= 1.0 + 0.04*(1.0-lat*lat)*uOmega;
+    }
+    
+    // TMC torus animation (type 2)
+    if(aType > 1.5 && aType < 2.5){
+      float wave = sin(uTime*uOmega*2.0 + aPos.x*5.0 + aPos.z*4.0)*0.028
+                 + sin(uTime*uOmega*3.5 - aPos.y*8.0)*0.015;
+      p += aNorm * wave;
+    }
+    
+    // Ejecta (type 3): fast radial motion
+    if(aType > 2.5 && aType < 3.5){
+      float s = uTime*uOmega*6.0 + aPos.x*8.0 + aPos.z*6.0;
+      p.y += sin(s)*0.04 * uEjecting;
+      p.x += cos(s*0.9)*0.03 * uEjecting;
+    }
+    
+    // Moon surface (type 5): slight cratering noise
+    if(aType > 4.5 && aType < 5.5){
+      float crater = noise2(aPos.xy*12.0)*0.015 + noise2(aPos.xz*22.0)*0.008;
+      p -= aNorm * crater;
+    }
+    
+    vWorld = (uModel * vec4(p,1.0)).xyz;
+    vNorm = normalize((uNormMat * vec4(aNorm,0.0)).xyz);
+    vType = aType;
+    vUV = aUV;
+    float n = noise2(aPos.xy*6.0 + aPos.z*3.0);
+    vNoise = n;
+    gl_Position = uMVP * vec4(p,1.0);
+  }
+`;
+
+const fsSource = `
+  precision highp float;
+  varying vec3 vWorld;
+  varying vec3 vNorm;
+  varying float vType;
+  varying vec2 vUV;
+  varying float vNoise;
+  
+  uniform vec3 uLightPos;   // main light (sun)
+  uniform vec3 uLightPos2;  // fill light
+  uniform vec3 uCamPos;
+  uniform float uTime;
+  uniform float uFe;
+  uniform float uTTauri;
+  uniform float uEjecting;
+  uniform float uDynamo;
+  uniform float uMoonAge; // 0-1
+  
+  float hash3(vec3 p){ 
+    p = fract(p*0.3183099+.1);
+    p *= 17.0;
+    return fract(p.x*p.y*p.z*(p.x+p.y+p.z));
+  }
+  float noise3(vec3 p){
+    vec3 i=floor(p), f=fract(p);
+    f=f*f*(3.0-2.0*f);
+    return mix(mix(mix(hash3(i),hash3(i+vec3(1,0,0)),f.x),
+                   mix(hash3(i+vec3(0,1,0)),hash3(i+vec3(1,1,0)),f.x),f.y),
+               mix(mix(hash3(i+vec3(0,0,1)),hash3(i+vec3(1,0,1)),f.x),
+                   mix(hash3(i+vec3(0,1,1)),hash3(i+vec3(1,1,1)),f.x),f.y),f.z);
+  }
+  float fbm(vec3 p){
+    return noise3(p)*0.5+noise3(p*2.1)*0.25+noise3(p*4.3)*0.125+noise3(p*8.7)*0.0625;
+  }
+  
+  void main(){
+    vec3 n = normalize(vNorm);
+    vec3 L1 = normalize(uLightPos - vWorld);
+    vec3 L2 = normalize(uLightPos2 - vWorld);
+    vec3 V = normalize(uCamPos - vWorld);
+    vec3 H1 = normalize(L1+V);
+    
+    float diff1 = max(dot(n,L1),0.0);
+    float diff2 = max(dot(n,L2),0.0)*0.25;
+    float spec = pow(max(dot(n,H1),0.0),40.0);
+    float rim = pow(1.0-max(dot(n,V),0.0),3.0);
+    
+    vec3 col = vec3(0.0);
+    
+    // === IRON CORE (type 0) ===
+    if(vType < 0.5){
+      float r = length(vWorld);
+      float pulse = 0.5+0.5*sin(uTime*1.2+r*8.0);
+      vec3 cCold = vec3(0.12,0.05,0.02);
+      vec3 cHot  = vec3(0.95,0.65,0.15);
+      vec3 cMolten = vec3(1.0,0.85,0.4);
+      col = mix(cCold,cHot,uFe);
+      col = mix(col,cMolten,pulse*uFe*0.35);
+      col *= (0.4+0.6*diff1);
+      col += vec3(0.6,0.35,0.05)*uFe*rim*0.6;
+    }
+    
+    // === MANTLE (type 1) ===
+    else if(vType < 1.5){
+      // Multi-octave lava texture
+      float f1 = fbm(vWorld*2.8 + vec3(uTime*0.08, 0.0, uTime*0.05));
+      float f2 = fbm(vWorld*6.0 - vec3(0.0, uTime*0.12, uTime*0.07));
+      float fused = f1*0.65 + f2*0.35;
+      
+      // Base silicate colors
+      vec3 cRock  = vec3(0.18,0.10,0.06);   // dark basalt
+      vec3 cMagma = vec3(0.85,0.35,0.05);   // hot magma
+      vec3 cLava  = vec3(1.00,0.70,0.15);   // incandescent lava
+      vec3 cCool  = vec3(0.30,0.18,0.12);   // cooler crust
+      
+      // Temperature variation with latitude (equator hotter)
+      float lat = abs(vWorld.z) / 0.8;
+      float heatEq = 1.0 - lat*lat*0.4;
+      
+      float tHot = (fused - 0.3)*2.0 * heatEq * (0.6+uTTauri*0.4) * (0.5+uFe*0.5);
+      tHot = clamp(tHot,0.0,1.0);
+      float tLava = max(0.0, tHot - 0.4)*2.5;
+      
+      col = mix(cCool, cRock, 1.0-fused);
+      col = mix(col, cMagma, tHot);
+      col = mix(col, cLava,  clamp(tLava,0.0,1.0));
+      
+      // Lighting on mantle
+      float amb = 0.08;
+      col = col*(amb + (1.0-amb)*(diff1+diff2));
+      
+      // Specular glint on lava pools
+      col += vec3(1.0,0.9,0.6)*spec*tHot*0.8;
+      
+      // Hot rim
+      col += vec3(0.8,0.3,0.05)*rim*(0.3+uFe*0.4);
+      
+      // Equatorial orange glow band during ejection
+      if(uEjecting>0.3){
+        float band = exp(-lat*lat*8.0)*uEjecting;
+        col = mix(col, vec3(1.0,0.85,0.3), band*0.5);
+      }
+    }
+    
+    // === TMC TORUS (type 2) ===
+    else if(vType < 2.5){
+      float pulse = 0.5+0.5*sin(uTime*4.0+vNoise*10.0);
+      vec3 cBase = vec3(0.95,0.45,0.05);
+      vec3 cHot  = vec3(1.00,0.90,0.40);
+      col = mix(cBase,cHot,pulse)*(0.6+diff1*0.4+rim*0.6);
+      col += vec3(0.6,0.2,0.0)*rim;
+      // Transparency emulation: darken edges
+      float alpha_fake = 0.4+0.6*(1.0-rim);
+      col *= alpha_fake;
+    }
+    
+    // === EJECTA RING (type 3) ===
+    else if(vType < 3.5){
+      float fp = 0.5+0.5*sin(uTime*14.0+vNoise*20.0);
+      col = mix(vec3(1.0,0.65,0.05), vec3(1.0,0.95,0.55), fp);
+      col *= (0.5+diff1*0.5);
+      col += vec3(0.8,0.4,0.05)*rim*1.5;
+      col += col*uEjecting*0.8; // extra glow during ejection
+    }
+    
+    // === MOON (type 5) ===
+    else if(vType > 4.5 && vType < 5.5){
+      // Realistic lunar surface: anorthite highlands + basaltic mare
+      float regolith = fbm(vWorld*15.0)*0.5+0.5;
+      float mare = fbm(vWorld*4.0+vec3(2.3,1.7,0.9));
+      float isMare = smoothstep(0.48,0.52,mare) * smoothstep(0.0,0.3,float(uMoonAge));
+      
+      // Darker basaltic mare
+      vec3 cHighlands = vec3(0.72,0.68,0.60); // anorthosite, pale grey
+      vec3 cMare      = vec3(0.30,0.28,0.25); // basalt, dark grey
+      
+      col = mix(cHighlands, cMare, isMare);
+      col *= (0.75 + regolith*0.25);
+      
+      // Lighting: sun + Earth-shine (dim fill)
+      float earthshine = diff2*0.4;
+      float amb2 = 0.04; // space is dark
+      col *= (amb2 + diff1*0.96 + earthshine);
+      
+      // Rim on night side: slight earthshine glow
+      col += vec3(0.15,0.22,0.30)*rim*(0.3+uDynamo*0.3);
+      
+      // Specular from fresh craters (small bright spots)
+      float craterSpec = pow(max(dot(n,H1),0.0),120.0)*regolith;
+      col += vec3(0.9,0.88,0.85)*craterSpec*0.3;
+    }
+    
+    // === MAGNETIC FIELD LINES (type 6) ===
+    else if(vType > 5.5 && vType < 6.5){
+      float glow = 0.5+0.5*sin(uTime*3.0+vNoise*15.0);
+      col = vec3(0.15,0.45,1.0)*glow*uDynamo*1.2;
+    }
+    
+    // Tone mapping (Reinhard)
+    col = col/(1.0+col);
+    col = pow(max(col,vec3(0.0)), vec3(0.454)); // gamma
+    
+    gl_FragColor = vec4(col,1.0);
+  }
+`;
+
+// Compile helpers
+function compileShader(type, src){
+  const s = gl.createShader(type);
+  gl.shaderSource(s,src); gl.compileShader(s);
+  if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)) {
+    console.error('Shader error:', gl.getShaderInfoLog(s));
+  }
+  return s;
+}
+const prog = gl.createProgram();
+gl.attachShader(prog, compileShader(gl.VERTEX_SHADER, vsSource));
+gl.attachShader(prog, compileShader(gl.FRAGMENT_SHADER, fsSource));
+gl.linkProgram(prog);
+gl.useProgram(prog);
+
+// Attribute/uniform locations
+const aPos   = gl.getAttribLocation(prog,'aPos');
+const aNorm  = gl.getAttribLocation(prog,'aNorm');
+const aType  = gl.getAttribLocation(prog,'aType');
+const aUV    = gl.getAttribLocation(prog,'aUV');
+const uMVP   = gl.getUniformLocation(prog,'uMVP');
+const uModel = gl.getUniformLocation(prog,'uModel');
+const uNormMat=gl.getUniformLocation(prog,'uNormMat');
+const uTime  = gl.getUniformLocation(prog,'uTime');
+const uOmegaU=gl.getUniformLocation(prog,'uOmega');
+const uLightPos=gl.getUniformLocation(prog,'uLightPos');
+const uLightPos2=gl.getUniformLocation(prog,'uLightPos2');
+const uCamPos=gl.getUniformLocation(prog,'uCamPos');
+const uFe    = gl.getUniformLocation(prog,'uFe');
+const uTTauri=gl.getUniformLocation(prog,'uTTauri');
+const uEjU   = gl.getUniformLocation(prog,'uEjecting');
+const uDynamo=gl.getUniformLocation(prog,'uDynamo');
+const uMoonAge=gl.getUniformLocation(prog,'uMoonAge');
+
+// ==================== MATH ====================
+function m4id(){ return new Float32Array([1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]); }
+function m4mul(a,b){ let r=new Float32Array(16); for(let i=0;i<4;i++) for(let j=0;j<4;j++){ let s=0; for(let k=0;k<4;k++) s+=a[k*4+i]*b[j*4+k]; r[j*4+i]=s; } return r; }
+function m4ry(a){ let c=Math.cos(a),s=Math.sin(a),m=m4id(); m[0]=c;m[2]=s;m[8]=-s;m[10]=c; return m; }
+function m4rx(a){ let c=Math.cos(a),s=Math.sin(a),m=m4id(); m[5]=c;m[6]=-s;m[9]=s;m[10]=c; return m; }
+function m4rz(a){ let c=Math.cos(a),s=Math.sin(a),m=m4id(); m[0]=c;m[1]=-s;m[4]=s;m[5]=c; return m; }
+function m4p(fov,asp,n,f){ let t=Math.tan(fov/2),m=new Float32Array(16); m[0]=1/(asp*t);m[5]=1/t;m[10]=-(f+n)/(f-n);m[11]=-1;m[14]=-2*f*n/(f-n); return m; }
+function m4t(x,y,z){ let m=m4id(); m[12]=x;m[13]=y;m[14]=z; return m; }
+function m4inv(m){ // inverse for normal matrix (only rotation part here)
+  // Transpose of upper 3x3 (orthogonal case)
+  let r=m4id();
+  for(let i=0;i<3;i++) for(let j=0;j<3;j++) r[j*4+i]=m[i*4+j];
+  return r;
+}
+
+// ==================== GEOMETRY ====================
+function buildSphere(radius, latDiv, lonDiv, typeVal, oblate=1.0){
+  let pos=[],norm=[],types=[],uvs=[];
+  for(let la=0;la<=latDiv;la++){
+    let phi=Math.PI*la/latDiv-Math.PI/2;
+    for(let lo=0;lo<=lonDiv;lo++){
+      let theta=2*Math.PI*lo/lonDiv;
+      let nx=Math.cos(phi)*Math.cos(theta);
+      let ny=Math.cos(phi)*Math.sin(theta);
+      let nz=Math.sin(phi);
+      pos.push(radius*nx, radius*ny, radius*nz*oblate);
+      norm.push(nx,ny,nz);
+      types.push(typeVal);
+      uvs.push(lo/lonDiv, la/latDiv);
+    }
+  }
+  let idx=[];
+  for(let la=0;la<latDiv;la++) for(let lo=0;lo<lonDiv;lo++){
+    let a=la*(lonDiv+1)+lo, b=a+1, c=a+(lonDiv+1), d=c+1;
+    idx.push(a,b,c, b,d,c);
+  }
+  return {pos:new Float32Array(pos),norm:new Float32Array(norm),types:new Float32Array(types),uvs:new Float32Array(uvs),idx:new Uint16Array(idx)};
+}
+
+function buildTorus(R,r,rings,segs,typeVal,tiltX=0){
+  let pos=[],norm=[],types=[],uvs=[];
+  let cx=Math.cos(tiltX),sx=Math.sin(tiltX);
+  for(let i=0;i<=rings;i++){
+    let u=2*Math.PI*i/rings,cu=Math.cos(u),su=Math.sin(u);
+    for(let j=0;j<=segs;j++){
+      let v=2*Math.PI*j/segs,cv=Math.cos(v),sv=Math.sin(v);
+      let x=(R+r*cv)*cu, y0=r*sv, z0=(R+r*cv)*su;
+      let y=y0*cx-z0*sx, z=y0*sx+z0*cx;
+      pos.push(x,y,z);
+      let nx=cv*cu, ny2=sv, nz2=cv*su;
+      norm.push(nx,ny2*cx-nz2*sx, ny2*sx+nz2*cx);
+      types.push(typeVal);
+      uvs.push(i/rings, j/segs);
+    }
+  }
+  let idx=[];
+  for(let i=0;i<rings;i++) for(let j=0;j<segs;j++){
+    let a=i*(segs+1)+j, b=a+1, c=(i+1)*(segs+1)+j, d=c+1;
+    idx.push(a,b,c, b,d,c);
+  }
+  return {pos:new Float32Array(pos),norm:new Float32Array(norm),types:new Float32Array(types),uvs:new Float32Array(uvs),idx:new Uint16Array(idx)};
+}
+
+function buildEjectaRing(radius, width, t){
+  let segs=40, rings=16;
+  let pos=[],norm=[],types=[],uvs=[];
+  for(let i=0;i<=rings;i++){
+    let u=2*Math.PI*i/rings,cu=Math.cos(u),su=Math.sin(u);
+    for(let j=0;j<=segs;j++){
+      let v=2*Math.PI*j/segs,cv=Math.cos(v),sv=Math.sin(v);
+      let perturb = Math.sin(t*8+u*3)*0.025 + Math.cos(t*5+v*2)*0.015;
+      let r2 = radius+perturb, w2 = width*(0.3+0.7*Math.abs(cv));
+      let x=(r2+w2*cv)*cu, y=w2*sv*0.25, z=(r2+w2*cv)*su;
+      pos.push(x,y,z);
+      norm.push(cv*cu,sv,cv*su);
+      types.push(3.0);
+      uvs.push(i/rings,j/segs);
+    }
+  }
+  let idx=[];
+  for(let i=0;i<rings;i++) for(let j=0;j<segs;j++){
+    let a=i*(segs+1)+j, b=a+1, c=(i+1)*(segs+1)+j, d=c+1;
+    idx.push(a,b,c,b,d,c);
+  }
+  return {pos:new Float32Array(pos),norm:new Float32Array(norm),types:new Float32Array(types),uvs:new Float32Array(uvs),idx:new Uint16Array(idx)};
+}
+
+function buildMagneticField(strength){
+  let pos=[],norm=[],types=[],uvs=[];
+  let lines=12;
+  for(let l=0;l<lines;l++){
+    let phi=2*Math.PI*l/lines;
+    let pts=40;
+    for(let i=0;i<=pts;i++){
+      let theta=(i/pts)*Math.PI*2-Math.PI;
+      let r=0.95+strength*0.35*Math.cos(theta*1.5);
+      let x=r*Math.cos(theta)*Math.cos(phi);
+      let y=r*Math.sin(theta)*(1+strength*0.5);
+      let z=r*Math.cos(theta)*Math.sin(phi);
+      pos.push(x,y,z); norm.push(0,1,0); types.push(6.0); uvs.push(0,0);
+    }
+  }
+  let idx=[]; let base=0;
+  for(let l=0;l<lines;l++){ for(let i=0;i<40;i++){ idx.push(base+i,base+i+1); } base+=41; }
+  return {pos:new Float32Array(pos),norm:new Float32Array(norm),types:new Float32Array(types),uvs:new Float32Array(uvs),idx:new Uint16Array(idx)};
+}
+
+function mkBuf(data){
+  const pb=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,pb); gl.bufferData(gl.ARRAY_BUFFER,data.pos,gl.DYNAMIC_DRAW);
+  const nb=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,nb); gl.bufferData(gl.ARRAY_BUFFER,data.norm,gl.STATIC_DRAW);
+  const tb=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,tb); gl.bufferData(gl.ARRAY_BUFFER,data.types,gl.STATIC_DRAW);
+  const ub=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,ub); gl.bufferData(gl.ARRAY_BUFFER,data.uvs,gl.STATIC_DRAW);
+  const ib=gl.createBuffer(); gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,ib); gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,data.idx,gl.STATIC_DRAW);
+  return {pos:pb,norm:nb,typ:tb,uvs:ub,idx:ib,count:data.idx.length};
+}
+
+function drawMesh(buf, mode){
+  if(!buf||!buf.count) return;
+  mode = mode || gl.TRIANGLES;
+  gl.bindBuffer(gl.ARRAY_BUFFER,buf.pos); gl.vertexAttribPointer(aPos,3,gl.FLOAT,false,0,0); gl.enableVertexAttribArray(aPos);
+  gl.bindBuffer(gl.ARRAY_BUFFER,buf.norm); gl.vertexAttribPointer(aNorm,3,gl.FLOAT,false,0,0); gl.enableVertexAttribArray(aNorm);
+  gl.bindBuffer(gl.ARRAY_BUFFER,buf.typ); gl.vertexAttribPointer(aType,1,gl.FLOAT,false,0,0); gl.enableVertexAttribArray(aType);
+  gl.bindBuffer(gl.ARRAY_BUFFER,buf.uvs); gl.vertexAttribPointer(aUV,2,gl.FLOAT,false,0,0); gl.enableVertexAttribArray(aUV);
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,buf.idx);
+  gl.drawElements(mode,buf.count,gl.UNSIGNED_SHORT,0);
+}
+
+// ==================== STARFIELD (2D canvas) ====================
+(function(){
+  const sc=document.createElement('canvas');
+  sc.width=1280; sc.height=720;
+  sc.style.cssText='position:absolute;top:0;left:0;z-index:0;';
+  document.body.insertBefore(sc, document.getElementById('c'));
+  const ctx=sc.getContext('2d');
+  ctx.fillStyle='#000007'; ctx.fillRect(0,0,1280,720);
+  // Stars with varying brightness and color temperature
+  const rng=s=>{let x=Math.sin(s*92.3)*43758.5; return x-Math.floor(x);};
+  for(let i=0;i<600;i++){
+    const x=rng(i)*1280, y=rng(i+1000)*720;
+    const r=rng(i+2000)*1.2+0.2;
+    const bright=rng(i+3000)*0.7+0.15;
+    // Star color temperature variation
+    const temp=rng(i+4000);
+    let starColor;
+    if(temp<0.2) starColor=`rgba(160,180,255,${bright})`; // blue-white
+    else if(temp<0.5) starColor=`rgba(255,255,240,${bright})`; // white
+    else if(temp<0.8) starColor=`rgba(255,240,210,${bright})`; // yellow-white
+    else starColor=`rgba(255,180,120,${bright})`; // orange
+    // Diffraction glow for bright stars
+    if(bright>0.6){
+      const g=ctx.createRadialGradient(x,y,0,x,y,r*4);
+      g.addColorStop(0,starColor);
+      g.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.fillStyle=g; ctx.beginPath(); ctx.arc(x,y,r*4,0,Math.PI*2); ctx.fill();
+    }
+    ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2);
+    ctx.fillStyle=starColor; ctx.fill();
+  }
+  // Subtle nebula gradient
+  const ng=ctx.createRadialGradient(640,360,0,640,360,500);
+  ng.addColorStop(0,'rgba(20,15,40,0.0)');
+  ng.addColorStop(0.5,'rgba(15,10,30,0.08)');
+  ng.addColorStop(1,'rgba(5,5,20,0.25)');
+  ctx.fillStyle=ng; ctx.fillRect(0,0,1280,720);
+})();
+
+// ==================== PARTICLES ====================
+// Particle system for ejecta (canvas 2D overlay)
+const pCanvas=document.createElement('canvas');
+pCanvas.width=1280; pCanvas.height=720;
+pCanvas.style.cssText='position:absolute;top:0;left:0;z-index:2;pointer-events:none;';
+document.body.insertBefore(pCanvas, document.getElementById('flash'));
+const pCtx=pCanvas.getContext('2d');
+
+let particles=[];
+function spawnParticles(count){
+  for(let i=0;i<count;i++){
+    const ang=Math.random()*Math.PI*2;
+    const dist=220+Math.random()*40;
+    const speed=1.5+Math.random()*2.5;
+    const size=1+Math.random()*3;
+    const life=60+Math.random()*120;
+    const temp=Math.random();
+    particles.push({
+      x:640+Math.cos(ang)*dist, y:360+Math.sin(ang)*dist*0.55,
+      vx:Math.cos(ang)*speed + (Math.random()-0.5)*1.5,
+      vy:Math.sin(ang)*speed*0.55 + (Math.random()-0.5)*1.0,
+      size, life, maxLife:life,
+      r:255, g:Math.floor(120+temp*120), b:Math.floor(temp*60),
+      trail:[]
+    });
+  }
+}
+
+function updateParticles(){
+  pCtx.clearRect(0,0,1280,720);
+  for(let i=particles.length-1;i>=0;i--){
+    const p=particles[i];
+    p.trail.push({x:p.x,y:p.y});
+    if(p.trail.length>8) p.trail.shift();
+    p.x+=p.vx; p.y+=p.vy;
+    p.vx*=0.98; p.vy*=0.98;
+    p.life--;
+    const alpha=p.life/p.maxLife;
+    // Draw trail
+    if(p.trail.length>1){
+      for(let j=1;j<p.trail.length;j++){
+        const ta=(j/p.trail.length)*alpha*0.5;
+        pCtx.beginPath();
+        pCtx.moveTo(p.trail[j-1].x,p.trail[j-1].y);
+        pCtx.lineTo(p.trail[j].x,p.trail[j].y);
+        pCtx.strokeStyle=`rgba(${p.r},${p.g},${p.b},${ta})`;
+        pCtx.lineWidth=p.size*0.5*j/p.trail.length;
+        pCtx.stroke();
+      }
+    }
+    // Draw glow
+    const grd=pCtx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.size*3);
+    grd.addColorStop(0,`rgba(${p.r},${p.g},${p.b},${alpha*0.8})`);
+    grd.addColorStop(1,'rgba(0,0,0,0)');
+    pCtx.fillStyle=grd;
+    pCtx.beginPath(); pCtx.arc(p.x,p.y,p.size*3,0,Math.PI*2); pCtx.fill();
+    // Core
+    pCtx.fillStyle=`rgba(255,240,200,${alpha})`;
+    pCtx.beginPath(); pCtx.arc(p.x,p.y,p.size*0.5,0,Math.PI*2); pCtx.fill();
+    if(p.life<=0) particles.splice(i,1);
+  }
+}
+
+// ==================== PHYSICS ====================
+const Omega0=3.17e-4, R_proto=6.5e6, g0=9.81, gamma=1.3, M_mol=0.04, R_gas=8.314;
+
+function soundSpeed(tt){ return Math.sqrt(gamma*R_gas*(2000+2000*tt)/M_mol); }
+function Ucrit(omF){ let O=Omega0*omF; return Math.sqrt(2*Math.max(0.1,g0-O*O*R_proto)*R_proto); }
+function MachNumber(omF,tt){ return Ucrit(omF)/soundSpeed(tt); }
+function lambdaInstability(omF,eps_deg,alpha,feF,tt,tau_y){
+  let O=Omega0*omF, eps=eps_deg*Math.PI/180;
+  let u=Ucrit(omF)*(0.7+0.6*feF)*(0.8+0.5*omF);
+  let geff=Math.max(0.1,g0-O*O*R_proto);
+  let l=-geff/R_proto + 2*O*Math.sin(eps)*u/R_proto + u*u/(R_proto*R_proto)*(1-alpha);
+  return l*Math.max(0,1-tau_y/20000);
+}
+
+// ==================== BUFFERS ====================
+let coreBuf=mkBuf(buildSphere(0.28,24,32,0));
+let mantBuf=mkBuf(buildSphere(0.76,32,48,1,0.945));
+let tmcBuf =mkBuf(buildTorus(0.63,0.10,48,20,2,0.18));
+let ejectaBuf=null, moonBuf=null, magBuf=null;
+
+// ==================== STATE ====================
+let t=0, running=true;
+let feCore=0, ejCount=0, moonMass=0, ejecting=0, dynamo=0;
+let forceEject=false, lastEject=-999, tmcVisible=true;
+let logLines=[], ejMasses=[1/3,1/3,1/3];
+let moonAge=0;
+
+function addLog(msg,cls){
+  logLines.push({msg,cls});
+  if(logLines.length>7) logLines.shift();
+  document.getElementById('log-inner').innerHTML=logLines.map(l=>`<div class="log-line ${l.cls||''}">${l.msg}</div>`).join('');
+}
+
+function updateEpDots(){
+  for(let i=0;i<3;i++){
+    document.getElementById('dot'+i).classList.toggle('done', ejCount>i);
+  }
+}
+
+function resetSimulation(){
+  feCore=0;ejCount=0;moonMass=0;ejecting=0;dynamo=0;t=0;lastEject=-999;forceEject=false;tmcVisible=true;moonAge=0;
+  particles=[];
+  if(ejectaBuf){gl.deleteBuffer(ejectaBuf.pos);ejectaBuf=null;}
+  if(moonBuf){gl.deleteBuffer(moonBuf.pos); moonBuf=null;}
+  magBuf=null;
+  logLines=[];
+  addLog('[t=0.0s] Proto-Terre t=0 — différenciation Fe-Ni en cours.','system');
+  addLog('[init]   3 épisodes spontanés prévus : ~30s, ~90s, ~150s.','system');
+  document.getElementById('dicho-indic').style.display='none';
+  document.getElementById('depth-panel').style.display='none';
+  document.getElementById('phase-box').style.display='block';
+  updateEpDots();
+  running=true;
+  document.getElementById('btnPlay').textContent='⏸ Pause';
+}
+resetSimulation();
+
+let lastRealTime=performance.now()/1000;
+
+function animate(){
+  requestAnimationFrame(animate);
+  updateParticles();
+  if(!running) return;
+
+  let now=performance.now()/1000;
+  let dt=Math.min(0.033, now-lastRealTime);
+  lastRealTime=now;
+  if(dt<0.001) return;
+  t+=dt;
+
+  // Controls
+  let alpha=parseFloat(document.getElementById('alphaVal').value);
+  let eps=parseFloat(document.getElementById('obliq').value);
+  let omF=parseFloat(document.getElementById('omega').value);
+  let tt=parseFloat(document.getElementById('ttauri').value);
+  let tau_y=1000; // fixed
+  let chaos=parseFloat(document.getElementById('chaos').value);
+
+  // Chaotic fluctuation
+  if(chaos>0 && Math.random()<0.01*chaos){
+    eps+=(Math.random()-0.5)*8*chaos;
+    eps=Math.clamp?Math.clamp(eps,30,70):Math.min(70,Math.max(30,eps));
+    omF+=(Math.random()-0.5)*0.3*chaos;
+    omF=Math.min(2.0,Math.max(0.5,omF));
+  }
+
+  // Fe-Ni segregation — rate slowed so segregation spans the full 3-min animation
+  // feCore reaches ~1.0 over ~150s; episodes fire at ~35%, ~62%, ~85%
+  let segRate=0.022*omF*(0.5+tt*0.5);
+  feCore=Math.min(1.0, feCore+dt*segRate);
+
+  let mach=MachNumber(omF,tt);
+  let lambda=lambdaInstability(omF,eps,alpha,feCore,tt,tau_y);
+  let els=feCore*omF*2.8;
+
+  // Ejection thresholds: each episode fires during the segregation, not after it
+  // Episode 1: feCore crosses ~0.32  (TMC first forms as Fe-Ni fraction builds)
+  // Episode 2: feCore crosses ~0.58  (second segregation pulse)
+  // Episode 3: feCore crosses ~0.82  (final cohesive ejection, Fe-Ni still segregating)
+  const ejectThresholds = [0.32, 0.58, 0.82];
+  const nextThreshold = ejCount < 3 ? ejectThresholds[ejCount] : 999;
+
+  // Ejection logic
+  let canEject=(ejCount<3)&&(moonMass<0.999);
+  // Spontaneous: lambda positive AND feCore has just crossed the next threshold
+  let spontaneous=(lambda>0.012)&&(mach>8.0)&&(feCore>=nextThreshold)&&(eps>=45);
+  let forced=forceEject;
+  let doEject=canEject&&(spontaneous||forced)&&((t-lastEject)>10.0);
+
+  if(doEject){
+    ejecting=1.0; lastEject=t; ejCount++;
+    let added=ejMasses[ejCount-1]||0.05;
+    moonMass=Math.min(1.0,moonMass+added);
+    forceEject=false;
+    moonAge=ejCount/3;
+    // Rebuild moon mesh larger
+    if(moonBuf) gl.deleteBuffer(moonBuf.pos);
+    moonBuf=mkBuf(buildSphere(0.07+moonMass*0.20, 28, 36, 5.0));
+    // Rebuild ejecta
+    if(ejectaBuf) gl.deleteBuffer(ejectaBuf.pos);
+    ejectaBuf=mkBuf(buildEjectaRing(0.90+moonMass*0.5, 0.12+moonMass*0.06, t));
+    // Spawn particles
+    spawnParticles(200+Math.floor(chaos*150));
+    // Flash
+    const flashDiv=document.getElementById('flash');
+    flashDiv.style.background='rgba(255,210,80,0.22)';
+    setTimeout(()=>flashDiv.style.background='rgba(0,0,0,0)',200);
+    let cause=spontaneous?"λ>0 (spontanée)":("CME T-Tauri forcée");
+    addLog(`[Ép.${ejCount}] ${cause} | Ma=${mach.toFixed(1)} | λ=${lambda.toFixed(4)} | Lune=${(moonMass*100).toFixed(0)}%`,'eject');
+    if(ejCount===3){
+      addLog('[fin]  3 épisodes. Dynamo hadéenne en émergence.','system');
+      tmcVisible=false;
+      document.getElementById('dicho-indic').style.display='block';
+      document.getElementById('depth-panel').style.display='block';
+      document.getElementById('phase-box').style.display='none';
+    }
+    updateEpDots();
+  }
+
+  ejecting=Math.max(0, ejecting-dt*0.7);
+  if(ejectaBuf&&ejecting<=0.005){ gl.deleteBuffer(ejectaBuf.pos); ejectaBuf=null; }
+
+  // Dynamo
+  if(ejCount>=3&&moonMass>=0.98){
+    if(dynamo<0.05) addLog('[dynamo] Champ magnétique hadéen — zircons Jack Hills ~4.2 Ga.','dynamo');
+    dynamo=Math.min(1.0, dynamo+dt*0.04);
+    if(!magBuf&&dynamo>0.1) magBuf=mkBuf(buildMagneticField(dynamo));
+  }
+
+  // UI update
+  document.getElementById('m-fe').textContent=(feCore*100).toFixed(0)+'%';
+  document.getElementById('m-lambda').textContent=lambda.toFixed(4);
+  document.getElementById('m-els').textContent=els.toFixed(2);
+  document.getElementById('m-mach').textContent=mach.toFixed(1);
+  document.getElementById('m-moon').textContent=(moonMass*100).toFixed(0)+'%';
+  document.getElementById('arc-pct').textContent=(moonMass*100).toFixed(0)+'%';
+
+  // Phase box
+  const pn=document.getElementById('phase-name');
+  const pd=document.getElementById('phase-desc');
+  const pb=document.getElementById('phase-bar');
+  if(dynamo>0.3){ pn.textContent='Dynamo hadéenne active'; pn.style.color='#5090d4'; pb.style.width='100%'; pd.textContent='Λ_Els ≳ 0,1 — champ magnétique terrestre établi. Accord avec zircons Jack Hills (≈ 4,2 Ga).'; }
+  else if(ejCount>=3){ pn.textContent='Orbite lunaire stabilisée'; pn.style.color='#50c070'; pb.style.width='95%'; pd.textContent='3 épisodes d\'éjection cohésive complétés. Architecture concentrique N=3 établie. Dynamo en émergence.'; }
+  else if(ejecting>0.5){ pn.textContent=`Éjection cohésive — épisode ${ejCount}`; pn.style.color='#e07030'; pb.style.width=(50+ejCount*15)+'%'; pd.textContent='Le TMC franchit le seuil d\'instabilité à double puits. Matière éjectée au-delà du rayon de Roche.'; }
+  else if(mach>9.0){ pn.textContent=`TMC — éjection imminente (Ma=${mach.toFixed(1)})`; pn.style.color='#d45030'; pb.style.width=(40+ejCount*15)+'%'; pd.textContent='Instabilité λ>0 — Tore Magmatique Cohérent accumule l\'énergie cinétique au-dessus du seuil de Bingham.'; }
+  else if(feCore>0.25){ const thr=ejectThresholds[ejCount]||1; pn.textContent='TMC actif — seuil Bingham-Herschel'; pn.style.color='#d4a840'; pb.style.width=(feCore*55).toFixed(0)+'%'; pd.textContent='τ_y établi — Fe-Ni à '+(feCore*100).toFixed(0)+'%. Prochain épisode au seuil '+(thr*100).toFixed(0)+'%. Ségrégation en cours.'; }
+  else { pn.textContent='Différenciation Fe-Ni — phase initiale'; pn.style.color='#a08040'; pb.style.width=(feCore*40).toFixed(0)+'%'; pd.textContent='Ségrégation progressive du noyau métallique. TMC pas encore formé. Énergie grav. ≈155× énergie de fusion.'; }
+
+  // ===== RENDER 3D =====
+  gl.clearColor(0,0,0.025,1);
+  gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+
+  const proj=m4p(0.72, W/H, 0.05, 40);
+  const view=m4t(0, 0.3, -6.4);
+  const rotY=m4ry(t*omF*0.22);
+  const rotX=m4rx((eps-55)*Math.PI/180*0.28);
+
+  let model=m4mul(rotX,rotY);
+  let mvp=m4mul(proj, m4mul(view,model));
+  let normM=m4inv(model);
+
+  // Camera world position (approximate for Blinn-Phong)
+  const camPos=[0, 0.3+0.3*Math.sin(t*0.05), 6.4];
+
+  gl.uniformMatrix4fv(uMVP,false,mvp);
+  gl.uniformMatrix4fv(uModel,false,m4mul(view,model));
+  gl.uniformMatrix4fv(uNormMat,false,normM);
+  gl.uniform1f(uTime,t);
+  gl.uniform1f(uOmegaU,omF);
+  gl.uniform3fv(uLightPos,[15,20,10]);
+  gl.uniform3fv(uLightPos2,[-8,-5,4]);
+  gl.uniform3fv(uCamPos,camPos);
+  gl.uniform1f(uFe,feCore);
+  gl.uniform1f(uTTauri,tt);
+  gl.uniform1f(uEjU,ejecting);
+  gl.uniform1f(uDynamo,dynamo);
+  gl.uniform1f(uMoonAge,moonAge);
+
+  gl.enable(gl.DEPTH_TEST);
+  gl.disable(gl.CULL_FACE);
+  drawMesh(coreBuf);
+  drawMesh(mantBuf);
+  gl.enable(gl.CULL_FACE);
+  if(tmcVisible) drawMesh(tmcBuf);
+  if(ejectaBuf&&ejectaBuf.count) drawMesh(ejectaBuf);
+
+  // Moon
+  if(moonBuf&&moonBuf.count&&moonMass>0.01){
+    let orb=2.1, ang=t*0.75;
+    let mX=Math.cos(ang)*orb, mZ=Math.sin(ang)*orb, mY=Math.sin(ang*1.2)*0.12;
+    let moonTrans=m4t(mX, mY+0.1, mZ);
+    let moonModel=m4mul(m4mul(view,model),moonTrans);
+    let moonMVP=m4mul(proj,moonModel);
+    gl.uniformMatrix4fv(uMVP,false,moonMVP);
+    gl.uniformMatrix4fv(uModel,false,moonModel);
+    let moonNorm=m4inv(moonModel);
+    gl.uniformMatrix4fv(uNormMat,false,moonNorm);
+    gl.enable(gl.POLYGON_OFFSET_FILL);
+    gl.polygonOffset(1,1);
+    drawMesh(moonBuf);
+    gl.disable(gl.POLYGON_OFFSET_FILL);
+    // Reset matrices
+    gl.uniformMatrix4fv(uMVP,false,mvp);
+    gl.uniformMatrix4fv(uModel,false,m4mul(view,model));
+    gl.uniformMatrix4fv(uNormMat,false,normM);
+  }
+
+  // Magnetic field
+  if(dynamo>0.1&&magBuf&&magBuf.count){
+    let magRot=m4mul(m4mul(view,model),m4rz(t*0.25));
+    let magMVP=m4mul(proj,magRot);
+    gl.uniformMatrix4fv(uMVP,false,magMVP);
+    drawMesh(magBuf,gl.LINES);
+    gl.uniformMatrix4fv(uMVP,false,mvp);
+  }
+}
+
+// ==================== CONTROLS ====================
+function updateUI(){
+  document.getElementById('obliqVal').textContent=document.getElementById('obliq').value+'°';
+  document.getElementById('omegaVal').textContent=parseFloat(document.getElementById('omega').value).toFixed(1)+'×';
+  document.getElementById('ttauriVal').textContent=parseFloat(document.getElementById('ttauri').value).toFixed(2);
+  document.getElementById('alphaDisplay').textContent=parseFloat(document.getElementById('alphaVal').value).toFixed(2);
+  document.getElementById('chaosVal').textContent=parseFloat(document.getElementById('chaos').value).toFixed(2);
+  let eps=parseFloat(document.getElementById('obliq').value);
+  let tilt=(eps-55)*Math.PI/180*0.35;
+  if(tmcBuf){gl.deleteBuffer(tmcBuf.pos);}
+  tmcBuf=mkBuf(buildTorus(0.63,0.10,48,20,2,tilt));
+}
+['obliq','omega','ttauri','alphaVal','chaos'].forEach(id=>document.getElementById(id).addEventListener('input',updateUI));
+document.getElementById('btnPlay').addEventListener('click',function(){running=!running; this.textContent=running?'⏸ Pause':'▶ Play';});
+document.getElementById('btnReset').addEventListener('click',resetSimulation);
+document.getElementById('btnEject').addEventListener('click',function(){ if(ejCount<3){ forceEject=true; addLog('[CME] Sursaut T-Tauri — forçage externe de l\'éjection.','eject'); } });
+updateUI();
+lastRealTime=performance.now()/1000;
+animate();
+</script>
+</body>
+</html>
