@@ -67,11 +67,7 @@ impedance contrast |R| ∈ [0.01; 0.04] — is testable by **Chang'e 7**
 
 ## 🔴 Live interactive simulation
 
-English version:  
-🌐 [Launch simulation (EN)](https://orion4622.github.io/moon-formation-triple-phase-transition/Animation_Lunar_Formation_EN.html)
-
-Version française :  
-🌐 [Lancer la simulation (FR)](https://orion4622.github.io/moon-formation-triple-phase-transition/Animation_Formation_de_la_Lune.html)
+🌐 [Launch simulation](https://orion4622.github.io/moon-formation-triple-phase-transition/Animation_Formation_de_la_Lune_v2.html)
 
 Open in any browser — no installation required.
 
