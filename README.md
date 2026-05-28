@@ -7,7 +7,7 @@ All hypotheses are explicitly ranked, all limitations acknowledged,
 and the validation programme is defined and dated.
 The central prediction (P1) will be tested by Chang'e 7 in August 2026.
 
----
+[-](https://orion4622.github.io/moon-formation-triple-phase-transition/Animation_Formation_de_la_Lune_v2.html)--
 
 ## License
 
