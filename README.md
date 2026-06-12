@@ -1,108 +1,123 @@
 # Lunar Formation via Triple Phase Transition in the Differentiating Proto-Earth
 
-**Michel Debailleul** — Université libre de Bruxelles (ULB)
+**Michel Debailleul** — Géophysicien, Université libre de Bruxelles (ULB)  
+**ORCID:** [0009-0003-1222-1433](https://orcid.org/0009-0003-1222-1433)  
+**Email:** michel.debailleul@yahoo.fr  
+**License:** CC BY 4.0
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20626205.svg)](https://doi.org/10.5281/zenodo.20626205)
-[![EarthArXiv](https://img.shields.io/badge/EarthArXiv-preprint-blue)](https://eartharxiv.org/repository/view/13447/)
+[![EarthArXiv](https://img.shields.io/badge/EarthArXiv-preprint-blue)](https://doi.org/10.31223/X5XB6H)
+[![OSF](https://img.shields.io/badge/OSF-project-green)](https://doi.org/10.17605/OSF.IO/XTN4Q)
 
 ---
 
 ## Abstract
 
-The origin of the Moon remains unsolved. The canonical giant-impact model faces growing geochemical difficulties: it does not naturally predict the near-perfect Earth–Moon isotopic identity, the crustal dichotomy, or the ~300 Myr delay of the terrestrial dynamo.
+The origin of the Moon remains one of the unsolved problems of planetary science. The canonical giant-impact model faces growing geochemical difficulties: it does not naturally predict the near-perfect Earth–Moon isotopic identity, the crustal dichotomy, or the ≈350 Myr delay of the terrestrial dynamo.
 
-This work submits to examination an alternative grounded in a necessary thermodynamic observation: any Earth-mass planet emerges from accretion in a state of near-total silicate mantle melting, accretion energy exceeding total fusion energy by a factor ≈155 (Solomatov 2000, Elkins‑Tanton 2012, Rubie 2015).
+This work proposes an alternative grounded in a necessary thermodynamic observation: any Earth-mass planet emerges from accretion in a state of near-total silicate mantle melting, accretion energy exceeding total fusion energy by a factor ≈155 (Solomatov 2000, Elkins-Tanton 2012, Rubie et al. 2015).
 
-The proto-Earth is therefore a rapidly rotating magma body (rotation period ≈3.5 h) without a stabilising satellite, whose axis wobbles within [40°,70°] in its own co-rotating frame. A single driver — progressive Fe‑Ni segregation — governs three coupled transitions:
+The proto-Earth is therefore a rapidly rotating magma body (T_rot ≈ 3.5 h) without a stabilising satellite, whose axis wobbles within [40°, 70°] in its own co-rotating frame — justified by five convergent arguments, foremost the logically necessary absence of any tidal stabiliser.
 
-- a **rheological transition** (structuring of a Coherent Magmatic Torus, CMT);
-- a **mechanical transition** (episodic hypersonic ejections governed by a double potential well and the Kramers stochastic crossing rate);
-- a **magnetic transition** (dynamo delayed by ≈350 Myr, consistent with three independent observations).
+A single driver — progressive Fe-Ni segregation — governs three coupled transitions:
 
-The central prediction remains: one or more seismic interfaces between 200 and 530 km depth, with impedance contrast |R|∈[0.01, 0.04], testable by **Chang'e‑7 (2026)**, the Farside Seismic Suite (FSS), LEMS, and **Artemis III (2028‑2029)**.
+- a **rheological transition** — structuring of a Coherent Magmatic Torus (CMT) in the intertropical belt |φ| < 30°;
+- a **mechanical transition** — N = 2–3 hypersonic ejection episodes governed by a double potential well and the Kramers stochastic crossing rate;
+- a **magnetic transition** — terrestrial dynamo delayed by ≈350 Myr, with no free parameter.
 
-**Version 5** adds a complementary, short-term test based on the South Pole–Aitken basin (SPA). Mantle ejecta exposed there are predicted to exhibit Fe/Si significantly higher than any terrestrial mantle rock and significantly higher than surrounding mare basalts, testable by **Chang'e‑6 (2026)**. Two new acknowledged limitations are introduced: impact mixing in SPA ejecta (L9) and the absence of any existing sample constraining the deep lunar mantle (L10).
+**Mass budget:** the target lunar mass for the TPT mechanism is *less* than the present observed lunar mass — the SPA impactor (≈3.2×10¹⁹ kg) and late accretion contributed *after* the ejection episodes and are already included in M_Moon.
 
-All hypotheses are explicit and ranked. Limitations are acknowledged. The validation programme is defined and sequenced. The theory is presented as falsifiable, not as an established truth.
+**Central prediction (P22):** seismic interface(s) between 200 and 530 km depth, impedance contrast |R| ∈ [0.01, 0.04] — testable by **Chang'e 7 (August 2026)**, FSS, LEMS, and Artemis III (2028–2029).
+
+**Preliminary observational support:** Chang'e-6 norites at 4247 ± 5 Ma (Yue et al. 2026) and anomalously high Fe/Mn in deep olivines (Xu et al. 2025) are consistent with predictions P6 and P23.
 
 ---
 
-## Key predictions
+## 🔴 [▶ LAUNCH THE INTERACTIVE SIMULATION](https://orion4622.github.io/moon-formation-triple-phase-transition/Animation_Formation_de_la_Lune_v2.html)
+
+No installation required — opens directly in any browser.
+
+---
+
+## Five Arguments for ε ∈ [40°, 70°]
+
+1. **Absence of tidal stabiliser** — logically necessary: no Moon → no lunar tidal damping
+2. **Laskar et al. (1993)** — without a satellite, chaotic zone 0° to ≈85°
+3. **Rapid rotation at 3.5 h** — precession too fast for Laskar-type resonances; obliquity diffuses stochastically
+4. **Continuous planetesimal bombardment** — τ_pert ≪ τ_relax ≈ 10⁶ yr
+5. **T-Tauri CME torques** — daily impulsive perturbations on the spin vector
+
+---
+
+## Falsifiable Predictions
 
 | ID | Prediction | Mission | Timeline |
-|----|------------|---------|----------|
-| **P22** | Seismic interface(s) at 200–530 km, \|R\|∈[0.01, 0.04] | Chang'e‑7, FSS, LEMS, Artemis III | 2026–2030 |
-| **P23** | Fe/Si significantly higher in SPA mantle ejecta than terrestrial mantle and mare basalts | Chang'e‑6 | 2026 |
-| P6 | Fe/Si increasing with depth in the lunar mantle | Chang'e‑6, Artemis III | 2026–2029 |
-| P7 | Zonal *m*=1 asymmetry of the lunar mantle | Multi-station seismic tomography | 2028–2030 |
-| P1 | Isotopic identity Δ¹⁷O < 5 ppm | Ongoing | — |
-| P3 | Non-linear Hf-W chronology | Ongoing | — |
-| P4 | Bimodal inter-episode intervals | Ongoing | — |
-| P17 | Gradual Hadean geomagnetic growth 4.55–4.20 Ga | Ongoing | — |
-| P20 | Growing ejected masses episode by episode | Future seismic | 2028–2030 |
-| P22b | Interface width as CMT-multiplicity discriminant | Chang'e‑7, FSS | 2026–2030 |
+|----|-----------|---------|----------|
+| **P22** | Seismic interfaces 200–530 km, \|R\| ∈ [0.01, 0.04] | Chang'e 7, FSS, LEMS | **August 2026** |
+| **P23** | Fe/Si in SPA mantle ejecta > terrestrial mantle AND > mare basalts | Chang'e 6, Artemis III | 2026–2029 |
+| P6 | Fe/Si gradient increasing with depth | Chang'e 6, Artemis III | 2026–2029 |
+| P7 | m=1 mantle asymmetry | Multi-station seismic | 2026–2030 |
+| P1 | Isotopic identity Δ¹⁷O < 5 ppm | — | Ongoing |
+| P3 | Non-linear Hf-W chronology | Artemis III | 2028–2029 |
+| P17 | Gradual Hadean geomagnetic growth 4.55–4.20 Ga | Jack Hills zircons | Ongoing |
+| P20 | Growing ejected masses episode by episode | Seismic inversion | 2026–2030 |
+| P22b | Interface width as CMT-multiplicity discriminant | Chang'e 7, FSS | 2026–2030 |
+
+**Falsification condition (P22):** no phase conversion in the 200–530 km window after ≥ 3 stations and ≥ 10 lunar events M > 2.5.
 
 ---
 
-## Acknowledged limitations
+## Acknowledged Limitations
 
-| ID | Limitation |
-|----|------------|
-| L1 | Spontaneous CMT organisation — requires 3D SPH validation |
-| L2 | Numerical value of capture fraction *f*_cap |
-| L3 | Small-scale cohesion: limited impact on mass budget |
-| L4 | Dynamo delay: ±50 Myr uncertainty |
-| L5 | Application of σ_R = Ω f/2 to chaotic nutation |
-| L6 | Flux → POB transition: qualitative status |
-| L7 | Crustal dichotomy: qualitative *m*=1 asymmetry |
-| L8 | Rossby wave group velocity in BH fluid: channel analogue |
-| **L9** | Impact mixing in SPA ejecta — statistical counter-example required for falsification |
-| **L10** | No existing sample constrains the deep lunar mantle (> 100 km) |
+| # | Limitation | Status |
+|---|-----------|--------|
+| L1 | Spontaneous CMT organisation | Qualitatively motivated; Priority 2 |
+| L2 | Numerical value of f_cap | SPH simulation required |
+| L3 | Cohesion at small scales | BiKH ≫ 1 at large scales |
+| L4 | Dynamo delay ±50 Myr | Simple exponential model |
+| L5 | σ_res = Ωf/2 application | Physically motivated extrapolation |
+| L6 | Flux → POB transition | Qualitative; SPH required |
+| L7 | Crustal dichotomy | Qualitative mechanism |
+| L8 | Rossby-wave speed in BH fluid | Channel analogue; open problem |
 
 ---
 
-## Repository contents
+## Validation Roadmap
+
+- **Priority 1** — Seismology: Chang'e 7, FSS, LEMS, Artemis III (2026–2030)
+- **Priority 2** — 3D SPH simulations on oblate Maclaurin spheroid (3–5 yr)
+- **Priority 3** — Geochemistry: Fe/Si gradient, SPA basin (2026–2030)
+- **Priority 4** — Hf-W high-precision chronometry (ongoing)
+- **Priority 5** — Mathieu resonance, magma-atmosphere coupling
+- **Priority 6** — Rigorous derivation of c_Rossby^(BH) (analytical, open problem)
+
+---
+
+## Canonical Deposits — V_06_2026
+
+| Platform | Identifier | Date |
+|----------|-----------|------|
+| **Zenodo V_6** | [10.5281/zenodo.20626205](https://doi.org/10.5281/zenodo.20626205) | June 12, 2026 ⭐ |
+| **Zenodo (all versions)** | [10.5281/zenodo.20626204](https://doi.org/10.5281/zenodo.20626204) | — |
+| **ESSOAr V2** | [10.22541/essoar.15003588/v2](https://doi.org/10.22541/essoar.15003588/v2) | June 12, 2026 |
+| **OSF** | [10.17605/OSF.IO/XTN4Q](https://doi.org/10.17605/OSF.IO/XTN4Q) | June 12, 2026 |
+| HAL | [hal-05648861](https://hal.science/hal-05648861) | June 8, 2026 |
+| EarthArXiv | [10.31223/X5XB6H](https://doi.org/10.31223/X5XB6H) | May 28, 2026 |
+| Figshare | [10.6084/m9.figshare.32306832](https://doi.org/10.6084/m9.figshare.32306832) | — |
+| PSJ/AAS | manuscript #AAS77321 | submitted May 27, 2026 |
+
+---
+
+## Repository Contents
 
 | File | Description |
 |------|-------------|
-| `Lunar Formation by Triple Phase Transition in the Proto-Earth V5.pdf` | Full manuscript (English) — Version 5 |
-| `Formation de la Lune par Triple Transition de phase.pdf` | Full manuscript (French) — Version 2 |
+| `Lunar Formation by Triple Phase Transition V_06_2026_EN.pdf` | Full manuscript — English |
+| `Formation de la Lune par Triple Transition de phase V_06_2026_FR.pdf` | Manuscrit complet — français |
 | `Animation_Formation_de_la_Lune_v2.html` | Interactive simulation |
-| `Animation_Screen_Shot.jpg` | Screenshot of the animation |
+| `Animation_Screen_Shot.png` | Simulation screenshot |
 | `README.md` | This file |
 
 ---
 
-## Validation programme
-
-| Priority | Test | Instrument | Date |
-|----------|------|-----------|------|
-| **1** | Seismic interfaces 200–530 km (P22) | Chang'e‑7, FSS, LEMS, Artemis III | 2026–2030 |
-| **1b** | Fe/Si anomaly in SPA (P23) | Chang'e‑6 | 2026 |
-| **2** | 3D SPH simulation — CMT emergence | — | TBD |
-| 3 | Hypersonic cohesion — BiKH criterion (P11) | — | TBD |
-| 4 | Mathieu parametric resonance | — | TBD |
-| 5 | Magma–atmosphere coupling | — | TBD |
-
----
-
-## Links
-
-- 📄 [Zenodo — Version 5](https://doi.org/10.5281/zenodo.20626205)
-- 🌍 [EarthArXiv — under moderation](https://eartharxiv.org/repository/view/13447/)
-
----
-
 ## Citation
-
-```
-DEBAILLEUL, M. (2026). Lunar Formation by Triple Phase Transition
-in the Differentiating Proto-Earth (V_5). ZENODO.
-https://doi.org/10.5281/zenodo.20626205
-```
-
----
-
-## License
-
-CC-BY-4.0 © 2026 Michel Debailleul
