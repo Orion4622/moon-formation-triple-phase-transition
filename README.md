@@ -9,7 +9,7 @@
 [![EarthArXiv](https://img.shields.io/badge/EarthArXiv-preprint-blue)](https://doi.org/10.31223/X5XB6H)
 [![OSF](https://img.shields.io/badge/OSF-project-green)](https://doi.org/10.17605/OSF.IO/XTN4Q)
 
----
+***
 
 ## Abstract
 
@@ -25,13 +25,13 @@ This work introduces a complementary short-term geochemical test based on the So
 
 All hypotheses are ranked. All limitations are acknowledged. The theory stands or falls on its observational predictions.
 
----
+***
 
 ## 🔴 [▶ LAUNCH THE INTERACTIVE SIMULATION](https://orion4622.github.io/moon-formation-triple-phase-transition/Animation_Formation_de_la_Lune_v2.html)
 
 No installation required — opens directly in any browser.
 
----
+***
 
 ## Five Arguments for ε ∈ [40°, 70°]
 
@@ -41,7 +41,7 @@ No installation required — opens directly in any browser.
 4. **Continuous planetesimal bombardment** — τ_pert ≪ τ_relax ≈ 10⁶ yr
 5. **T-Tauri CME torques** — daily impulsive perturbations on the spin vector
 
----
+***
 
 ## Falsifiable Predictions
 
@@ -59,7 +59,7 @@ No installation required — opens directly in any browser.
 
 **Falsification condition (P22):** no phase conversion in the 200–530 km window after ≥ 3 stations and ≥ 10 lunar events M > 2.5.
 
----
+***
 
 ## Acknowledged Limitations
 
@@ -76,7 +76,7 @@ No installation required — opens directly in any browser.
 | L9 | Impact mixing in SPA ejecta | Complicates primary mantle identification |
 | L10 | Absence of sample constraining the deep lunar mantle | No existing direct constraint |
 
----
+***
 
 ## Validation Roadmap
 
@@ -87,7 +87,7 @@ No installation required — opens directly in any browser.
 - **Priority 5** — Mathieu resonance, magma-atmosphere coupling
 - **Priority 6** — Rigorous derivation of c_Rossby^(BH) (analytical, open problem)
 
----
+***
 
 ## Canonical Deposits — V_8
 
@@ -103,7 +103,7 @@ No installation required — opens directly in any browser.
 | GitHub | [Orion4622/moon-formation-triple-phase-transition](https://github.com/Orion4622/moon-formation-triple-phase-transition) | — | ✅ |
 | PSJ/AAS | manuscript #AAS77321 | submitted May 27, 2026 | ⏳ |
 
----
+***
 
 ## Repository Contents
 
@@ -114,7 +114,7 @@ No installation required — opens directly in any browser.
 | `Animation_Formation_de_la_Lune_v2.html` | Interactive simulation |
 | `Animation_Screen_Shot.png` | Simulation screenshot |
 
----
+***
 
 ## Citation
 
