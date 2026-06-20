@@ -16,19 +16,85 @@ title: "Lunar Formation via Triple Phase Transition"
 
 ---
 
+## Résumé
+
+L'origine de la Lune demeure l'un des problèmes non résolus des sciences
+planétaires. Le modèle canonique de l'impact géant fait face à des
+difficultés géochimiques croissantes, notamment l'identité isotopique quasi
+parfaite Terre–Lune, la dichotomie crustale, et le délai d'environ 350 Myr
+du dynamo terrestre.
+
+Ce travail propose que la Lune se soit formée par la dynamique interne d'une
+proto-Terre entièrement fondue et en rotation rapide, sans collision avec un
+corps étranger. Le point de départ est une nécessité thermodynamique :
+l'énergie d'accrétion excède l'énergie nécessaire pour fondre tout le
+manteau silicaté d'un facteur ≈155. La proto-Terre hadéenne était donc un
+corps magmatique auto-gravitant en rotation rapide (T_rot ≈ 3,5 h), sans
+satellite stabilisateur, dont l'axe oscillait dans [40°, 70°] dans son
+propre référentiel co-rotatif.
+
+Un seul moteur physique — la ségrégation progressive du fer et du nickel
+vers le noyau en formation — gouverne trois transitions couplées : la
+structuration d'un Tore Magmatique Cohérent dans la bande intertropicale
+hadéenne, deux à trois épisodes d'éjection hypersonique qui construisent la
+Lune couche par couche, et l'allumage différé du dynamo terrestre
+(≈350 Myr, sans paramètre libre). L'identité isotopique, l'appauvrissement
+en fer et le moment cinétique, trois contraintes qui mettent en difficulté
+le modèle de l'impact géant, découlent ici comme conséquences mécaniques
+directes du moteur unique.
+
+Chaque couche lunaire archive l'état de différenciation hadéenne au moment
+de son accrétion. Cette architecture est testable : la théorie prédit une
+ou plusieurs interfaces sismiques entre 200 et 530 km de profondeur,
+directement à la portée de Chang'e 7 (août 2026) et d'Artémis III
+(2028–2029). Les éjectas mantelliques du bassin Pôle Sud–Aitken devraient
+porter une signature géochimique distincte — un rapport Fe/Si anormalement
+élevé — testable par l'analyse des échantillons Chang'e-6 et
+l'échantillonnage direct d'Artémis III. Un soutien observationnel
+préliminaire existe déjà : des norites Chang'e-6 datées à 4247 ± 5 Ma et des
+olivines profondes anormalement riches en Fe/Mn, cohérents avec les
+prédictions de ce travail.
+
+Toutes les hypothèses sont hiérarchisées. Toutes les limitations sont
+reconnues. La théorie se tient ou s'effondre sur ses prédictions
+observationnelles.
+
 ## Abstract
 
-Where does the Moon come from? This question has no agreed answer.
+The origin of the Moon remains one of the unresolved problems of planetary
+science. The canonical giant-impact model faces growing geochemical
+difficulties, notably the near-perfect Earth–Moon isotopic identity, the
+crustal dichotomy, and the ≈350 Myr delay of the terrestrial dynamo.
 
-This work proposes that the Moon was born from the Earth itself — not from a collision with a foreign body, but from the internal dynamics of a fully molten, rapidly rotating proto-Earth. The starting point is a thermodynamic necessity: accretion energy exceeds the energy required to melt the entire silicate mantle by a factor of ≈155. The Hadean proto-Earth was therefore a self-gravitating magma body in rapid rotation (T_rot ≈ 3.5 h), unstabilised, whose axis wobbled chaotically within [40°, 70°] in its own co-rotating frame.
+This work proposes that the Moon formed through the internal dynamics of a
+fully molten, rapidly rotating proto-Earth, with no collision with a foreign
+body. The starting point is a thermodynamic necessity: accretion energy
+exceeds the energy required to melt the entire silicate mantle by a factor
+of ≈155. The Hadean proto-Earth was therefore a self-gravitating magma body
+in rapid rotation (T_rot ≈ 3.5 h), lacking a stabilizing satellite, whose
+axis oscillated within [40°, 70°] in its own co-rotating frame.
 
-A single physical driver — the progressive segregation of iron and nickel toward the forming core — triggers three coupled transitions: the structuring of a Coherent Magmatic Torus within the Hadean intertropical band, two to three episodic hypersonic ejections that build the Moon layer by layer, and the delayed onset of the terrestrial dynamo (≈350 Myr, no free parameter).
+A single physical engine — the progressive segregation of iron and nickel
+toward the forming core — governs three coupled transitions: the
+structuring of a Coherent Magmatic Torus within the Hadean intertropical
+band, two to three episodes of hypersonic ejection that build the Moon
+layer by layer, and the delayed onset of the terrestrial dynamo (≈350 Myr,
+no free parameter). The isotopic identity, iron depletion, and angular
+momentum constraints, three standing difficulties for the giant-impact
+model, follow here as direct mechanical consequences of the single engine.
 
-Each lunar layer is a frozen archive of the state of Hadean differentiation at the moment of its accretion. This architecture is testable: the theory predicts one or more seismic interfaces between 200 and 530 km deep — where successive lunar layers, increasingly rich in iron towards the interior, produce a measurable echo — within range of Chang'e 7 (August 2026) and Artemis III (2028–2029). Mantle ejecta from the South Pole–Aitken basin are predicted to carry a geochemical signature — anomalously high Fe/Si — testable by Chang'e-6 sample analysis and Artemis III direct sampling.
+Each lunar layer archives the state of Hadean differentiation at the moment
+of its accretion. This architecture is testable: the theory predicts one or
+more seismic interfaces between 200 and 530 km depth, within reach of
+Chang'e 7 (August 2026) and Artemis III (2028–2029). Mantle ejecta from the
+South Pole–Aitken basin are predicted to carry a distinct geochemical
+signature — an anomalously high Fe/Si ratio — testable by Chang'e-6 sample
+analysis and Artemis III direct sampling. Preliminary observational support
+already exists: Chang'e-6 norites dated at 4247 ± 5 Ma and anomalously
+Fe/Mn-rich deep olivines, both consistent with this work's predictions.
 
-This work introduces a complementary short-term geochemical test based on the South Pole–Aitken basin, together with two additional acknowledged limitations: impact mixing in SPA ejecta (L9) and the current absence of any sample directly constraining the deep lunar mantle (L10).
-
-All hypotheses are ranked. All limitations are acknowledged. The theory stands or falls on its observational predictions.
+All hypotheses are hierarchized. All limitations are acknowledged. The
+theory stands or falls on its observational predictions.
 
 ---
 
