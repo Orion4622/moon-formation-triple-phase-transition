@@ -5,7 +5,7 @@ title: Lunar Formation via Triple Phase Transition
 
 # Lunar Formation via Triple Phase Transition in the Differentiating Proto-Earth
 
-**Michel Debailleul** — Géophysicien, Université libre de Bruxelles (ULB)
+**Michel Debailleul** — Geophysicist, Université libre de Bruxelles (ULB)
 ORCID: [0009-0003-1222-1433](https://orcid.org/0009-0003-1222-1433)
 Email: michel.debailleul@yahoo.fr
 License: CC BY 4.0
@@ -14,19 +14,9 @@ License: CC BY 4.0
 [![EarthArXiv](https://img.shields.io/badge/EarthArXiv-preprint-orange)](https://doi.org/10.31223/X5XB6H)
 [![OSF](https://img.shields.io/badge/OSF-mirror-green)](https://doi.org/10.17605/OSF.IO/XTN4Q)
 
+🇫🇷 [Lire en français](README.fr.md)
+
 ---
-
-## Résumé
-
-L'origine de la Lune demeure l'un des problèmes non résolus des sciences planétaires. Le modèle canonique de l'impact géant fait face à des difficultés géochimiques croissantes, notamment l'identité isotopique quasi parfaite Terre–Lune, la dichotomie crustale, et le délai d'environ 350 Myr du dynamo terrestre.
-
-Ce travail propose que la Lune se soit formée par la dynamique interne d'une proto-Terre entièrement fondue et en rotation rapide, sans collision avec un corps étranger. Le point de départ est une nécessité thermodynamique : l'énergie d'accrétion excède l'énergie nécessaire pour fondre tout le manteau silicaté d'un facteur ≈155. La proto-Terre hadéenne était donc un corps magmatique auto-gravitant en rotation rapide (T_rot ≈ 3,5 h), sans satellite stabilisateur, dont l'axe oscillait dans [40°, 70°] dans son propre référentiel co-rotatif.
-
-Un seul moteur physique — la ségrégation progressive du fer et du nickel vers le noyau en formation — gouverne trois transitions couplées : la structuration d'un Tore Magmatique Cohérent dans la bande intertropicale hadéenne, deux à trois épisodes d'éjection hypersonique qui construisent la Lune couche par couche, et l'allumage différé du dynamo terrestre (≈350 Myr, sans paramètre libre). L'identité isotopique, l'appauvrissement en fer et le moment cinétique, trois contraintes qui mettent en difficulté le modèle de l'impact géant, découlent ici comme conséquences mécaniques directes du moteur unique.
-
-Chaque couche lunaire archive l'état de différenciation hadéenne au moment de son accrétion. Cette architecture est testable : la théorie prédit une ou plusieurs interfaces sismiques entre 200 et 530 km de profondeur, directement à la portée de Chang'e 7 (août 2026) et d'Artémis III (2028–2029). Les éjectas mantelliques du bassin Pôle Sud–Aitken devraient porter une signature géochimique distincte — un rapport Fe/Si anormalement élevé — testable par l'analyse des échantillons Chang'e-6 et l'échantillonnage direct d'Artémis III. Un soutien observationnel préliminaire existe déjà : des norites Chang'e-6 datées à 4247 ± 5 Ma et des olivines profondes anormalement riches en Fe/Mn, cohérents avec les prédictions de ce travail.
-
-Toutes les hypothèses sont hiérarchisées. Toutes les limitations sont reconnues. La théorie se tient ou s'effondre sur ses prédictions observationnelles.
 
 ## Abstract
 
