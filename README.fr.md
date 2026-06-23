@@ -20,15 +20,27 @@ Licence : CC BY 4.0
 
 ## Résumé
 
-L'origine de la Lune demeure l'un des problèmes non résolus des sciences planétaires. Le modèle canonique de l'impact géant fait face à des difficultés géochimiques croissantes, notamment l'identité isotopique quasi parfaite Terre–Lune, la dichotomie crustale, et le délai d'environ 350 Myr du dynamo terrestre.
+D'où vient la Lune ?
 
-Ce travail propose que la Lune se soit formée par la dynamique interne d'une proto-Terre entièrement fondue et en rotation rapide, sans collision avec un corps étranger. Le point de départ est une nécessité thermodynamique : l'énergie d'accrétion excède l'énergie nécessaire pour fondre tout le manteau silicaté d'un facteur ≈155. La proto-Terre hadéenne était donc un corps magmatique auto-gravitant en rotation rapide (T_rot ≈ 3,5 h), sans satellite stabilisateur, dont l'axe oscillait dans [40°, 70°] dans son propre référentiel co-rotatif.
+Depuis cinquante ans, l'impact géant est la réponse par défaut. Mais il n'explique pas l'identité isotopique Terre–Lune. Il n'explique pas la dichotomie crustale. Il n'explique pas le délai de 350 Myr du dynamo terrestre. Il n'explique pas les olivines de Chang'e-6.
 
-Un seul moteur physique — la ségrégation progressive du fer et du nickel vers le noyau en formation — gouverne trois transitions couplées : la structuration d'un Tore Magmatique Cohérent dans la bande intertropicale hadéenne, deux à trois épisodes d'éjection hypersonique qui construisent la Lune couche par couche, et l'allumage différé du dynamo terrestre (≈350 Myr, sans paramètre libre). L'identité isotopique, l'appauvrissement en fer et le moment cinétique, trois contraintes qui mettent en difficulté le modèle de l'impact géant, découlent ici comme conséquences mécaniques directes du moteur unique.
+Ce travail propose une réponse différente : la Lune est née de la Terre elle-même — non d'une collision, mais de l'instabilité interne d'une proto-Terre entièrement fondue en rotation rapide.
 
-Chaque couche lunaire archive l'état de différenciation hadéenne au moment de son accrétion. Cette architecture est testable : la théorie prédit une ou plusieurs interfaces sismiques entre 200 et 530 km de profondeur, directement à la portée de Chang'e 7 (août 2026) et d'Artémis III (2028–2029). Les éjectas mantelliques du bassin Pôle Sud–Aitken devraient porter une signature géochimique distincte — un rapport Fe/Si anormalement élevé — testable par l'analyse des échantillons Chang'e-6 et l'échantillonnage direct d'Artémis III. Un soutien observationnel préliminaire existe déjà : des norites Chang'e-6 datées à 4247 ± 5 Ma et des olivines profondes anormalement riches en Fe/Mn, cohérents avec les prédictions de ce travail.
+La logique est explicite. L'énergie d'accrétion excède l'énergie nécessaire pour fondre l'ensemble du manteau silicaté d'un facteur ≈155. La proto-Terre était donc un corps magmatique tournant en 3,5 heures, sans Lune pour stabiliser son axe, oscillant chaotiquement dans [40°,70°] dans son propre référentiel.
 
-Toutes les hypothèses sont hiérarchisées. Toutes les limitations sont reconnues. La théorie se tient ou s'effondre sur ses prédictions observationnelles.
+Un seul moteur — la ségrégation progressive du fer et du nickel vers le noyau en formation — déclenche trois transitions couplées : l'émergence d'un Tore Magmatique Cohérent, deux à trois éjections hypersoniques qui construisent la Lune couche par couche, et l'apparition retardée du dynamo terrestre (≈350 Myr, sans paramètre libre).
+
+Chaque couche lunaire est une archive figée de l'état de la différenciation hadéenne au moment de son accrétion.
+
+Ce n'est pas une affirmation philosophique. C'est un ensemble de prédictions quantitatives et falsifiables.
+
+Une ou plusieurs interfaces sismiques entre 200 et 530 km de profondeur — là où les couches successives, de plus en plus riches en fer vers l'intérieur, produisent un écho mesurable — seront testées par Chang'e-7 en août 2026 et par Artémis III. Les éjectas de manteau du bassin Pôle Sud–Aitken sont prédits porteurs d'une signature Fe/Si élevée, testable dans les échantillons Chang'e-6 et par le prélèvement direct d'Artémis III.
+
+Cette version introduit un traitement distribué du transport du moment cinétique par les éjectas et une dérivation corrigée et dimensionnellement cohérente du potentiel à double puits gouvernant le mécanisme d'éjection, donnant lieu à trois nouvelles prédictions falsifiables (P20–P22). Elle introduit également un test géochimique complémentaire basé sur le bassin Pôle Sud–Aitken (SPA), et reconnaît deux limitations subsistantes : le mélange d'impact dans les éjectas SPA (L9) et l'absence actuelle d'échantillons directs du manteau profond (L10) — deux points que Chang'e-7 et Artémis III devraient contribuer à éclaircir.
+
+Toutes les hypothèses sont hiérarchisées. Toutes les limitations sont reconnues.
+
+La théorie sera jugée par les données.
 
 ---
 
@@ -63,6 +75,9 @@ Toutes les hypothèses sont hiérarchisées. Toutes les limitations sont reconnu
 | P9 | Profondeur de fusion des basaltes mare compatible avec la Couche 1 | Géochimie Apollo / Chang'e-5 | — |
 | P10 | Interface sismique à d ≈ 177 km pour N = 2 (réflecteur faible, 150–200 km) | Chang'e 7, FSS | Août 2026 |
 | P17 | Efficacité de capture f_cap ≳ 0,65–0,70, au-delà de l'intervalle classique 10–55% d'accrétion en disque | Simulation SPH 3D | En attente (L1, L2) |
+| P20 | Indicateur de régime asymptotique : la valeur réelle de L_loss se situe entre les bornes monocinétique et à spectre large | Simulation Monte Carlo | En attente (L2) |
+| P21 | Bouclage numérique du bilan de moment cinétique à ~5% près | Simulation SPH 3D | En attente (L1, L2) |
+| P22 | Seuil d'émergence du double puits : réduction de ~13% de la gravité effective nécessaire pour activer le mécanisme d'éjection | Simulation SPH 3D | En attente (L1, L2) |
 
 **Condition de falsification (P1) :** aucune conversion de phase détectée dans la fenêtre 200–530 km après déploiement d'au moins 3 stations sismiques et détection d'au moins 10 événements lunaires avec M > 2,5.
 
@@ -100,8 +115,8 @@ Toutes les hypothèses sont hiérarchisées. Toutes les limitations sont reconnu
 
 | Plateforme | Identifiant | Date | Statut |
 |----------|-----------|------|--------|
-| Zenodo (toutes versions) | [10.5281/zenodo.20626204](https://doi.org/10.5281/zenodo.20626204) | 21 juin 2026 | ✅ ⭐ |
-| OSF | [10.17605/OSF.IO/XTN4Q](https://doi.org/10.17605/OSF.IO/XTN4Q) | — | ✅ |
+| Zenodo (toutes versions) | [10.5281/zenodo.20626204](https://doi.org/10.5281/zenodo.20626204) | 23 juin 2026 | ✅ ⭐ |
+| OSF | [10.17605/OSF.IO/XTN4Q](https://doi.org/10.17605/OSF.IO/XTN4Q) | 23 juin 2026 | ✅ |
 | Figshare | [10.6084/m9.figshare.32306832](https://doi.org/10.6084/m9.figshare.32306832) | — | ✅ |
 | EarthArXiv | [10.31223/X5XB6H](https://doi.org/10.31223/X5XB6H) | Mise à jour | ⏳ |
 | HAL | hal-05648861 | Mise à jour | ⏳ |
