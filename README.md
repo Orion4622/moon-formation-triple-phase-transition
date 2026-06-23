@@ -20,15 +20,27 @@ License: CC BY 4.0
 
 ## Abstract
 
-The origin of the Moon remains one of the unresolved problems of planetary science. The canonical giant-impact model faces growing geochemical difficulties, notably the near-perfect Earth–Moon isotopic identity, the crustal dichotomy, and the ≈350 Myr delay of the terrestrial dynamo.
+Where does the Moon come from?
 
-This work proposes that the Moon formed through the internal dynamics of a fully molten, rapidly rotating proto-Earth, with no collision with a foreign body. The starting point is a thermodynamic necessity: accretion energy exceeds the energy required to melt the entire silicate mantle by a factor of ≈155. The Hadean proto-Earth was therefore a self-gravitating magma body in rapid rotation (T_rot ≈ 3.5 h), lacking a stabilizing satellite, whose axis oscillated within [40°, 70°] in its own co-rotating frame.
+For fifty years, the giant impact has been the default answer. But it does not explain the Earth–Moon isotopic identity. It does not explain the crustal dichotomy. It does not explain the 350-Myr delay of the terrestrial dynamo. It does not explain the Chang'e-6 olivines.
 
-A single physical engine — the progressive segregation of iron and nickel toward the forming core — governs three coupled transitions: the structuring of a Coherent Magmatic Torus within the Hadean intertropical band, two to three episodes of hypersonic ejection that build the Moon layer by layer, and the delayed onset of the terrestrial dynamo (≈350 Myr, no free parameter). The isotopic identity, iron depletion, and angular momentum constraints, three standing difficulties for the giant-impact model, follow here as direct mechanical consequences of the single engine.
+This work proposes a different answer: the Moon was born from the Earth itself — not from a collision, but from the internal instability of a fully molten, rapidly rotating proto-Earth.
 
-Each lunar layer archives the state of Hadean differentiation at the moment of its accretion. This architecture is testable: the theory predicts one or more seismic interfaces between 200 and 530 km depth, within reach of Chang'e 7 (August 2026) and Artemis III (2028–2029). Mantle ejecta from the South Pole–Aitken basin are predicted to carry a distinct geochemical signature — an anomalously high Fe/Si ratio — testable by Chang'e-6 sample analysis and Artemis III direct sampling. Preliminary observational support already exists: Chang'e-6 norites dated at 4247 ± 5 Ma and anomalously Fe/Mn-rich deep olivines, both consistent with this work's predictions.
+The logic is explicit. Accretion energy exceeds the energy required to melt the entire silicate mantle by a factor of ≈155. The proto-Earth was therefore a magma body rotating in 3.5 hours, without a Moon to stabilise it, its axis wobbling chaotically within [40°,70°] in its own frame.
 
-All hypotheses are hierarchized. All limitations are acknowledged. The theory stands or falls on its observational predictions.
+A single engine — the progressive segregation of iron and nickel toward the forming core — drives three coupled transitions: the emergence of a Coherent Magmatic Torus, two to three hypersonic ejections that build the Moon layer by layer, and the delayed onset of the terrestrial dynamo (≈350 Myr, no free parameter).
+
+Every lunar layer is a frozen archive of the state of Hadean differentiation at the moment of its accretion.
+
+This is not a philosophical claim. It is a set of quantitative, falsifiable predictions.
+
+One or more seismic interfaces between 200 and 530 km depth — where successive layers, increasingly iron-rich toward the interior, produce a measurable echo — will be tested by Chang'e-7 in August 2026 and by Artemis III. Mantle ejecta from the South Pole–Aitken basin are predicted to carry a high Fe/Si signature, testable in Chang'e-6 samples and by Artemis III direct sampling.
+
+This version adds a distributed treatment of angular momentum transport by ejecta and a corrected, dimensionally consistent derivation of the double-well potential governing the ejection mechanism, yielding three new falsifiable predictions (P20–P22). It also introduces a complementary geochemical test based on the South Pole–Aitken (SPA) basin, and acknowledges two remaining limitations: impact mixing in SPA ejecta (L9) and the current absence of direct deep-mantle samples (L10) — both of which Chang'e-7 and Artemis III are expected to help address.
+
+All hypotheses are ranked. All limitations are acknowledged.
+
+The theory will stand or fall on the data.
 
 ---
 
@@ -41,7 +53,7 @@ All hypotheses are hierarchized. All limitations are acknowledged. The theory st
 ## Five Arguments for ε ∈ [40°, 70°]
 
 1. **Absence of tidal stabiliser** — logically necessary: no Moon → no lunar tidal damping
-2. **Laskar et al. (1993)** — without a satellite, chaotic zone 0° to ≈85°
+2. **Laskar et al. (1993)** — without a satellite, chaotic zone extends from 0° to ≈85°
 3. **Rapid rotation at 3.5 h** — precession too fast for Laskar-type resonances; obliquity diffuses stochastically
 4. **Continuous planetesimal bombardment** — τ_pert ≪ τ_relax ≈ 10⁶ yr
 5. **T-Tauri CME torques** — daily impulsive perturbations on the spin vector
@@ -63,6 +75,9 @@ All hypotheses are hierarchized. All limitations are acknowledged. The theory st
 | P9 | Mare basalt melting depth compatible with Layer 1 | Apollo / Chang'e-5 geochemistry | — |
 | P10 | Seismic interface at d ≈ 177 km for N = 2 (weak reflector, 150–200 km) | Chang'e 7, FSS | August 2026 |
 | P17 | Capture efficiency f_cap ≳ 0.65–0.70, beyond the classical 10–55% disk-accretion interval | 3D SPH simulation | Pending (L1, L2) |
+| P20 | Asymptotic regime indicator: true L_loss lies between monokinetic and broad-spectrum bounds | Monte Carlo simulation | Pending (L2) |
+| P21 | Numerical closure of angular momentum budget to within ~5% | 3D SPH simulation | Pending (L1, L2) |
+| P22 | Double-well emergence threshold: ~13% reduction in effective gravity required for ejection mechanism to activate | 3D SPH simulation | Pending (L1, L2) |
 
 **Falsification condition (P1):** no phase conversion detected in the 200–530 km window after deployment of at least 3 seismic stations and detection of at least 10 lunar events with M > 2.5.
 
@@ -100,8 +115,8 @@ All hypotheses are hierarchized. All limitations are acknowledged. The theory st
 
 | Platform | Identifier | Date | Status |
 |----------|-----------|------|--------|
-| Zenodo (all versions) | [10.5281/zenodo.20626204](https://doi.org/10.5281/zenodo.20626204) | June 21, 2026 | ✅ ⭐ |
-| OSF | [10.17605/OSF.IO/XTN4Q](https://doi.org/10.17605/OSF.IO/XTN4Q) | — | ✅ |
+| Zenodo (all versions) | [10.5281/zenodo.20626204](https://doi.org/10.5281/zenodo.20626204) | June 23, 2026 | ✅ ⭐ |
+| OSF | [10.17605/OSF.IO/XTN4Q](https://doi.org/10.17605/OSF.IO/XTN4Q) | June 23, 2026 | ✅ |
 | Figshare | [10.6084/m9.figshare.32306832](https://doi.org/10.6084/m9.figshare.32306832) | — | ✅ |
 | EarthArXiv | [10.31223/X5XB6H](https://doi.org/10.31223/X5XB6H) | Updated | ⏳ |
 | HAL | hal-05648861 | Updated | ⏳ |
