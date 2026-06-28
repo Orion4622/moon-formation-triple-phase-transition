@@ -3,14 +3,14 @@ layout: default
 title: Formation de la Lune via Triple Transition de Phase
 ---
 
-# Formation de la Lune via Triple Transition de Phase dans la Proto-Terre en Différenciation
+# Formation de la Lune par Triple Transition de Phase dans la Proto-Terre en Différenciation — Édition Définitive
 
 **Michel Debailleul** — Géophysicien, Université libre de Bruxelles (ULB)
 ORCID : [0009-0003-1222-1433](https://orcid.org/0009-0003-1222-1433)
 Email : michel.debailleul@yahoo.fr
 Licence : CC BY 4.0
 
-[![DOI](https://img.shields.io/badge/DOI-Zenodo-blue)](https://doi.org/10.5281/zenodo.20626204)
+[![DOI](https://img.shields.io/badge/DOI-Zenodo-blue)](https://doi.org/10.5281/zenodo.20760018)
 [![EarthArXiv](https://img.shields.io/badge/EarthArXiv-preprint-orange)](https://doi.org/10.31223/X5XB6H)
 [![OSF](https://img.shields.io/badge/OSF-mirror-green)](https://doi.org/10.17605/OSF.IO/XTN4Q)
 
@@ -22,21 +22,31 @@ Licence : CC BY 4.0
 
 D'où vient la Lune ?
 
-Depuis cinquante ans, l'impact géant est la réponse par défaut. Mais il n'explique pas l'identité isotopique Terre–Lune. Il n'explique pas la dichotomie crustale. Il n'explique pas le délai de 350 Myr du dynamo terrestre. Il n'explique pas les olivines de Chang'e-6.
+Depuis cinquante ans, l'impact géant est la réponse par défaut.
 
-Ce travail propose une réponse différente : la Lune est née de la Terre elle-même — non d'une collision, mais de l'instabilité interne d'une proto-Terre entièrement fondue en rotation rapide.
+Mais il n'explique pas l'identité isotopique Terre–Lune, la dichotomie crustale, le délai de 350 Ma du dynamo terrestre, ni les olivines riches en fer rapportées par Chang'e-6.
 
-La logique est explicite. L'énergie d'accrétion excède l'énergie nécessaire pour fondre l'ensemble du manteau silicaté d'un facteur ≈155. La proto-Terre était donc un corps magmatique tournant en 3,5 heures, sans Lune pour stabiliser son axe, oscillant chaotiquement dans [40°,70°] dans son propre référentiel.
+Ce travail propose une alternative définitive et quantifiée : la Lune est née de la Terre elle-même — non d'une collision, mais de l'instabilité interne d'une proto-Terre entièrement fondue en rotation rapide.
 
-Un seul moteur — la ségrégation progressive du fer et du nickel vers le noyau en formation — déclenche trois transitions couplées : l'émergence d'un Tore Magmatique Cohérent, deux à trois éjections hypersoniques qui construisent la Lune couche par couche, et l'apparition retardée du dynamo terrestre (≈350 Myr, sans paramètre libre).
+La logique est explicite et thermodynamiquement fondée.
 
-Chaque couche lunaire est une archive figée de l'état de la différenciation hadéenne au moment de son accrétion.
+L'énergie d'accrétion excède l'énergie nécessaire pour fondre l'ensemble du manteau silicaté d'un facteur ≈155.
 
-Ce n'est pas une affirmation philosophique. C'est un ensemble de prédictions quantitatives et falsifiables.
+La proto-Terre était donc un corps magmatique tournant en 3,5 heures, sans Lune pour stabiliser son axe, oscillant chaotiquement dans [40°,70°] dans son propre référentiel.
 
-Une ou plusieurs interfaces sismiques entre 200 et 530 km de profondeur — là où les couches successives, de plus en plus riches en fer vers l'intérieur, produisent un écho mesurable — seront testées par Chang'e-7 en août 2026 et par Artémis III. Les éjectas de manteau du bassin Pôle Sud–Aitken sont prédits porteurs d'une signature Fe/Si élevée, testable dans les échantillons Chang'e-6 et par le prélèvement direct d'Artémis III.
+Un seul moteur — la ségrégation progressive du fer et du nickel vers le noyau en formation — déclenche trois transitions couplées : l'émergence d'un Tore Magmatique Cohérent, deux à trois éjections hypersoniques qui construisent la Lune couche par couche, et l'apparition retardée du dynamo terrestre (≈350 Ma, sans paramètre libre).
 
-Cette version introduit un traitement distribué du transport du moment cinétique par les éjectas et une dérivation corrigée et dimensionnellement cohérente du potentiel à double puits gouvernant le mécanisme d'éjection, donnant lieu à trois nouvelles prédictions falsifiables (P20–P22). Elle introduit également un test géochimique complémentaire basé sur le bassin Pôle Sud–Aitken (SPA), et reconnaît deux limitations subsistantes : le mélange d'impact dans les éjectas SPA (L9) et l'absence actuelle d'échantillons directs du manteau profond (L10) — deux points que Chang'e-7 et Artémis III devraient contribuer à éclaircir.
+Ce n'est pas une affirmation philosophique.
+
+C'est un ensemble de prédictions quantitatives et falsifiables.
+
+Une ou plusieurs interfaces sismiques entre 200 et 530 km de profondeur — là où les couches successives, de plus en plus riches en fer vers l'intérieur, produisent un écho mesurable — seront testées par Chang'e-7 en août 2026 et par Artémis III.
+
+Les éjectas mantelliques du bassin Pôle Sud–Aitken sont prédits porteurs d'une signature Fe/Si élevée, testable dans les échantillons Chang'e-6 existants et par les futurs prélèvements.
+
+Cette Édition Définitive introduit un test géochimique complètement quantifié (P6) basé sur le bassin SPA, avec un seuil de falsification explicite.
+
+Elle reconnaît également deux limitations subsistantes : le mélange d'impact dans les éjectas SPA (L9) et l'absence actuelle d'échantillons directs du manteau profond (L10).
 
 Toutes les hypothèses sont hiérarchisées. Toutes les limitations sont reconnues.
 
@@ -67,9 +77,9 @@ La théorie sera jugée par les données.
 | P1 | Interface sismique à d ≈ 200–315 km (N=3) ou ≈ 177 km (N=2), \|R\| ∈ [0,01, 0,04] | Chang'e 7, FSS, LEMS, Artémis III | Août 2026 |
 | P2 | Asymétrie sismique face visible / face cachée | Sismologie multi-stations / tomographie | 2026–2030 |
 | P3 | Gradient Fe/Si croissant avec la profondeur | Chang'e-6, Artémis III | 2026–2029 |
-| P4 | Délai du dynamo 290–360 Myr, croissance progressive de la paléointensité (pas d'onset abrupt) | Zircons de Jack Hills | En cours |
+| P4 | Délai du dynamo 290–360 Ma, croissance progressive de la paléointensité (pas d'onset abrupt) | Zircons de Jack Hills | En cours |
 | P5 | Fenêtre d'instabilité ε ∈ [57°, 70°] | Simulations N-corps de l'obliquité | — |
-| P6 | Signature polaire des éjectas à hautes latitudes (Pôle Sud) | Chang'e 7 (Pôle Sud) | Août 2026 |
+| P6 | Enrichissement Fe/Si ≥ 1,5% dans les éjectas du Pôle Sud par rapport aux échantillons équatoriaux/face visible, avec seuil de falsification explicite fixé à l'avance | Chang'e 7, Artémis III (Pôle Sud) | Août 2026 / 2028–2029 |
 | P7 | Signature Hf-W : 100 ± 10 Ma après les CAI (vs 60 ± 10 Ma pour l'impact géant) | Artémis III | 2028–2029 |
 | P8 | Âge de formation > 4,45 Ga (solidification du LMO ≠ formation) | Artémis III | 2028–2029 |
 | P9 | Profondeur de fusion des basaltes mare compatible avec la Couche 1 | Géochimie Apollo / Chang'e-5 | — |
@@ -77,9 +87,11 @@ La théorie sera jugée par les données.
 | P17 | Efficacité de capture f_cap ≳ 0,65–0,70, au-delà de l'intervalle classique 10–55% d'accrétion en disque | Simulation SPH 3D | En attente (L1, L2) |
 | P20 | Indicateur de régime asymptotique : la valeur réelle de L_loss se situe entre les bornes monocinétique et à spectre large | Simulation Monte Carlo | En attente (L2) |
 | P21 | Bouclage numérique du bilan de moment cinétique à ~5% près | Simulation SPH 3D | En attente (L1, L2) |
-| P22 | Seuil d'émergence du double puits : réduction de ~13% de la gravité effective nécessaire pour activer le mécanisme d'éjection | Simulation SPH 3D | En attente (L1, L2) |
+| P22 | Seuil d'émergence du double puits : critère unifié sur la surface couplée (Ω, g_eff) requis pour activer le mécanisme d'éjection | Simulation SPH 3D | En attente (L1, L2) |
 
 **Condition de falsification (P1) :** aucune conversion de phase détectée dans la fenêtre 200–530 km après déploiement d'au moins 3 stations sismiques et détection d'au moins 10 événements lunaires avec M > 2,5.
+
+**Condition de falsification (P6) :** un enrichissement Fe/Si mesuré inférieur à 1,5% dans les éjectas du Pôle Sud falsifie la prédiction telle que construite.
 
 ---
 
@@ -90,13 +102,15 @@ La théorie sera jugée par les données.
 | L1 | Organisation spontanée du TMC | Qualitativement motivée ; Priorité 2 |
 | L2 | Valeur numérique de f_cap | Simulation SPH requise |
 | L3 | Cohésion à petite échelle | BiKH ≫ 1 aux grandes échelles |
-| L4 | Délai du dynamo ±50 Myr | Modèle exponentiel simplifié |
+| L4 | Délai du dynamo ±50 Ma | Modèle exponentiel simplifié |
 | L5 | Profil de rotation super-rigide α > 1 | Physiquement motivé ; hypothèse de Niveau 3 |
 | L6 | Transition flux → POB | Qualitative ; SPH requise |
 | L7 | Dichotomie crustale | Qualitative ; double refonte de la face cachée prise en compte |
 | L8 | Vitesse des ondes de Rossby dans un fluide BH | Analogie de canal ; problème ouvert |
-| L9 | Mélange d'impact dans les éjectas PSA | Complique l'identification du manteau primaire |
+| L9 | Mélange d'impact dans les éjectas SPA | Complique l'identification du manteau primaire |
 | L10 | Absence d'échantillons contraignant le manteau lunaire profond | Aucune contrainte directe existante ; en attente d'Artémis III |
+| L11 | Fraction d'Épisode 2 dans les éjectas du SPA | Fixée prudemment à 30% ; affine le seuil de P6 |
+| L12 | Validité quantitative de l'approximation gaussienne pour le confinement du TMC | Limite d'ordre dominant de la réduction de Schrödinger non linéaire ; non encore bornée quantitativement |
 
 ---
 
@@ -104,7 +118,7 @@ La théorie sera jugée par les données.
 
 1. **Priorité 1 — Sismologie :** Chang'e 7, FSS, LEMS, Artémis III (2026–2030)
 2. **Priorité 2 — Simulations SPH 3D** sur sphéroïde de Maclaurin oblate (3–5 ans)
-3. **Priorité 3 — Géochimie :** gradient Fe/Si, bassin PSA (2026–2030)
+3. **Priorité 3 — Géochimie :** gradient Fe/Si, bassin SPA (2026–2030)
 4. **Priorité 4 — Chronométrie Hf-W haute précision** (en cours)
 5. **Priorité 5 — Résonance de Mathieu**, couplage magma-atmosphère
 6. **Priorité 6 — Dérivation rigoureuse** de c_Rossby^(BH) (analytique, problème ouvert)
@@ -115,7 +129,7 @@ La théorie sera jugée par les données.
 
 | Plateforme | Identifiant | Date | Statut |
 |----------|-----------|------|--------|
-| Zenodo (toutes versions) | [10.5281/zenodo.20626204](https://doi.org/10.5281/zenodo.20626204) | 23 juin 2026 | ✅ ⭐ |
+| Zenodo (cette version) | [10.5281/zenodo.20760018](https://doi.org/10.5281/zenodo.20760018) | 27 juin 2026 | ✅ ⭐ |
 | OSF | [10.17605/OSF.IO/XTN4Q](https://doi.org/10.17605/OSF.IO/XTN4Q) | 23 juin 2026 | ✅ |
 | Figshare | [10.6084/m9.figshare.32306832](https://doi.org/10.6084/m9.figshare.32306832) | — | ✅ |
 | EarthArXiv | [10.31223/X5XB6H](https://doi.org/10.31223/X5XB6H) | Mise à jour | ⏳ |
@@ -129,19 +143,20 @@ La théorie sera jugée par les données.
 ## Contenu du dépôt
 
 | Fichier | Description |
-|------|-------------|
-| `Moon_Formation_Triple_Phase_Transition_EN_21_06_2026.pdf` | Manuscrit complet — anglais (dernière version) |
-| `La_formation_Lune_Triple_Transition_Phase_Fr-21_06_2026.pdf` | Manuscrit complet — français (dernière version) |
+|------|--------------|
+| `The_Moon_Formation_Triple_Phase_Transition_Definitive_Edition.pdf` | Full manuscript — English (latest) |
+| `La_Formation_Lune_Triple_Transition_Phase_Edition_Definitive.pdf` | Manuscrit complet — français (dernière version) |
 | `Animation_Formation_de_la_Lune_v2.html` | Simulation interactive |
-| `Animation_Screen_Shot.png` | Capture d'écran de la simulation |
-| `Double_Puits_Debailleul.png` | Figure du double puits de potentiel (FR) |
+| `Animation_Screen_Shot.png` | Capture d'écran de la simulation (EN) |
+| `Animation_Screen_Shot_Fr.png` | Capture d'écran de la simulation (FR) |
+| `Double_Puits_Debailleul_Fr.png` | Figure du double puits de potentiel (FR) |
 | `Double_Well_EN.png` | Figure du double puits de potentiel (EN) |
 
 ---
 
 ## Citation
 
-DEBAILLEUL, M. (2026). *Lunar Formation via Triple Phase Transition in the Differentiating Proto-Earth.* Zenodo. https://doi.org/10.5281/zenodo.20626204
+DEBAILLEUL, M. (2026). *Lunar Formation by Triple Phase Transition in the Differentiating Proto-Earth — Definitive Edition.* Zenodo. https://doi.org/10.5281/zenodo.20760018
 
 ---
 
