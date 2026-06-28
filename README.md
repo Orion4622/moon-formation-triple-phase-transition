@@ -3,14 +3,14 @@ layout: default
 title: Lunar Formation via Triple Phase Transition
 ---
 
-# Lunar Formation via Triple Phase Transition in the Differentiating Proto-Earth
+# Lunar Formation by Triple Phase Transition in the Differentiating Proto-Earth — Definitive Edition
 
 **Michel Debailleul** — Geophysicist, Université libre de Bruxelles (ULB)
 ORCID: [0009-0003-1222-1433](https://orcid.org/0009-0003-1222-1433)
 Email: michel.debailleul@yahoo.fr
 License: CC BY 4.0
 
-[![DOI](https://img.shields.io/badge/DOI-Zenodo-blue)](https://doi.org/10.5281/zenodo.20626204)
+[![DOI](https://img.shields.io/badge/DOI-Zenodo-blue)](https://doi.org/10.5281/zenodo.20760018)
 [![EarthArXiv](https://img.shields.io/badge/EarthArXiv-preprint-orange)](https://doi.org/10.31223/X5XB6H)
 [![OSF](https://img.shields.io/badge/OSF-mirror-green)](https://doi.org/10.17605/OSF.IO/XTN4Q)
 
@@ -22,21 +22,31 @@ License: CC BY 4.0
 
 Where does the Moon come from?
 
-For fifty years, the giant impact has been the default answer. But it does not explain the Earth–Moon isotopic identity. It does not explain the crustal dichotomy. It does not explain the 350-Myr delay of the terrestrial dynamo. It does not explain the Chang'e-6 olivines.
+For fifty years, the giant impact has been the default answer.
 
-This work proposes a different answer: the Moon was born from the Earth itself — not from a collision, but from the internal instability of a fully molten, rapidly rotating proto-Earth.
+But it fails to explain the Earth–Moon isotopic identity, the lunar crustal dichotomy, the 350-Myr delay of the terrestrial dynamo, or the Fe-rich olivines recently returned by Chang'e-6.
 
-The logic is explicit. Accretion energy exceeds the energy required to melt the entire silicate mantle by a factor of ≈155. The proto-Earth was therefore a magma body rotating in 3.5 hours, without a Moon to stabilise it, its axis wobbling chaotically within [40°,70°] in its own frame.
+This work presents a definitive, quantitative alternative: the Moon was born from the Earth itself — not from a collision, but from the internal instability of a fully molten, rapidly rotating proto-Earth.
 
-A single engine — the progressive segregation of iron and nickel toward the forming core — drives three coupled transitions: the emergence of a Coherent Magmatic Torus, two to three hypersonic ejections that build the Moon layer by layer, and the delayed onset of the terrestrial dynamo (≈350 Myr, no free parameter).
+The logic is explicit and thermodynamically grounded.
 
-Every lunar layer is a frozen archive of the state of Hadean differentiation at the moment of its accretion.
+Accretion energy exceeds the energy required to melt the entire silicate mantle by a factor of ≈155.
 
-This is not a philosophical claim. It is a set of quantitative, falsifiable predictions.
+The proto-Earth was therefore a magma ocean in a body rotating every 3.5 hours, its axis wobbling chaotically within [40°,70°] in its own frame, with no Moon to stabilise it.
 
-One or more seismic interfaces between 200 and 530 km depth — where successive layers, increasingly iron-rich toward the interior, produce a measurable echo — will be tested by Chang'e-7 in August 2026 and by Artemis III. Mantle ejecta from the South Pole–Aitken basin are predicted to carry a high Fe/Si signature, testable in Chang'e-6 samples and by Artemis III direct sampling.
+A single engine — the progressive segregation of iron and nickel toward the forming core — drives three coupled transitions: the emergence of a Coherent Magmatic Torus, two to three hypersonic ejections that build the Moon layer by layer, and the delayed onset of the terrestrial dynamo (≈350 Myr, with no free parameter).
 
-This version adds a distributed treatment of angular momentum transport by ejecta and a corrected, dimensionally consistent derivation of the double-well potential governing the ejection mechanism, yielding three new falsifiable predictions (P20–P22). It also introduces a complementary geochemical test based on the South Pole–Aitken (SPA) basin, and acknowledges two remaining limitations: impact mixing in SPA ejecta (L9) and the current absence of direct deep-mantle samples (L10) — both of which Chang'e-7 and Artemis III are expected to help address.
+This is not a philosophical claim.
+
+It is a set of quantitative, falsifiable predictions.
+
+One or more seismic interfaces between 200 and 530 km depth — where successive layers, increasingly iron-rich toward the interior, produce a measurable echo — will be tested by Chang'e-7 in August 2026 and by Artemis III.
+
+Ejecta from the South Pole–Aitken basin are predicted to carry a high Fe/Si signature, testable in existing Chang'e-6 samples and by future sampling.
+
+This Definitive Edition introduces a fully quantified geochemical test (P6) based on the SPA basin, with an explicit falsification threshold.
+
+It also acknowledges two remaining limitations: impact mixing in SPA ejecta (L9) and the current absence of direct deep-mantle samples (L10).
 
 All hypotheses are ranked. All limitations are acknowledged.
 
@@ -69,7 +79,7 @@ The theory will stand or fall on the data.
 | P3 | Fe/Si gradient increasing with depth | Chang'e-6, Artemis III | 2026–2029 |
 | P4 | Dynamo delay 290–360 Myr, gradual paleointensity growth (no abrupt onset) | Jack Hills zircons | Ongoing |
 | P5 | Instability window ε ∈ [57°, 70°] | N-body obliquity simulations | — |
-| P6 | Polar ejecta signature at high latitudes (South Pole) | Chang'e 7 (South Pole) | August 2026 |
+| P6 | Fe/Si enrichment ≥ 1.5% in South Pole ejecta relative to equatorial/nearside samples, with explicit pre-registered falsification threshold | Chang'e 7, Artemis III (South Pole) | August 2026 / 2028–2029 |
 | P7 | Hf-W signature: 100 ± 10 Myr after CAIs (vs. 60 ± 10 Myr for giant impact) | Artemis III | 2028–2029 |
 | P8 | Formation age > 4.45 Ga (LMO solidification ≠ formation) | Artemis III | 2028–2029 |
 | P9 | Mare basalt melting depth compatible with Layer 1 | Apollo / Chang'e-5 geochemistry | — |
@@ -77,9 +87,11 @@ The theory will stand or fall on the data.
 | P17 | Capture efficiency f_cap ≳ 0.65–0.70, beyond the classical 10–55% disk-accretion interval | 3D SPH simulation | Pending (L1, L2) |
 | P20 | Asymptotic regime indicator: true L_loss lies between monokinetic and broad-spectrum bounds | Monte Carlo simulation | Pending (L2) |
 | P21 | Numerical closure of angular momentum budget to within ~5% | 3D SPH simulation | Pending (L1, L2) |
-| P22 | Double-well emergence threshold: ~13% reduction in effective gravity required for ejection mechanism to activate | 3D SPH simulation | Pending (L1, L2) |
+| P22 | Double-well emergence threshold: unified criterion on the coupled (Ω, g_eff) surface required for the ejection mechanism to activate | 3D SPH simulation | Pending (L1, L2) |
 
 **Falsification condition (P1):** no phase conversion detected in the 200–530 km window after deployment of at least 3 seismic stations and detection of at least 10 lunar events with M > 2.5.
+
+**Falsification condition (P6):** a measured Fe/Si enrichment below 1.5% in South Pole ejecta falsifies the prediction as constructed.
 
 ---
 
@@ -97,6 +109,8 @@ The theory will stand or fall on the data.
 | L8 | Rossby-wave speed in BH fluid | Channel analogue; open problem |
 | L9 | Impact mixing in SPA ejecta | Complicates primary mantle identification |
 | L10 | Absence of samples constraining the deep lunar mantle | No existing direct constraint; awaiting Artemis III |
+| L11 | Episode-2 fraction in SPA ejecta | Set conservatively at 30%; refines the P6 threshold |
+| L12 | Quantitative validity of the Gaussian approximation for CMT confinement | Leading-order limit of the nonlinear Schrödinger reduction; not yet quantitatively bounded |
 
 ---
 
@@ -115,7 +129,7 @@ The theory will stand or fall on the data.
 
 | Platform | Identifier | Date | Status |
 |----------|-----------|------|--------|
-| Zenodo (all versions) | [10.5281/zenodo.20626204](https://doi.org/10.5281/zenodo.20626204) | June 23, 2026 | ✅ ⭐ |
+| Zenodo (this version) | [10.5281/zenodo.20760018](https://doi.org/10.5281/zenodo.20760018) | June 27, 2026 | ✅ ⭐ |
 | OSF | [10.17605/OSF.IO/XTN4Q](https://doi.org/10.17605/OSF.IO/XTN4Q) | June 23, 2026 | ✅ |
 | Figshare | [10.6084/m9.figshare.32306832](https://doi.org/10.6084/m9.figshare.32306832) | — | ✅ |
 | EarthArXiv | [10.31223/X5XB6H](https://doi.org/10.31223/X5XB6H) | Updated | ⏳ |
@@ -129,19 +143,20 @@ The theory will stand or fall on the data.
 ## Repository Contents
 
 | File | Description |
-|------|-------------|
-| `Moon_Formation_Triple_Phase_Transition_EN_21_06_2026.pdf` | Full manuscript — English (latest) |
-| `La_formation_Lune_Triple_Transition_Phase_Fr-21_06_2026.pdf` | Manuscrit complet — français (dernière version) |
+|------|--------------|
+| `The_Moon_Formation_Triple_Phase_Transition_Definitive_Edition.pdf` | Full manuscript — English (latest) |
+| `La_Formation_Lune_Triple_Transition_Phase_Edition_Definitive.pdf` | Manuscrit complet — français (dernière version) |
 | `Animation_Formation_de_la_Lune_v2.html` | Interactive simulation |
-| `Animation_Screen_Shot.png` | Simulation screenshot |
-| `Double_Puits_Debailleul.png` | Double-well potential figure (FR) |
+| `Animation_Screen_Shot.png` | Simulation screenshot (EN) |
+| `Animation_Screen_Shot_Fr.png` | Simulation screenshot (FR) |
+| `Double_Puits_Debailleul_Fr.png` | Double-well potential figure (FR) |
 | `Double_Well_EN.png` | Double-well potential figure (EN) |
 
 ---
 
 ## Citation
 
-DEBAILLEUL, M. (2026). *Lunar Formation via Triple Phase Transition in the Differentiating Proto-Earth.* Zenodo. https://doi.org/10.5281/zenodo.20626204
+DEBAILLEUL, M. (2026). *Lunar Formation by Triple Phase Transition in the Differentiating Proto-Earth — Definitive Edition.* Zenodo. https://doi.org/10.5281/zenodo.20760018
 
 ---
 
