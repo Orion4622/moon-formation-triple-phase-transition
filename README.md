@@ -1,4 +1,24 @@
-Lunar Formation by Triple Phase Transition in the Differentiating Proto-Earth — Definitive Edition
+---
+layout: default
+title: Lunar Formation via Triple Phase Transition
+---
+
+# Lunar Formation by Triple Phase Transition in the Differentiating Proto-Earth — Definitive Edition
+
+**Michel Debailleul** — Geophysicist, Université libre de Bruxelles (ULB)
+ORCID: [0009-0003-1222-1433](https://orcid.org/0009-0003-1222-1433)
+Email: michel.debailleul@yahoo.fr
+License: CC BY 4.0
+
+[![DOI](https://img.shields.io/badge/DOI-Zenodo-blue)](https://doi.org/10.5281/zenodo.20760018)
+[![EarthArXiv](https://img.shields.io/badge/EarthArXiv-preprint-orange)](https://doi.org/10.31223/X5XB6H)
+[![OSF](https://img.shields.io/badge/OSF-mirror-green)](https://doi.org/10.17605/OSF.IO/XTN4Q)
+
+🇫🇷 [Lire en français](README.fr.md)
+
+---
+
+## Abstract
 
 Where does the Moon come from?
 
@@ -30,9 +50,6 @@ This Definitive Edition introduces a fully quantified geochemical test (P6) base
 
 All eighteen hypotheses are ranked by confidence level. All twelve acknowledged limitations are listed without exception.
 
-An interactive 3D simulation of the entire TPT mechanism is freely accessible at:
-https://orion4622.github.io/moon-formation-triple-phase-transition/Animation_Formation_de_la_Lune_v2.html
-
 The theory will stand or fall on the data.
 
 ---
@@ -47,9 +64,21 @@ The theory will stand or fall on the data.
 
 1. **Absence of tidal stabiliser** — logically necessary: no Moon → no lunar tidal damping
 2. **Laskar et al. (1993)** — without a satellite, chaotic zone extends from 0° to ≈85°
-3. **Rapid rotation at 3.5 h** — precession too fast for Laskar-type resonances; obliquity diffuses stochastically
-4. **Continuous planetesimal bombardment** — τ_pert ≪ τ_relax ≈ 10⁶ yr
+3. **Rapid rotation at 3.5 h, constrained by the accretion literature** — precession too fast for Laskar-type resonances; obliquity diffuses stochastically
+4. **Continuous planetesimal bombardment** — the frequency of major impacts maintains axial misalignment far more effectively than slow viscous relaxation
 5. **T-Tauri CME torques** — daily impulsive perturbations on the spin vector
+
+---
+
+## The Ejection Mechanism, Checked Equation by Equation
+
+The crossing criterion that triggers each ejection has been revisited in full: at the proto-Earth's global parameters alone, it requires a reduction in the torus's effective gravity of about 91%, far beyond what Fe-Ni segregation alone can supply (15% at most). Three complementary, independently sourced mechanisms close this gap:
+
+- the torus's true density, reduced by its 'a'ā-type vesicular structure and by segregation extending beyond the Fe-Ni couple alone;
+- obliquity evaluated at its geometric maximum, consistent with the absence of a privileged value before orbital stabilisation;
+- angular momentum delivered by the late bombardment of large planetesimals, whose plausible total mass has recently been revised upward in the literature.
+
+Combined, these three effects render the ejection mechanism physically attainable, with a margin of about 7% on the recalculated deficit.
 
 ---
 
@@ -70,7 +99,7 @@ The theory will stand or fall on the data.
 | P17 | Capture efficiency f_cap ≳ 0.65–0.70, beyond the classical 10–55% disk-accretion interval | 3D SPH simulation | Pending (L1, L2) |
 | P20 | Asymptotic regime indicator: true L_loss lies between monokinetic and broad-spectrum bounds | Monte Carlo simulation | Pending (L2) |
 | P21 | Numerical closure of angular momentum budget to within ~5% | 3D SPH simulation | Pending (L1, L2) |
-| P22 | Double-well emergence threshold: unified criterion on the coupled (Ω, g_eff) surface required for the ejection mechanism to activate | 3D SPH simulation | Pending (L1, L2) |
+| P22 | Double-well emergence threshold: unified criterion on the coupled (Ω, g_eff) surface, closed by the three complementary mechanisms of density, obliquity, and planetesimal bombardment | 3D SPH simulation | Pending (L1, L2) |
 
 **Falsification condition (P1):** no phase conversion detected in the 200–530 km window after deployment of at least 3 seismic stations and detection of at least 10 lunar events with M > 2.5.
 
