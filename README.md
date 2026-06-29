@@ -1,24 +1,4 @@
----
-layout: default
-title: Lunar Formation via Triple Phase Transition
----
-
-# Lunar Formation by Triple Phase Transition in the Differentiating Proto-Earth — Definitive Edition
-
-**Michel Debailleul** — Geophysicist, Université libre de Bruxelles (ULB)
-ORCID: [0009-0003-1222-1433](https://orcid.org/0009-0003-1222-1433)
-Email: michel.debailleul@yahoo.fr
-License: CC BY 4.0
-
-[![DOI](https://img.shields.io/badge/DOI-Zenodo-blue)](https://doi.org/10.5281/zenodo.20760018)
-[![EarthArXiv](https://img.shields.io/badge/EarthArXiv-preprint-orange)](https://doi.org/10.31223/X5XB6H)
-[![OSF](https://img.shields.io/badge/OSF-mirror-green)](https://doi.org/10.17605/OSF.IO/XTN4Q)
-
-🇫🇷 [Lire en français](README.fr.md)
-
----
-
-## Abstract
+Lunar Formation by Triple Phase Transition in the Differentiating Proto-Earth — Definitive Edition
 
 Where does the Moon come from?
 
@@ -30,25 +10,28 @@ This work presents a definitive, quantitative alternative: the Moon was born fro
 
 The logic is explicit and thermodynamically grounded.
 
-Accretion energy exceeds the energy required to melt the entire silicate mantle by a factor of ≈155.
+Accretion energy exceeds the energy required to melt the entire silicate mantle by a factor of ≈155, a result directly tied to Earth's known gravitational binding energy.
 
-The proto-Earth was therefore a magma ocean in a body rotating every 3.5 hours, its axis wobbling chaotically within [40°,70°] in its own frame, with no Moon to stabilise it.
+The proto-Earth was therefore a magma ocean in a body rotating every 3.5 hours — a value drawn straight from the accretion literature, not from an unconstrained initial spin — its axis wobbling chaotically within [40°,70°] in its own frame, with no Moon to stabilise it.
 
 A single engine — the progressive segregation of iron and nickel toward the forming core — drives three coupled transitions: the emergence of a Coherent Magmatic Torus, two to three hypersonic ejections that build the Moon layer by layer, and the delayed onset of the terrestrial dynamo (≈350 Myr, with no free parameter).
 
+The ejection mechanism itself withstands close scrutiny. Segregation alone cannot lighten the torus enough to trigger ejection — closing that gap requires the torus's true vesicular density, its obliquity at the geometric extreme allowed before the Moon existed, and angular momentum delivered by the late bombardment of large planetesimals, a contribution now recognised in the literature as far larger than once assumed. Together, these three effects close the gap with room to spare.
+
 This is not a philosophical claim.
 
-It is a set of quantitative, falsifiable predictions.
+It is a set of quantitative, falsifiable predictions, each checked equation by equation against its own numbers.
 
 One or more seismic interfaces between 200 and 530 km depth — where successive layers, increasingly iron-rich toward the interior, produce a measurable echo — will be tested by Chang'e-7 in August 2026 and by Artemis III.
 
 Ejecta from the South Pole–Aitken basin are predicted to carry a high Fe/Si signature, testable in existing Chang'e-6 samples and by future sampling.
 
-This Definitive Edition introduces a fully quantified geochemical test (P6) based on the SPA basin, with an explicit falsification threshold.
+This Definitive Edition introduces a fully quantified geochemical test (P6) based on the SPA basin, with an explicit falsification threshold set in advance of the data.
 
-It also acknowledges two remaining limitations: impact mixing in SPA ejecta (L9) and the current absence of direct deep-mantle samples (L10).
+All eighteen hypotheses are ranked by confidence level. All twelve acknowledged limitations are listed without exception.
 
-All hypotheses are ranked. All limitations are acknowledged.
+An interactive 3D simulation of the entire TPT mechanism is freely accessible at:
+https://orion4622.github.io/moon-formation-triple-phase-transition/Animation_Formation_de_la_Lune_v2.html
 
 The theory will stand or fall on the data.
 
