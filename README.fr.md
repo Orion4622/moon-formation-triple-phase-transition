@@ -22,34 +22,35 @@ Licence : CC BY 4.0
 
 D'où vient la Lune ?
 
-Depuis cinquante ans, l'impact géant est la réponse par défaut.
-
-Mais il n'explique pas l'identité isotopique Terre–Lune, la dichotomie crustale, le délai de 350 Ma du dynamo terrestre, ni les olivines riches en fer rapportées par Chang'e-6.
-
+Depuis cinquante ans, l'impact géant est la réponse par défaut. Mais il n'explique pas l'identité isotopique Terre–Lune, la dichotomie crustale, le délai de 350 Ma du dynamo terrestre, ni les olivines riches en fer rapportées par Chang'e-6.
 Ce travail propose une alternative définitive et quantifiée : la Lune est née de la Terre elle-même — non d'une collision, mais de l'instabilité interne d'une proto-Terre entièrement fondue en rotation rapide.
 
-La logique est explicite et thermodynamiquement fondée.
+La logique est explicite et thermodynamiquement fondée. 
 
 L'énergie d'accrétion excède l'énergie nécessaire pour fondre l'ensemble du manteau silicaté d'un facteur ≈155, un résultat directement rattaché à l'énergie de liaison gravitationnelle connue de la Terre.
 
-La proto-Terre était donc un corps magmatique tournant en 3,5 heures — une valeur tirée directement de la littérature sur l'accrétion planétaire, non d'une rotation initiale non contrainte — sans Lune pour stabiliser son axe, oscillant chaotiquement dans [40°,70°] dans son propre référentiel.
+La proto-Terre était donc un corps magmatique tournant en 3,5 heures — une valeur tirée directement de la littérature sur l'accrétion planétaire, non d'une rotation initiale non contrainte — sans Lune pour stabiliser son axe : dans un Système solaire encore dépourvu de tout plan de référence externe, seul l'angle entre l'axe de rotation et l'axe propre du corps a un sens.
+ cet angle oscille chaotiquement, sans jamais s'y fixer, dans la plage [40°,70°] — chaque éjection relançant cette instabilité plutôt que de la calmer, par la nutation violente qu'elle déclenche elle-même.
 
 Un seul moteur — la ségrégation progressive du fer et du nickel vers le noyau en formation — déclenche trois transitions couplées : l'émergence d'un Tore Magmatique Cohérent, deux à trois éjections hypersoniques qui construisent la Lune couche par couche, et l'apparition retardée du dynamo terrestre (≈350 Ma, sans paramètre libre).
 
-Le mécanisme d'éjection lui-même résiste à l'examen serré. La seule ségrégation Fe-Ni ne peut pas alléger suffisamment le tore pour déclencher l'éjection — combler cet écart exige la densité réelle et vésiculaire du tore, son obliquité à l'extrême géométrique permis avant même que la Lune n'existe, et le moment cinétique livré par le bombardement tardif de gros planétésimaux, un apport aujourd'hui reconnu dans la littérature comme bien plus important qu'on ne le pensait. Ensemble, ces trois effets comblent l'écart avec une marge confortable.
+Le mécanisme d'éjection lui-même résiste à l'examen serré. 
 
-Ce n'est pas une affirmation philosophique.
+La seule ségrégation ne peut pas alléger suffisamment le tore pour déclencher l'éjection — combler cet écart exige la densité réelle et vésiculaire du tore, son obliquité au passage le plus favorable de cette oscillation jamais stabilisée, et le moment cinétique livré par le bombardement tardif de gros planétésimaux, un apport aujourd'hui reconnu dans la littérature comme bien plus important qu'on ne le pensait. 
+
+Ensemble, ces trois effets comblent l'écart avec une marge confortable — une marge que l'instabilité elle-même, en ramenant régulièrement le système près de ce point favorable, rend d'autant plus atteignable.
+
+Ce n'est pas une affirmation philosophique. 
 
 C'est un ensemble de prédictions quantitatives et falsifiables, chacune vérifiée équation par équation contre ses propres chiffres.
-
 Une ou plusieurs interfaces sismiques entre 200 et 530 km de profondeur — là où les couches successives, de plus en plus riches en fer vers l'intérieur, produisent un écho mesurable — seront testées par Chang'e-7 en août 2026 et par Artémis III.
 
-Les éjectas mantelliques du bassin Pôle Sud–Aitken sont prédits porteurs d'une signature Fe/Si élevée, testable dans les échantillons Chang'e-6 existants et par les futurs prélèvements.
+Les éjectas mantelliques du bassin Pôle Sud–Aitken (SPA) sont prédits porteurs d'une signature Fe/Si élevée, testable dans les échantillons Chang'e-6 existants et par les futurs prélèvements. 
 
 Cette Édition Définitive introduit un test géochimique complètement quantifié (P6) basé sur le bassin SPA, avec un seuil de falsification fixé à l'avance des données.
+Les dix-huit hypothèses sont hiérarchisées par niveau de confiance. Les treize limitations reconnues sont listées sans exception.
 
-Les dix-huit hypothèses sont hiérarchisées par niveau de confiance. Les douze limitations reconnues sont listées sans exception.
-
+Cette Édition Définitive est soumise en l’état, dans l’attente des résultats de Chang’e-7 et d’Artemis III.
 La théorie sera jugée par les données.
 
 ---
