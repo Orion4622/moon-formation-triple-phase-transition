@@ -21,34 +21,36 @@ License: CC BY 4.0
 ## Abstract
 
 Where does the Moon come from?
-
-For fifty years, the giant impact has been the default answer.
+For fifty years, the giant impact has been the default answer. 
 
 But it fails to explain the Earth–Moon isotopic identity, the lunar crustal dichotomy, the 350-Myr delay of the terrestrial dynamo, or the Fe-rich olivines recently returned by Chang'e-6.
 
 This work presents a definitive, quantitative alternative: the Moon was born from the Earth itself — not from a collision, but from the internal instability of a fully molten, rapidly rotating proto-Earth.
 
-The logic is explicit and thermodynamically grounded.
+The logic is explicit and thermodynamically grounded. Accretion energy exceeds the energy required to melt the entire silicate mantle by a factor of ≈155, a result directly tied to Earth's known gravitational binding energy.
 
-Accretion energy exceeds the energy required to melt the entire silicate mantle by a factor of ≈155, a result directly tied to Earth's known gravitational binding energy.
-
-The proto-Earth was therefore a magma ocean in a body rotating every 3.5 hours — a value drawn straight from the accretion literature, not from an unconstrained initial spin — its axis wobbling chaotically within [40°,70°] in its own frame, with no Moon to stabilise it.
+The proto-Earth was therefore a magma body rotating every 3.5 hours — a value drawn straight from the accretion literature, not from an unconstrained initial spin — with no Moon to stabilise its axis: 
+in a Solar System still lacking any external reference plane, only the angle between the rotation axis and the body's own principal axis has any meaning, and that angle wanders chaotically, never settling, within [40°,70°] each ejection re-igniting this instability rather than calming it, through the violent nutation it triggers in turn.
 
 A single engine — the progressive segregation of iron and nickel toward the forming core — drives three coupled transitions: the emergence of a Coherent Magmatic Torus, two to three hypersonic ejections that build the Moon layer by layer, and the delayed onset of the terrestrial dynamo (≈350 Myr, with no free parameter).
 
-The ejection mechanism itself withstands close scrutiny. Segregation alone cannot lighten the torus enough to trigger ejection — closing that gap requires the torus's true vesicular density, its obliquity at the geometric extreme allowed before the Moon existed, and angular momentum delivered by the late bombardment of large planetesimals, a contribution now recognised in the literature as far larger than once assumed. Together, these three effects close the gap with room to spare.
+The ejection mechanism itself withstands close scrutiny. Segregation alone cannot lighten the torus enough to trigger ejection — closing that gap requires the torus's true vesicular density, its obliquity at the most favourable point of this never-stabilised oscillation, and angular momentum delivered by the late bombardment of large planetesimals, a contribution now recognised in the literature as far larger than once assumed. 
 
-This is not a philosophical claim.
+Together, these three effects close the gap with room to spare — a margin made all the more attainable by the instability itself, which repeatedly carries the system back near this favourable point.
 
-It is a set of quantitative, falsifiable predictions, each checked equation by equation against its own numbers.
+This is not a philosophical claim. It is a set of quantitative, falsifiable predictions, each checked equation by equation against its own numbers.
 
 One or more seismic interfaces between 200 and 530 km depth — where successive layers, increasingly iron-rich toward the interior, produce a measurable echo — will be tested by Chang'e-7 in August 2026 and by Artemis III.
 
-Ejecta from the South Pole–Aitken basin are predicted to carry a high Fe/Si signature, testable in existing Chang'e-6 samples and by future sampling.
+Ejecta from the South Pole–Aitken basin (SPA) are predicted to carry a high Fe/Si signature, testable in existing Chang'e-6 samples and by future sampling. 
 
 This Definitive Edition introduces a fully quantified geochemical test (P6) based on the SPA basin, with an explicit falsification threshold set in advance of the data.
 
-All eighteen hypotheses are ranked by confidence level. All twelve acknowledged limitations are listed without exception.
+All eighteen hypotheses are ranked by confidence level. 
+
+All thirteen acknowledged limitations are listed without exception.
+
+This Definitive Edition stands as submitted, pending the Chang'e-7 and Artemis III results.
 
 The theory will stand or fall on the data.
 
