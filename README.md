@@ -18,41 +18,41 @@ License: CC BY 4.0
 
 ---
 
+> "Improbability is not an argument. The Moon exists. The improbable happened. My job is to identify how it happened, not to calculate whether it was probable. The only valid test is whether the predictions I derive from it are verified by observation."
+
+---
+
 ## Abstract
 
 Where does the Moon come from?
-For fifty years, the giant impact has been the default answer. 
 
-But it fails to explain the Earth–Moon isotopic identity, the lunar crustal dichotomy, the 350-Myr delay of the terrestrial dynamo, or the Fe-rich olivines recently returned by Chang'e-6.
+For fifty years, the giant impact has been the default answer. But it fails to explain the Earth–Moon isotopic identity, the lunar crustal dichotomy, the 350-Myr delay of the terrestrial dynamo, or the Fe-rich olivines recently returned by Chang'e-6.
 
 This work presents a definitive, quantitative alternative: the Moon was born from the Earth itself — not from a collision, but from the internal instability of a fully molten, rapidly rotating proto-Earth.
 
 The logic is explicit and thermodynamically grounded. Accretion energy exceeds the energy required to melt the entire silicate mantle by a factor of ≈155, a result directly tied to Earth's known gravitational binding energy.
 
-The proto-Earth was therefore a magma body rotating every 3.5 hours — a value drawn straight from the accretion literature, not from an unconstrained initial spin — with no Moon to stabilise its axis: 
-in a Solar System still lacking any external reference plane, only the angle between the rotation axis and the body's own principal axis has any meaning, and that angle wanders chaotically, never settling, within [40°,70°] each ejection re-igniting this instability rather than calming it, through the violent nutation it triggers in turn.
+The proto-Earth was therefore a magma body rotating every 3.5 hours — a value drawn straight from the accretion literature, not from an unconstrained initial spin — with no Moon to stabilise its axis. In a Solar System still lacking any external reference plane, only the angle between the rotation axis and the body's own principal axis has any meaning, and that angle wanders chaotically, never settling, within [40°,70°] — each ejection re-igniting this instability rather than calming it, through the violent nutation it triggers in turn.
+
+The Hadean context is one of structural non-equilibrium: no stationary state is physically accessible. Accretion is continuous, impacts are frequent, the T-Tauri Sun is hyperactive, and short-lived radioisotopes keep the mantle hot. Every process that might, on its own, return the system toward equilibrium is itself perturbed, on a timescale shorter than its own relaxation time, by at least one other independent process. This is not an agitated period among others — it is a regime where equilibrium is structurally impossible.
 
 A single engine — the progressive segregation of iron and nickel toward the forming core — drives three coupled transitions: the emergence of a Coherent Magmatic Torus, two to three hypersonic ejections that build the Moon layer by layer, and the delayed onset of the terrestrial dynamo (≈350 Myr, with no free parameter).
 
-The ejection mechanism itself withstands close scrutiny. Segregation alone cannot lighten the torus enough to trigger ejection — closing that gap requires the torus's true vesicular density, its obliquity at the most favourable point of this never-stabilised oscillation, and angular momentum delivered by the late bombardment of large planetesimals, a contribution now recognised in the literature as far larger than once assumed. 
-
-Together, these three effects close the gap with room to spare — a margin made all the more attainable by the instability itself, which repeatedly carries the system back near this favourable point.
+The ejection mechanism itself withstands close scrutiny. Segregation alone cannot lighten the torus enough to trigger ejection — closing that gap requires the torus's true vesicular density, its obliquity at the most favourable point of this never-stabilised oscillation, and angular momentum delivered by the late bombardment of large planetesimals, a contribution now recognised in the literature as far larger than once assumed. Together, these three effects close the gap with room to spare — a margin made all the more attainable by the instability itself, which repeatedly carries the system back near this favourable point.
 
 This is not a philosophical claim. It is a set of quantitative, falsifiable predictions, each checked equation by equation against its own numbers.
 
 One or more seismic interfaces between 200 and 530 km depth — where successive layers, increasingly iron-rich toward the interior, produce a measurable echo — will be tested by Chang'e-7 in August 2026 and by Artemis III.
 
-Ejecta from the South Pole–Aitken basin (SPA) are predicted to carry a high Fe/Si signature, testable in existing Chang'e-6 samples and by future sampling. 
+Ejecta from the South Pole–Aitken basin (SPA) are predicted to carry a high Fe/Si signature, testable in existing Chang'e-6 samples and by future sampling.
 
 This Definitive Edition introduces a fully quantified geochemical test (P6) based on the SPA basin, with an explicit falsification threshold set in advance of the data.
 
-All eighteen hypotheses are ranked by confidence level. 
-
-All thirteen acknowledged limitations are listed without exception.
+All eighteen hypotheses are ranked by confidence level. All thirteen acknowledged limitations are listed without exception.
 
 This Definitive Edition stands as submitted, pending the Chang'e-7 and Artemis III results.
 
-The theory will stand or fall on the data.
+**The theory will stand or fall on the data.**
 
 ---
 
@@ -139,11 +139,29 @@ Combined, these three effects render the ejection mechanism physically attainabl
 
 ---
 
+## Repository Contents
+
+| File | Description |
+|------|-------------|
+| `The_Moon_Formation_Triple_Phase_Transition_Engine_Version_EN.pdf` | Full manuscript — English (latest) |
+| `La_Formation_Lune_Triple_Phase_Transition_mecanisme_Version_FR.pdf` | Manuscrit complet — français (dernière version) |
+| `Animation_Formation_de_la_Lune_v2.html` | Interactive simulation |
+| `figure1_two_worlds_EN.png` | Figure 1 — Two worlds, one common scale (EN) |
+| `figure1_deux_mondes.png` | Figure 1 — Deux mondes, une même échelle (FR) |
+| `figure2_engine_EN.png` | Figure 2 — The ejection engine (EN) |
+| `figure2_moteur.png` | Figure 2 — Le moteur de l'éjection (FR) |
+| `figure3_moon_cross_section_EN.png` | Figure 3 — Predicted internal cross-section (EN) |
+| `figure3_coupe_lune.png` | Figure 3 — Coupe interne prédite (FR) |
+| `Animation_Screen_Shot_EN.png` | Simulation screenshot (EN) |
+| `Animation_Screen_Shot_Fr.png` | Simulation screenshot (FR) |
+
+---
+
 ## Canonical Deposits
 
 | Platform | Identifier | Date | Status |
 |----------|-----------|------|--------|
-| Zenodo (this version) | [10.5281/zenodo.20760018](https://doi.org/10.5281/zenodo.20760018) | June 27, 2026 | ✅ ⭐ |
+| Zenodo (this version) | [10.5281/zenodo.20760018](https://doi.org/10.5281/zenodo.20760018) | July 2, 2026 | ✅ ⭐ |
 | OSF | [10.17605/OSF.IO/XTN4Q](https://doi.org/10.17605/OSF.IO/XTN4Q) | June 23, 2026 | ✅ |
 | Figshare | [10.6084/m9.figshare.32306832](https://doi.org/10.6084/m9.figshare.32306832) | — | ✅ |
 | EarthArXiv | [10.31223/X5XB6H](https://doi.org/10.31223/X5XB6H) | Updated | ⏳ |
@@ -151,20 +169,6 @@ Combined, these three effects render the ejection mechanism physically attainabl
 | ESSOAr | 10.22541/essoar.15003588 | Updated | ⏳ |
 | GitHub | [Orion4622/moon-formation-triple-phase-transition](https://github.com/Orion4622/moon-formation-triple-phase-transition) | — | ✅ |
 | PSJ/AAS | manuscript #AAS77321 | submitted May 27, 2026 | ⏳ |
-
----
-
-## Repository Contents
-
-| File | Description |
-|------|--------------|
-| `The_Moon_Formation_Triple_Phase_Transition_Definitive_Edition.pdf` | Full manuscript — English (latest) |
-| `La_Formation_Lune_Triple_Transition_Phase_Edition_Definitive.pdf` | Manuscrit complet — français (dernière version) |
-| `Animation_Formation_de_la_Lune_v2.html` | Interactive simulation |
-| `Animation_Screen_Shot.png` | Simulation screenshot (EN) |
-| `Animation_Screen_Shot_Fr.png` | Simulation screenshot (FR) |
-| `Double_Puits_Debailleul_Fr.png` | Double-well potential figure (FR) |
-| `Double_Well_EN.png` | Double-well potential figure (EN) |
 
 ---
 
