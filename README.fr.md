@@ -26,19 +26,19 @@ Licence : CC BY 4.0
 
 D'où vient la Lune ?
 
-Depuis cinquante ans, l'impact géant est la réponse par défaut. Mais il échoue à expliquer l'identité isotopique Terre–Lune, la dichotomie crustale, le délai d'environ 350 Ma de la dynamo terrestre, ni les olivines riches en fer récemment rapportées par Chang'e-6.
+Depuis cinquante ans, l'impact géant est la réponse par défaut. Mais il n'explique ni l'identité isotopique Terre–Lune, ni la dichotomie crustale, ni le délai d'environ 350 Ma de la dynamo terrestre, ni les olivines riches en fer récemment rapportées par Chang'e-6.
 
 Ce travail propose une alternative définitive et quantitative : la Lune est née de la Terre elle-même — non d'une collision, mais de l'instabilité interne d'une proto-Terre entièrement fondue et en rotation rapide.
 
-Le raisonnement est explicite et thermodynamiquement fondé. L'énergie d'accrétion excède l'énergie requise pour fondre l'intégralité du manteau silicaté d'un facteur ≈155, un résultat directement lié à l'énergie de liaison gravitationnelle connue de la Terre.
+Le raisonnement est explicite et thermodynamiquement fondé. L'énergie d'accrétion excède l'énergie requise pour fondre l'intégralité du manteau silicaté d'un facteur ≈121, un résultat directement lié à l'énergie de liaison gravitationnelle connue de la Terre.
 
-La proto-Terre était donc un corps magmatique tournant toutes les 3,5 heures — une valeur tirée directement de la littérature sur l'accrétion, non d'un spin initial non contraint — sans Lune pour stabiliser son axe. Dans un Système solaire encore dépourvu de tout plan de référence externe, seul l'angle entre l'axe de rotation et l'axe principal propre du corps a un sens, et cet angle erre de façon chaotique, ne se fixant jamais, dans l'intervalle [40°,70°] — chaque éjection réallumant cette instabilité plutôt que de l'apaiser, par la nutation violente qu'elle déclenche en retour.
+La proto-Terre était donc un corps magmatique tournant toutes les 3,5 heures — une valeur tirée directement de la littérature sur l'accrétion, non d'un spin initial non contraint — sans Lune pour stabiliser son axe. Dans un Système solaire encore dépourvu de tout plan de référence externe, seul l'angle entre l'axe de rotation et l'axe principal propre du corps a un sens, et cet angle erre de façon chaotique, ne se fixant jamais, dans l'intervalle [40°, 70°] — chaque éjection réallumant cette instabilité plutôt que de l'apaiser, par la nutation violente qu'elle déclenche en retour.
 
 Le contexte hadéen est celui d'un non-équilibre structurel : aucun état stationnaire n'y est physiquement accessible. L'accrétion est continue, les impacts sont fréquents, le Soleil T-Tauri est hyperactif, et les radioisotopes à courte période de vie maintiennent le manteau chaud. Chaque processus qui pourrait, isolément, ramener le système vers un équilibre est lui-même perturbé, à une échelle de temps plus courte que celle de sa propre relaxation, par au moins un autre processus indépendant. Ce n'est pas une période agitée parmi d'autres — c'est un régime où l'équilibre est structurellement impossible.
 
 Un moteur unique — la ségrégation progressive du fer et du nickel vers le noyau en formation — entraîne trois transitions couplées : l'émergence d'un Tore Magmatique Cohérent, deux à trois éjections hypersoniques qui construisent la Lune couche par couche, et le déclenchement différé de la dynamo terrestre (≈350 Ma, sans paramètre libre).
 
-Le mécanisme d'éjection lui-même résiste à un examen serré. La ségrégation seule ne peut alléger suffisamment le tore pour déclencher l'éjection — combler cet écart nécessite la densité vésciculaire réelle du tore, son obliquité au point le plus favorable de cette oscillation jamais stabilisée, et le moment cinétique apporté par le bombardement tardif de grands planétésimaux, une contribution aujourd'hui reconnue dans la littérature comme bien plus importante qu'on ne le supposait. Ensemble, ces trois effets comblent l'écart avec une marge confortable — une marge d'autant plus accessible que l'instabilité elle-même ramène le système près de ce point favorable.
+Le mécanisme d'éjection lui-même résiste à un examen serré. La ségrégation seule ne peut alléger suffisamment le tore pour déclencher l'éjection — combler cet écart nécessite la densité vésiculaire réelle du tore, son obliquité au point le plus favorable de cette oscillation jamais stabilisée, et le moment cinétique apporté par le bombardement tardif de grands planétésimaux, une contribution aujourd'hui reconnue dans la littérature comme bien plus importante qu'on ne le supposait. Ensemble, ces trois effets comblent l'écart avec une marge confortable — une marge d'autant plus accessible que l'instabilité elle-même ramène le système près de ce point favorable.
 
 Ce n'est pas une affirmation philosophique. C'est un ensemble de prédictions quantitatives et falsifiables, chacune vérifiée équation par équation.
 
@@ -48,7 +48,7 @@ Les éjectas du bassin Pôle Sud–Aitken (SPA) sont prédits comme porteurs d'u
 
 Cette édition définitive introduit un test géochimique entièrement quantifié (P6) basé sur le bassin SPA, avec un seuil de falsification explicite fixé en amont des données.
 
-Les dix-huit hypothèses sont classées par niveau de confiance. Les treize limites reconnues sont listées sans exception.
+Les dix-huit hypothèses sont classées par niveau de confiance. Les quinze limites reconnues sont listées sans exception.
 
 Cette édition définitive est soumise, en attente des résultats de Chang'e-7 et d'Artemis III.
 
@@ -76,7 +76,7 @@ Cette édition définitive est soumise, en attente des résultats de Chang'e-7 e
 
 Le critère de déclenchement de chaque éjection a été revisité intégralement : avec les seuls paramètres globaux de la proto-Terre, il exige une réduction de la gravité effective du tore d'environ 91 %, bien au-delà de ce que la seule ségrégation Fe-Ni peut fournir (15 % au maximum). Trois mécanismes complémentaires et indépendants comblent cet écart :
 
-- la densité réelle du tore, réduite par sa structure vésciculaire de type 'a'ā et par une ségrégation qui s'étend au-delà du seul couple Fe-Ni ;
+- la densité réelle du tore, réduite par sa structure vésiculaire de type 'a'ā et par une ségrégation qui s'étend au-delà du seul couple Fe-Ni ;
 - l'obliquité évaluée à son maximum géométrique, conforme à l'absence de valeur privilégiée avant la stabilisation orbitale ;
 - le moment cinétique apporté par le bombardement tardif de grands planétésimaux, dont la masse totale plausible a récemment été révisée à la hausse dans la littérature.
 
@@ -125,6 +125,9 @@ Combinés, ces trois effets rendent le mécanisme d'éjection physiquement attei
 | L10 | Absence d'échantillons contraignant le manteau lunaire profond | Pas de contrainte directe existante ; en attente d'Artemis III |
 | L11 | Fraction de l'Épisode 2 dans les éjectas du SPA | Fixée conservativement à 30 % ; affine le seuil P6 |
 | L12 | Validité quantitative de l'approximation gaussienne pour le confinement du TMC | Limite au premier ordre de la réduction de Schrödinger non linéaire ; pas encore quantitativement bornée |
+| L13 | Persistance de l'oscillation post-éjection | Repose sur une analogie d'ondes inertielles ; estimation qualitative |
+| L14 | Quantification de BiKH_eff et validation numérique | Produit des trois renforcements de cohésion établi qualitativement ; SPH 3D requise |
+| L15 | Bilan de moment cinétique et puits externe requis | **Priorité 1** — le déficit ΔL ≈ 2,95×10³⁴ J·s doit être évacué par un mécanisme externe (résonance d'évection, candidate) |
 
 ---
 
