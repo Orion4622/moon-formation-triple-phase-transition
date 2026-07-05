@@ -26,29 +26,29 @@ Licence : CC BY 4.0
 
 D'où vient la Lune ?
 
-Depuis cinquante ans, l'impact géant est la réponse par défaut. Mais il n'explique ni l'identité isotopique Terre–Lune, ni la dichotomie crustale, ni le délai d'environ 350 Ma de la dynamo terrestre, ni les olivines riches en fer récemment rapportées par Chang'e-6.
+Depuis cinquante ans, l'**impact géant** est la réponse par défaut. Mais il n'explique ni l'**identité isotopique Terre–Lune**, ni la **dichotomie crustale**, ni le **délai d'environ 350 Ma de la dynamo terrestre**, ni les **olivines riches en fer** récemment rapportées par **Chang'e-6**.
 
-Ce travail propose une alternative définitive et quantitative : la Lune est née de la Terre elle-même — non d'une collision, mais de l'instabilité interne d'une proto-Terre entièrement fondue et en rotation rapide.
+Ce travail propose une alternative définitive et quantitative : **la Lune est née de la Terre elle-même** — non d'une collision, mais de l'**instabilité interne d'une proto-Terre entièrement fondue et en rotation rapide**.
 
-Le raisonnement est explicite et thermodynamiquement fondé. L'énergie d'accrétion excède l'énergie requise pour fondre l'intégralité du manteau silicaté d'un facteur ≈121, un résultat directement lié à l'énergie de liaison gravitationnelle connue de la Terre.
+Le raisonnement est explicite et **thermodynamiquement fondé**. **L'énergie d'accrétion excède l'énergie requise pour fondre l'intégralité du manteau silicaté d'un facteur ≈121**, un résultat directement lié à l'énergie de liaison gravitationnelle connue de la Terre.
 
-La proto-Terre était donc un corps magmatique tournant toutes les 3,5 heures — une valeur tirée directement de la littérature sur l'accrétion, non d'un spin initial non contraint — sans Lune pour stabiliser son axe. Dans un Système solaire encore dépourvu de tout plan de référence externe, seul l'angle entre l'axe de rotation et l'axe principal propre du corps a un sens, et cet angle erre de façon chaotique, ne se fixant jamais, dans l'intervalle [40°, 70°] — chaque éjection réallumant cette instabilité plutôt que de l'apaiser, par la nutation violente qu'elle déclenche en retour.
+La proto-Terre était donc un **corps magmatique tournant toutes les 3,5 heures** — une valeur tirée directement de la littérature sur l'accrétion, non d'un spin initial non contraint — **sans Lune pour stabiliser son axe**. Dans un Système solaire encore dépourvu de tout plan de référence externe, seul l'angle entre l'axe de rotation et l'axe principal propre du corps a un sens, et **cet angle erre de façon chaotique, ne se fixant jamais, dans l'intervalle [40°, 70°]** — chaque éjection réallumant cette instabilité plutôt que de l'apaiser, par la nutation violente qu'elle déclenche en retour.
 
-Le contexte hadéen est celui d'un non-équilibre structurel : aucun état stationnaire n'y est physiquement accessible. L'accrétion est continue, les impacts sont fréquents, le Soleil T-Tauri est hyperactif, et les radioisotopes à courte période de vie maintiennent le manteau chaud. Chaque processus qui pourrait, isolément, ramener le système vers un équilibre est lui-même perturbé, à une échelle de temps plus courte que celle de sa propre relaxation, par au moins un autre processus indépendant. Ce n'est pas une période agitée parmi d'autres — c'est un régime où l'équilibre est structurellement impossible.
+Le contexte hadéen est celui d'un **non-équilibre structurel** : aucun état stationnaire n'y est physiquement accessible. L'accrétion est continue, les impacts sont fréquents, le Soleil T-Tauri est hyperactif, et les radioisotopes à courte période de vie maintiennent le manteau chaud. Chaque processus qui pourrait, isolément, ramener le système vers un équilibre est lui-même perturbé, à une échelle de temps plus courte que celle de sa propre relaxation, par au moins un autre processus indépendant. Ce n'est pas une période agitée parmi d'autres — c'est un régime où **l'équilibre est structurellement impossible**.
 
-Un moteur unique — la ségrégation progressive du fer et du nickel vers le noyau en formation — entraîne trois transitions couplées : l'émergence d'un Tore Magmatique Cohérent, deux à trois éjections hypersoniques qui construisent la Lune couche par couche, et le déclenchement différé de la dynamo terrestre (≈350 Ma, sans paramètre libre).
+**Un moteur unique** — la **ségrégation progressive du fer et du nickel vers le noyau en formation** — entraîne **trois transitions couplées** : l'émergence d'un **Tore Magmatique Cohérent**, **deux à trois éjections hypersoniques qui construisent la Lune couche par couche**, et le **déclenchement différé de la dynamo terrestre (≈350 Ma, sans paramètre libre)**.
 
-Le mécanisme d'éjection lui-même résiste à un examen serré. La ségrégation seule ne peut alléger suffisamment le tore pour déclencher l'éjection — combler cet écart nécessite la densité vésiculaire réelle du tore, son obliquité au point le plus favorable de cette oscillation jamais stabilisée, et le moment cinétique apporté par le bombardement tardif de grands planétésimaux, une contribution aujourd'hui reconnue dans la littérature comme bien plus importante qu'on ne le supposait. Ensemble, ces trois effets comblent l'écart avec une marge confortable — une marge d'autant plus accessible que l'instabilité elle-même ramène le système près de ce point favorable.
+Le **mécanisme d'éjection** lui-même résiste à un examen serré. La ségrégation seule ne peut alléger suffisamment le tore pour déclencher l'éjection — combler cet écart nécessite la **densité vésiculaire réelle du tore**, son **obliquité au point le plus favorable de cette oscillation jamais stabilisée**, et le **moment cinétique apporté par le bombardement tardif de grands planétésimaux**, une contribution aujourd'hui reconnue dans la littérature comme bien plus importante qu'on ne le supposait. Ensemble, ces trois effets comblent l'écart avec une marge confortable — une marge d'autant plus accessible que l'instabilité elle-même ramène le système près de ce point favorable.
 
-Ce n'est pas une affirmation philosophique. C'est un ensemble de prédictions quantitatives et falsifiables, chacune vérifiée équation par équation.
+Ce n'est pas une affirmation philosophique. C'est un ensemble de **prédictions quantitatives et falsifiables**, chacune vérifiée équation par équation.
 
-Une ou plusieurs interfaces sismiques entre 200 et 530 km de profondeur — où les couches successives, de plus en plus riches en fer vers l'intérieur, produisent un écho mesurable — seront testées par Chang'e-7 en août 2026 et par Artemis III.
+**Une ou plusieurs interfaces sismiques entre 200 et 530 km de profondeur** — où les couches successives, de plus en plus riches en fer vers l'intérieur, produisent un écho mesurable — **seront testées par Chang'e-7 en août 2026 et par Artemis III**.
 
-Les éjectas du bassin Pôle Sud–Aitken (SPA) sont prédits comme porteurs d'une signature Fe/Si élevée, testable dans les échantillons existants de Chang'e-6 et par les futurs échantillonnages.
+**Les éjectas du bassin Pôle Sud–Aitken (SPA)** sont prédits comme porteurs d'une **signature Fe/Si élevée**, testable dans les échantillons existants de Chang'e-6 et par les futurs échantillonnages.
 
-Cette édition définitive introduit un test géochimique entièrement quantifié (P6) basé sur le bassin SPA, avec un seuil de falsification explicite fixé en amont des données.
+Cette édition définitive introduit un **test géochimique entièrement quantifié (P6)** basé sur le bassin SPA, avec un **seuil de falsification explicite fixé en amont des données**.
 
-Les dix-huit hypothèses sont classées par niveau de confiance. Les quinze limites reconnues sont listées sans exception.
+Les **dix-huit hypothèses** sont classées par niveau de confiance. Les **quinze limites reconnues** sont listées sans exception.
 
 Cette édition définitive est soumise, en attente des résultats de Chang'e-7 et d'Artemis III.
 
