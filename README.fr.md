@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Formation de la Lune par Triple Transition de Phase
+title: Formation de la Lune par Triple Transition de Phase dans la Proto-Terre en cours de différenciation : un mécanisme falsifiable aux prédictions quantifiées
 ---
 
 # Formation de la Lune par Triple Transition de Phase dans la Proto-Terre en cours de différenciation : un mécanisme falsifiable aux prédictions quantifiées
