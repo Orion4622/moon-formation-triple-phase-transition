@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Lunar Formation via Triple Phase Transition
+title: "Moon Formation via Triple Phase Transition in the Differentiating Proto-Earth: A Falsifiable Mechanism with Quantified Predictions"
 ---
 
-# Lunar Formation by Triple Phase Transition in the Differentiating Proto-Earth — Definitive Edition
+# Moon Formation via Triple Phase Transition in the Differentiating Proto-Earth: A Falsifiable Mechanism with Quantified Predictions
 
 **Michel Debailleul** — Geophysicist, Université libre de Bruxelles (ULB)
 ORCID: [0009-0003-1222-1433](https://orcid.org/0009-0003-1222-1433)
@@ -26,33 +26,26 @@ License: CC BY 4.0
 
 Where does the Moon come from?
 
-For fifty years, the **giant impact** has been the default answer. But it fails to explain the **Earth–Moon isotopic identity**, the **lunar crustal dichotomy**, the **350-Myr delay of the terrestrial dynamo**, or the **Fe-rich olivines** recently returned by **Chang'e-6**.
+Several **well-established features** of the **Earth–Moon system** — the near-identical **Earth–Moon isotopic composition**, the **lunar crustal dichotomy**, the **≈350-Myr delay** of the **terrestrial dynamo**, and the **Fe-rich olivines** recently returned by **Chang'e-6** — still **lack a fully satisfactory explanation**.
 
-This work presents a definitive, quantitative alternative: **the Moon was born from the Earth itself** — not from a collision, but from the **internal instability of a fully molten, rapidly rotating proto-Earth**.
+This work presents a **quantitative alternative**: **the Moon was built from the proto-Earth itself**, through the **internal instability** of a **fully molten, rapidly rotating body** — not through an **external collision**.
 
-The logic is explicit and **thermodynamically grounded**. **Accretion energy exceeds the energy required to melt the entire silicate mantle by a factor of ≈121**, a result directly tied to Earth's known gravitational binding energy.
+The starting point is a **thermodynamic bound**, not an assumption: **accretion energy** exceeds the energy required to **melt the entire silicate mantle** by a factor of **≈121**, tied directly to Earth's known **gravitational binding energy** (Solomatov 2000; Elkins-Tanton 2012; Rubie et al. 2015). The **proto-Earth** was therefore a **magma body rotating every ≈3.5 h** — a value drawn from the **terrestrial-planet accretion literature** (Agnor et al. 1999; Kokubo & Genda 2010), not an **unconstrained free parameter** — with **no Moon** yet in existence to **stabilize its spin axis**.
 
-The proto-Earth was therefore a **magma body rotating every 3.5 hours** — a value drawn straight from the accretion literature, not from an unconstrained initial spin — **with no Moon to stabilise its axis**. In a Solar System still lacking any external reference plane, only the angle between the rotation axis and the body's own principal axis has any meaning, and **that angle wanders chaotically, never settling, within [40°, 70°]** — each ejection re-igniting this instability rather than calming it, through the violent nutation it triggers in turn.
+With **no external reference plane** available in the Solar System at this epoch, only the **angle between the rotation axis and the body's own principal axis of inertia** carries physical meaning. This angle **oscillates chaotically** within **[40°, 70°]** and **never settles**: continuous **bombardment**, **T-Tauri activity**, and the **absence of a tidal stabilizer** keep the system **permanently out of equilibrium**.
 
-The Hadean context is one of **structural non-equilibrium**: no stationary state is physically accessible. Accretion is continuous, impacts are frequent, the T-Tauri Sun is hyperactive, and short-lived radioisotopes keep the mantle hot. Every process that might, on its own, return the system toward equilibrium is itself perturbed, on a timescale shorter than its own relaxation time, by at least one other independent process. This is not an agitated period among others — it is a regime where **equilibrium is structurally impossible**.
+A **single engine** — the progressive **segregation of iron-nickel** toward the **forming core** — drives **three coupled transitions**: the emergence of a **Coherent Magmatic Torus** in the **intertropical band**, **two to three hypersonic ejection episodes** that build the Moon **layer by layer**, and a **magnetic transition** whose **≈350-Myr delay** follows from **three independently constrained durations**, with **no free parameter**.
 
-**A single engine** — the **progressive segregation of iron and nickel toward the forming core** — drives **three coupled transitions**: the emergence of a **Coherent Magmatic Torus**, **two to three hypersonic ejections that build the Moon layer by layer**, and the **delayed onset of the terrestrial dynamo (≈350 Myr, with no free parameter)**.
+The **ejection mechanism** is derived explicitly, equation by equation, from a **Solberg–Høiland stability analysis**, and its sensitivity to every major input parameter — **obliquity**, **density gradient**, **capture efficiency**, **ejected mass** — is **tested rather than assumed**. **Eighteen hypotheses** are **ranked by confidence level**, and **sixteen acknowledged limitations** are **listed without exception**, including points where the mechanism's margin is **narrow rather than comfortable**.
 
-The **ejection mechanism** itself withstands close scrutiny. Segregation alone cannot lighten the torus enough to trigger ejection — closing that gap requires the torus's **true vesicular density**, its **obliquity at the most favourable point of this never-stabilised oscillation**, and **angular momentum delivered by the late bombardment of large planetesimals**, a contribution now recognised in the literature as far larger than once assumed. Together, these three effects close the gap with room to spare — a margin made all the more attainable by the instability itself, which repeatedly carries the system back near this favourable point.
+This is **not a qualitative narrative**. It yields **falsifiable, quantitative predictions** set **in advance of the data**:
 
-This is not a philosophical claim. It is a set of **quantitative, falsifiable predictions**, each checked equation by equation against its own numbers.
+- One or more **seismic interfaces between 200 and 530 km depth**, produced by **concentric layers** of increasing **iron content** toward the interior — testable by **Chang'e-7** (August 2026) and **Artemis III**.
+- A quantified **Fe/Si enrichment threshold** for ejecta from the **South Pole–Aitken basin**, testable in existing **Chang'e-6 samples** and future sampling — **the first fully pre-registered geochemical test** of this theory.
 
-**One or more seismic interfaces between 200 and 530 km depth** — where successive layers, increasingly iron-rich toward the interior, produce a measurable echo — **will be tested by Chang'e-7 in August 2026 and by Artemis III**.
+An **interactive 3D simulation** of the complete mechanism is freely available: https://orion4622.github.io/moon-formation-triple-phase-transition/Animation_Formation_de_la_Lune_v2.html
 
-**Ejecta from the South Pole–Aitken basin (SPA)** are predicted to carry a **high Fe/Si signature**, testable in existing Chang'e-6 samples and by future sampling.
-
-This Definitive Edition introduces a **fully quantified geochemical test (P6)** based on the SPA basin, with an **explicit falsification threshold set in advance of the data**.
-
-All **eighteen hypotheses** are ranked by confidence level. All **fifteen acknowledged limitations** are listed without exception.
-
-This Definitive Edition stands as submitted, pending the Chang'e-7 and Artemis III results.
-
-**The theory will stand or fall on the data.**
+**The theory stands or falls on these results.**
 
 ---
 
@@ -65,22 +58,24 @@ This Definitive Edition stands as submitted, pending the Chang'e-7 and Artemis I
 ## Five Arguments for ε ∈ [40°, 70°]
 
 1. **Absence of tidal stabiliser** — logically necessary: no Moon → no lunar tidal damping
-2. **Laskar et al. (1993)** — without a satellite, chaotic zone extends from 0° to ≈85°
+2. **Laskar et al. (1993)** — without a satellite, the chaotic zone extends from 0° to ≈85°
 3. **Rapid rotation at 3.5 h, constrained by the accretion literature** — precession too fast for Laskar-type resonances; obliquity diffuses stochastically
 4. **Continuous planetesimal bombardment** — the frequency of major impacts maintains axial misalignment far more effectively than slow viscous relaxation
-5. **T-Tauri CME torques** — daily impulsive perturbations on the spin vector
+5. **T-Tauri CME torques** — daily-to-weekly impulsive perturbations on the spin vector
 
 ---
 
-## The Ejection Mechanism, Checked Equation by Equation
+## The Ejection Mechanism, in Brief
 
-The crossing criterion that triggers each ejection has been revisited in full: at the proto-Earth's global parameters alone, it requires a reduction in the torus's effective gravity of about 91%, far beyond what Fe-Ni segregation alone can supply (15% at most). Three complementary, independently sourced mechanisms close this gap:
+Ejection is triggered when a generalized instability coefficient, built from a Solberg–Høiland stability analysis of the rotating magmatic torus, crosses from negative (stable confinement) to positive (ejection). This coefficient combines several physical contributions:
 
-- the torus's true density, reduced by its 'a'ā-type vesicular structure and by segregation extending beyond the Fe-Ni couple alone;
-- obliquity evaluated at its geometric maximum, consistent with the absence of a privileged value before orbital stabilisation;
-- angular momentum delivered by the late bombardment of large planetesimals, whose plausible total mass has recently been revised upward in the literature.
+- a **non-traditional Coriolis term** (the "Eötvös effect"), which lightens any prograde flow within the active band;
+- a **compositional density gradient**, produced by progressive Fe-Ni segregation toward the forming core, which acts as a centrifugal buoyancy source;
+- a stabilising **Rayleigh term**, tied to the torus's rotation profile.
 
-Combined, these three effects render the ejection mechanism physically attainable, with a margin of about 7% on the recalculated deficit.
+Reaching the threshold requires an input of angular momentum, supplied by the continuous bombardment of large planetesimals during the active window — a contribution independently constrained in the recent literature on late accretion (Anslow et al. 2026).
+
+A full sensitivity analysis of this threshold — across the plausible ranges of obliquity, density gradient, and rotation profile — is presented in the manuscript, including one point (Limitation L16) where the nominal setting sits close to an independent geometric stability limit of the rotating body, a proximity flagged explicitly rather than smoothed over.
 
 ---
 
@@ -94,18 +89,19 @@ Combined, these three effects render the ejection mechanism physically attainabl
 | P4 | Dynamo delay 290–360 Myr, gradual paleointensity growth (no abrupt onset) | Jack Hills zircons | Ongoing |
 | P5 | Instability window ε ∈ [57°, 70°] | N-body obliquity simulations | — |
 | P6 | Fe/Si enrichment ≥ 1.5% in South Pole ejecta relative to equatorial/nearside samples, with explicit pre-registered falsification threshold | Chang'e 7, Artemis III (South Pole) | August 2026 / 2028–2029 |
-| P7 | Hf-W signature: 100 ± 10 Myr after CAIs (vs. 60 ± 10 Myr for giant impact) | Artemis III | 2028–2029 |
+| P7 | Hf-W signature: 100 ± 10 Myr after CAIs | Artemis III | 2028–2029 |
 | P8 | Formation age > 4.45 Ga (LMO solidification ≠ formation) | Artemis III | 2028–2029 |
 | P9 | Mare basalt melting depth compatible with Layer 1 | Apollo / Chang'e-5 geochemistry | — |
 | P10 | Seismic interface at d ≈ 177 km for N = 2 (weak reflector, 150–200 km) | Chang'e 7, FSS | August 2026 |
 | P17 | Capture efficiency f_cap ≳ 0.65–0.70, beyond the classical 10–55% disk-accretion interval | 3D SPH simulation | Pending (L1, L2) |
 | P20 | Asymptotic regime indicator: true L_loss lies between monokinetic and broad-spectrum bounds | Monte Carlo simulation | Pending (L2) |
 | P21 | Numerical closure of angular momentum budget to within ~5% | 3D SPH simulation | Pending (L1, L2) |
-| P22 | Double-well emergence threshold: unified criterion on the coupled (Ω, g_eff) surface, closed by the three complementary mechanisms of density, obliquity, and planetesimal bombardment | 3D SPH simulation | Pending (L1, L2) |
 
 **Falsification condition (P1):** no phase conversion detected in the 200–530 km window after deployment of at least 3 seismic stations and detection of at least 10 lunar events with M > 2.5.
 
 **Falsification condition (P6):** a measured Fe/Si enrichment below 1.5% in South Pole ejecta falsifies the prediction as constructed.
+
+*Note: a prediction referred to as P22 in the manuscript (isotopic signature of late planetesimal impacts in the outermost lunar layers) is currently referenced in the text but not yet formalized as a standalone, fully specified prediction; this is noted here for transparency and will be completed in a future revision.*
 
 ---
 
@@ -127,7 +123,8 @@ Combined, these three effects render the ejection mechanism physically attainabl
 | L12 | Quantitative validity of the Gaussian approximation for CMT confinement | Leading-order limit of the nonlinear Schrödinger reduction; not yet quantitatively bounded |
 | L13 | Persistence of post-ejection oscillation | Relies on an inertial-wave analogy; qualitative estimate |
 | L14 | Quantification of BiKH_eff and numerical validation | Product of three cohesion reinforcements established qualitatively; 3D SPH required |
-| L15 | Angular momentum budget and required external sink | **Priority 1** — deficit ΔL ≈ 2.95×10³⁴ J·s must be evacuated by an external mechanism (evection resonance, candidate) |
+| L15 | Angular momentum budget and required external sink | **Priority 1** — deficit ΔL ≈ 2.95×10³⁴ J·s must be evacuated by an external mechanism; a temporal-synchronization argument (T-Tauri solar mass loss, early giant-planet instability) is presented as supporting context, not as closure |
+| L16 | Proximity of the nominal ejection threshold to an independent Maclaurin-spheroid stability limit | Numerical proximity (~1.7%) flagged explicitly; causal link plausible but not demonstrated; requires simulation allowing non-axisymmetric deformations |
 
 ---
 
@@ -146,8 +143,8 @@ Combined, these three effects render the ejection mechanism physically attainabl
 
 | File | Description |
 |------|-------------|
-| `The_Moon_Formation_Triple_Phase_Transition_Engine_Version_EN.pdf` | Full manuscript — English (latest) |
-| `La_Formation_Lune_Triple_Phase_Transition_mecanisme_Version_FR.pdf` | Manuscrit complet — français (dernière version) |
+| `Moon_Formation_TPT_EN_solar_clock.pdf` | Full manuscript — English (latest) |
+| `Formation_Lune_TPT_FR_horloge_solaire.pdf` | Manuscrit complet — français (dernière version) |
 | `Animation_Formation_de_la_Lune_v2.html` | Interactive simulation |
 | `figure1_two_worlds_EN.png` | Figure 1 — Two worlds, one common scale (EN) |
 | `figure1_deux_mondes.png` | Figure 1 — Deux mondes, une même échelle (FR) |
@@ -164,7 +161,7 @@ Combined, these three effects render the ejection mechanism physically attainabl
 
 | Platform | Identifier | Date | Status |
 |----------|-----------|------|--------|
-| Zenodo (this version) | [10.5281/zenodo.20760018](https://doi.org/10.5281/zenodo.20760018) | July 2, 2026 | ✅ ⭐ |
+| Zenodo (this version) | [10.5281/zenodo.20760018](https://doi.org/10.5281/zenodo.20760018) | July 2026 | ✅ ⭐ |
 | OSF | [10.17605/OSF.IO/XTN4Q](https://doi.org/10.17605/OSF.IO/XTN4Q) | June 23, 2026 | ✅ |
 | Figshare | [10.6084/m9.figshare.32306832](https://doi.org/10.6084/m9.figshare.32306832) | — | ✅ |
 | EarthArXiv | [10.31223/X5XB6H](https://doi.org/10.31223/X5XB6H) | Updated | ⏳ |
@@ -177,10 +174,10 @@ Combined, these three effects render the ejection mechanism physically attainabl
 
 ## Citation
 
-DEBAILLEUL, M. (2026). *Lunar Formation by Triple Phase Transition in the Differentiating Proto-Earth — Definitive Edition.* Zenodo. https://doi.org/10.5281/zenodo.20760018
+DEBAILLEUL, M. (2026). *Moon Formation via Triple Phase Transition in the Differentiating Proto-Earth: A Falsifiable Mechanism with Quantified Predictions.* Zenodo. https://doi.org/10.5281/zenodo.20760018
 
 ---
 
 ## About
 
-A theoretical framework proposing that the Moon formed through a triple phase transition within the differentiating proto-Earth. The model links rheological, mechanical and magnetic transitions driven by progressive Fe–Ni segregation, and predicts testable lunar internal stratigraphy verifiable by Chang'e 7 seismic data (August 2026) and Artemis III (2028–2029).
+A theoretical framework proposing that the Moon formed through a triple phase transition within the differentiating proto-Earth. The model links rheological, mechanical and magnetic transitions driven by progressive Fe–Ni segregation, and predicts a testable lunar internal stratigraphy verifiable by Chang'e 7 seismic data (August 2026) and Artemis III (2028–2029).
