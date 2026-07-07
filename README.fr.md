@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Formation de la Lune par Triple Transition de Phase dans la Proto-Terre en cours de différenciation : un mécanisme falsifiable aux prédictions quantifiées
+title: "Formation de la Lune par Triple Transition de Phase dans la Proto-Terre en cours de différenciation : Un mécanisme falsifiable aux prédictions quantifiées"
 ---
 
-# Formation de la Lune par Triple Transition de Phase dans la Proto-Terre en cours de différenciation : un mécanisme falsifiable aux prédictions quantifiées
+# Formation de la Lune par Triple Transition de Phase dans la Proto-Terre en cours de différenciation : Un mécanisme falsifiable aux prédictions quantifiées
 
 **Michel Debailleul** — Géophysicien, Université libre de Bruxelles (ULB)
 ORCID: [0009-0003-1222-1433](https://orcid.org/0009-0003-1222-1433)
